@@ -41,6 +41,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PCL\DAL\DbConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,7 +71,6 @@
   <ItemGroup>
     <Folder Include="Pages\ViewModels\" />
     <Folder Include="Pages\Views\" />
-    <Folder Include="PCL\DAL\" />
     <Folder Include="PCL\Services\" />
     <Folder Include="PCL\Utilities\" />
   </ItemGroup>
