@@ -1,0 +1,15 @@
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Ameritrack_Xam.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Ameritrack_Xam.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Platform.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.csprojResolveAssemblyReference.cache
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.Pages.Views.MainMapPage.xaml.g.cs
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.App.xaml.g.cs
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.pdb
