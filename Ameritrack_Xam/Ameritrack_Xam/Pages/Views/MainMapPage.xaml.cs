@@ -1,5 +1,5 @@
 ﻿using Ameritrack_Xam.Pages.ViewModels;
-using Plugin.Media;
+using Ameritrack_Xam.Pages.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,21 +20,19 @@ namespace Ameritrack_Xam
             ViewModel = new MapPageVM();
 
             BindingContext = ViewModel;
+
+            // hide nav-bar
+            NavigationPage.SetHasNavigationBar(this, false);
         }
 
-        private async void GoToCameraButton_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// This method will later be replaced by the user selecting a pin on the map
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void GoToFormPage_Clicked(object sender, EventArgs e)
         {
-            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
-            {
-                // Supply media options for saving our photo after it's taken.
-                var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
-                {
-                    Directory = "Faults",
-                    Name = $"{DateTime.UtcNow}.jpg"
-                };
-
-                var file = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
-            }
+            await Navigation.PushAsync(new FormPage());
         }
     }
 }

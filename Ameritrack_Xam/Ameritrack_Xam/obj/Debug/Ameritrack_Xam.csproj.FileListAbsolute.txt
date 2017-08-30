@@ -34,3 +34,4 @@ C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Deb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.xml
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.Abstractions.pdb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.Abstractions.xml
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.Pages.Views.FormPage.xaml.g.cs

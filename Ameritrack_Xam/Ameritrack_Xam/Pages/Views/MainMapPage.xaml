@@ -4,12 +4,11 @@
              xmlns:local="clr-namespace:Ameritrack_Xam"
              x:Class="Ameritrack_Xam.MainPage">
 
-    <Button x:Name="GoToCameraButton"
+    <Button x:Name="GoToFormPage"
             WidthRequest="100"
             HeightRequest="100"
-            Text="Go To Camera"
-            Clicked="GoToCameraButton_Clicked">
-        
+            Text="Go To Form Page"
+            Clicked="GoToFormPage_Clicked">
     </Button>
 
 </ContentPage>
