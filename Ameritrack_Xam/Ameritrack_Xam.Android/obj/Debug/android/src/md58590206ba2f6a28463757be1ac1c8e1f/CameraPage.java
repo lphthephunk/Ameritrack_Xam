@@ -11,6 +11,7 @@ public class CameraPage
 	public static final String __md_methods;
 	static {
 		__md_methods = 
+			"n_onLayout:(ZIIII)V:GetOnLayout_ZIIIIHandler\n" +
 			"n_onSurfaceTextureAvailable:(Landroid/graphics/SurfaceTexture;II)V:GetOnSurfaceTextureAvailable_Landroid_graphics_SurfaceTexture_IIHandler:Android.Views.TextureView/ISurfaceTextureListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onSurfaceTextureDestroyed:(Landroid/graphics/SurfaceTexture;)Z:GetOnSurfaceTextureDestroyed_Landroid_graphics_SurfaceTexture_Handler:Android.Views.TextureView/ISurfaceTextureListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_onSurfaceTextureSizeChanged:(Landroid/graphics/SurfaceTexture;II)V:GetOnSurfaceTextureSizeChanged_Landroid_graphics_SurfaceTexture_IIHandler:Android.Views.TextureView/ISurfaceTextureListenerInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
@@ -42,6 +43,14 @@ public class CameraPage
 		if (getClass () == CameraPage.class)
 			mono.android.TypeManager.Activate ("Ameritrack_Xam.Droid.Pages.CameraPage, Ameritrack_Xam.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
 	}
+
+
+	public void onLayout (boolean p0, int p1, int p2, int p3, int p4)
+	{
+		n_onLayout (p0, p1, p2, p3, p4);
+	}
+
+	private native void n_onLayout (boolean p0, int p1, int p2, int p3, int p4);
 
 
 	public void onSurfaceTextureAvailable (android.graphics.SurfaceTexture p0, int p1, int p2)

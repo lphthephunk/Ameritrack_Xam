@@ -4,8 +4,12 @@
              xmlns:local="clr-namespace:Ameritrack_Xam"
              x:Class="Ameritrack_Xam.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+    <Button x:Name="GoToCameraButton"
+            WidthRequest="100"
+            HeightRequest="100"
+            Text="Go To Camera"
+            Clicked="GoToCameraButton_Clicked">
+        
+    </Button>
 
 </ContentPage>

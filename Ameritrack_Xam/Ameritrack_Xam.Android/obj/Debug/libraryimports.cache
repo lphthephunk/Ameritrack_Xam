@@ -24,6 +24,7 @@
   <Jars>
     <Jar>obj\Debug\__library_projects__\FormsViewGroup\library_project_imports\formsviewgroup.jar</Jar>
     <Jar>obj\Debug\__library_projects__\Xamarin.Android.Support.Animated.Vector.Drawable\library_project_imports\classes.jar</Jar>
+    <Jar>obj\Debug\__library_projects__\Xamarin.Android.Support.Annotations\library_project_imports\support-annotations.jar</Jar>
     <Jar>obj\Debug\__library_projects__\Xamarin.Android.Support.Compat\library_project_imports\classes.jar</Jar>
     <Jar>obj\Debug\__library_projects__\Xamarin.Android.Support.Core.UI\library_project_imports\classes.jar</Jar>
     <Jar>obj\Debug\__library_projects__\Xamarin.Android.Support.Core.Utils\library_project_imports\classes.jar</Jar>

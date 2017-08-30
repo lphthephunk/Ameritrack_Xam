@@ -26,6 +26,11 @@ C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Deb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.csprojResolveAssemblyReference.cache
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.Pages.Views.MainMapPage.xaml.g.cs
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.App.xaml.g.cs
-C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.Pages.Views.CameraPage.xaml.g.cs
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.Abstractions.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.xml
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.Abstractions.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Plugin.Media.Abstractions.xml
