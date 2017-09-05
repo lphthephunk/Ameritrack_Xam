@@ -20,7 +20,7 @@ namespace Ameritrack_Xam.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
+            Xamarin.FormsMaps.Init("VzIHMTcM9WhHLhD0Tkk5~NsuwnZJVawhmEihq4hs-UQ~Av4cnDkRPzItHwXLqinNs8yek3KWfqxvJVBkdsHQIYmEJr3OCZ2PvGkZOvj8lAax");
             LoadApplication(new Ameritrack_Xam.App());
         }
     }
