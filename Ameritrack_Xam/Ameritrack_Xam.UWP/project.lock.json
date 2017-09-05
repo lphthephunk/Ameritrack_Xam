@@ -24976,10 +24976,7 @@
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
       "Xam.Plugin.Media": "3.0.1",
       "Xamarin.Forms": "2.3.4.270",
-      "Xamarin.Forms.Maps": {
-        "target": "Package",
-        "version": "[2.3.4.270, )"
-      }
+      "Xamarin.Forms.Maps": "2.3.4.270"
     },
     "frameworks": {
       "uap10.0": {}

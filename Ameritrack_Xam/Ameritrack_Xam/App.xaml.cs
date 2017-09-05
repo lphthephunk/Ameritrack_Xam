@@ -13,7 +13,7 @@ namespace Ameritrack_Xam
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Ameritrack_Xam.MainPage());
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

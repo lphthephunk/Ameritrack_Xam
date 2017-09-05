@@ -2,5 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.CAMERA" />
-	<application android:label="Ameritrack_Xam.Android"></application>
+  <uses-permission android:name="android.permission.ACCESS_GPS" />
+  <uses-permission android:name="android.permission.ACCESS_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <application android:label="Ameritrack_Xam.Android">
+    <meta-data android:name="com.google.android.geo.API_KEY"
+         android:value="AIzaSyAhEQ53G6-hIWvepSaR_uAZDbuGCRwhk1E" />
+  </application>
 </manifest>
