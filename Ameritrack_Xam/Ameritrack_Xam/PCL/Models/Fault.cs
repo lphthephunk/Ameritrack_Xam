@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Ameritrack_Xam.PCL.Models
 {
     public class Fault : INotifyPropertyChanged
     {
+        [PrimaryKey, AutoIncrement]
         private int _faultId { get; set; }
 
         private string _contactName { get; set; }

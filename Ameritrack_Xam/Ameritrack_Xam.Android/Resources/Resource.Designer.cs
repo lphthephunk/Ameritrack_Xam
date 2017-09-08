@@ -26,6 +26,8 @@ namespace Ameritrack_Xam.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Ameritrack_Xam.Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Ameritrack_Xam.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Ameritrack_Xam.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -3822,6 +3824,12 @@ namespace Ameritrack_Xam.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f080050
+			public const int ApplicationName = 2131230800;
+			
+			// aapt resource value: 0x7f08004f
+			public const int Hello = 2131230799;
 			
 			// aapt resource value: 0x7f080026
 			public const int abc_action_bar_home_description = 2131230758;

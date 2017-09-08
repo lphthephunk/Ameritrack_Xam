@@ -120,3 +120,15 @@ C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\res\values\styles.xml
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\R.cs.flag
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\uploadflags.txt
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\Ameritrack_Xam.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\Ameritrack_Xam.Android.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Ameritrack_Xam.Android.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Ameritrack_Xam.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Plugin.Media.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Plugin.Permissions.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLite.Net.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLite.Net.Platform.XamarinAndroid.dll

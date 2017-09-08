@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Ameritrack_Xam.PCL.Models
 {
     public class Employee : INotifyPropertyChanged
     {
+        [PrimaryKey, AutoIncrement]
         private int _employeeId { get; set; } // this is the index for the SQLite table; not the actual credentials of the employee
 
         private string _employeeFirstName { get; set; }
