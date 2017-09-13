@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps; using Plugin.Geolocator;
+using System.Diagnostics;
 
 namespace Ameritrack_Xam
 {
@@ -22,7 +24,9 @@ namespace Ameritrack_Xam
             BindingContext = ViewModel;
 
             // hide nav-bar
-            NavigationPage.SetHasNavigationBar(this, false);
+            // NavigationPage.SetHasNavigationBar(this, false);
+
+            GetUserLocation();
         }
 
         /// <summary>
@@ -34,5 +38,37 @@ namespace Ameritrack_Xam
         {
             await Navigation.PushAsync(new FormPage());
         }
+
+		private async void GetUserLocation()
+		{
+			var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 100.0;
+			locator.PositionChanged += (sender, e) => {
+
+				var newPosition = e.Position;
+				Position pos = new Position(newPosition.Latitude, newPosition.Longitude);
+
+				// 
+				// Allow user to scroll outside of region they are in, without centering them back 
+				// By default, let user scroll out of region, but have a button that if they tap it will center them
+				// The button will be tied to an event:
+                //
+				//  MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, MainMap.VisibleRegion.Radius));
+				// 
+                //  Whenever the button is tapped, it always centers unless they scroll away
+                // 
+				MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(MainMap.VisibleRegion.Center, MainMap.VisibleRegion.Radius));
+			};
+
+            var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);
+
+			MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(0.10)));
+			MainMap.IsShowingUser = true;
+
+            if (!locator.IsListening)
+            {
+                await locator.StartListeningAsync(TimeSpan.FromSeconds(5.0), 0);
+            }
+		}
     }
 }

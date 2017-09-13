@@ -102,6 +102,8 @@ class MonoPackageManager_Resources {
 		"Ameritrack_Xam.dll",
 		"FormsViewGroup.dll",
 		"Plugin.CurrentActivity.dll",
+		"Plugin.Geolocator.Abstractions.dll",
+		"Plugin.Geolocator.dll",
 		"Plugin.Media.Abstractions.dll",
 		"Plugin.Media.dll",
 		"Plugin.Permissions.Abstractions.dll",

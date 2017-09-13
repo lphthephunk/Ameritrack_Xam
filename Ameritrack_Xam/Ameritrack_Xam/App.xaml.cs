@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Xamarin.Forms;
+using Ameritrack_Xam.Pages.Views;
 
 namespace Ameritrack_Xam
 {
@@ -13,7 +13,7 @@ namespace Ameritrack_Xam
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
