@@ -10,6 +10,7 @@ using SQLite.Net;
 using System.IO.IsolatedStorage;
 using System.IO;
 using Windows.Storage;
+using SQLite.Net.Async;
 
 [assembly: Dependency(typeof(SqliteService))]
 
@@ -19,7 +20,7 @@ namespace Ameritrack_Xam.UWP.Services.DatabaseService
     {
         public SqliteService() { }
 
-        public SQLiteConnection GetConnection()
+        public SQLiteAsyncConnection GetConnection()
         {
             var dbFileName = "RailServeDb.db3";
 
@@ -27,8 +28,11 @@ namespace Ameritrack_Xam.UWP.Services.DatabaseService
 
             var platform = new SQLite.Net.Platform.WinRT.SQLitePlatformWinRT();
 
+            var param = new SQLiteConnectionString(path, false);
+
             // return db connection
-            return new SQLite.Net.SQLiteConnection(platform, path);
+            var connection = new SQLiteAsyncConnection(() => new SQLiteConnectionWithLock(platform, param));
+            return connection;
         }
     }
 }

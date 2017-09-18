@@ -14,6 +14,7 @@ using Ameritrack_Xam.Droid.DatabaseService;
 using Ameritrack_Xam.PCL.Interfaces;
 using SQLite.Net;
 using System.IO;
+using SQLite.Net.Async;
 
 [assembly: Dependency(typeof(SqliteService))]
 
@@ -23,7 +24,7 @@ namespace Ameritrack_Xam.Droid.DatabaseService
     {
         public SqliteService() { }
 
-        public SQLiteConnection GetConnection()
+        public SQLiteAsyncConnection GetConnection()
         {
             var dbFileName = "RailServeDb.db3";
 
@@ -37,8 +38,11 @@ namespace Ameritrack_Xam.Droid.DatabaseService
 
             var platform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();
 
-            // return database connection
-            return new SQLite.Net.SQLiteConnection(platform, path);
+            var param = new SQLiteConnectionString(path, false);
+
+            // return db connection
+            var connection = new SQLiteAsyncConnection(() => new SQLiteConnectionWithLock(platform, param));
+            return connection;
         }
     }
 }

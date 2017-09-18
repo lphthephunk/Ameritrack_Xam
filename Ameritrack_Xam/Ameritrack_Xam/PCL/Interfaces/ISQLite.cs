@@ -1,4 +1,5 @@
 ﻿using SQLite.Net;
+using SQLite.Net.Async;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Ameritrack_Xam.PCL.Interfaces
 {
     public interface ISQLite
     {
-        SQLiteConnection GetConnection();
+        SQLiteAsyncConnection GetConnection();
     }
 }

@@ -108,6 +108,7 @@ class MonoPackageManager_Resources {
 		"Plugin.Media.dll",
 		"Plugin.Permissions.Abstractions.dll",
 		"Plugin.Permissions.dll",
+		"SQLite.Net.Async.dll",
 		"SQLite.Net.dll",
 		"SQLite.Net.Platform.XamarinAndroid.dll",
 		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",

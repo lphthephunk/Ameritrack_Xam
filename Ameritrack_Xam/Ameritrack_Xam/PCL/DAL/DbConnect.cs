@@ -1,6 +1,7 @@
 ﻿using Ameritrack_Xam.PCL.Interfaces;
 using Ameritrack_Xam.PCL.Models;
 using SQLite.Net;
+using SQLite.Net.Async;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,56 @@ using Xamarin.Forms;
 
 namespace Ameritrack_Xam.PCL.DAL
 {
-    public class DbConnect
+    public class DbConnect : IDatabaseServices
     {
-        SQLiteConnection connect;
+        SQLiteAsyncConnection asyncConnection;
         // connect to the database and create all tables (if none exist)
         public DbConnect()
         {
-            connect = DependencyService.Get<ISQLite>().GetConnection();
-            connect.CreateTable<Employee>();
-            connect.CreateTable<Fault>();
+            asyncConnection = DependencyService.Get<ISQLite>().GetConnection();
+            asyncConnection.CreateTableAsync<Employee>();
+            asyncConnection.CreateTableAsync<Fault>();
+        }
+
+        public bool DeleteFault(Fault _fault)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Employee> GetAllEmployees()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Fault> GetAllFaults()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Employee> GetEmployee(int empId)
+        {
+            var emp = await asyncConnection.QueryAsync<Employee>("Select * From [Employee]");
+            return emp.FirstOrDefault();
+        }
+
+        public async Task InsertEmployee(Employee _employee)
+        {
+            await asyncConnection.InsertAsync(_employee);
+        }
+
+        public bool InsertFault(Fault _fault)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateEmployee(Employee _employee)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateFault(Fault _fault)
+        {
+            throw new NotImplementedException();
         }
 
         // this region contains all necessary queries that we would need to make to the database (ie: insert, update, delete, read)
@@ -27,6 +69,6 @@ namespace Ameritrack_Xam.PCL.DAL
         // ex: public List<Employee> GetEmployees() { }
         // public List<Fault> GetFaults() { }
 
-#endregion
+        #endregion
     }
 }

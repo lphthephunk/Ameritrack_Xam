@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Maps; using Plugin.Geolocator;
+using Xamarin.Forms.Maps;
+using Plugin.Geolocator;
 using System.Diagnostics;
 
 namespace Ameritrack_Xam
