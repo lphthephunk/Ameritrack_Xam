@@ -27,7 +27,26 @@ namespace Ameritrack_Xam
             // hide nav-bar
             // NavigationPage.SetHasNavigationBar(this, false);
 
-            GetUserLocation();
+            //GetUserLocation()
+
+            MainMap.Tap += (sender, e) =>
+            {
+                System.Diagnostics.Debug.WriteLine(e.Position.Latitude + " " + e.Position.Longitude);
+                var pin = new Pin()
+                {
+                    Position = new Position(e.Position.Latitude, e.Position.Longitude),
+                    Label = "User Touch Pin",
+                    Type = PinType.Place,
+                    Address = "test address"
+                };
+
+                MainMap.Pins.Add(pin);
+
+                // add the pin to the MapExtension List of pins
+                MainMap.ListOfPins.Add(pin);
+
+                GoToPinPosition(pin.Position);
+            };
         }
 
         /// <summary>
@@ -40,36 +59,42 @@ namespace Ameritrack_Xam
             await Navigation.PushAsync(new FormPage());
         }
 
-		private async void GetUserLocation()
-		{
-			var locator = CrossGeolocator.Current;
+        private void GoToPinPosition(Position position)
+        {
+            MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMeters(0.2)));
+        }
+
+        private async void GetUserLocation()
+        {
+            var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 100.0;
-			locator.PositionChanged += (sender, e) => {
+            locator.PositionChanged += (sender, e) =>
+            {
 
-				var newPosition = e.Position;
-				Position pos = new Position(newPosition.Latitude, newPosition.Longitude);
+                var newPosition = e.Position;
+                Position pos = new Position(newPosition.Latitude, newPosition.Longitude);
 
-				// 
-				// Allow user to scroll outside of region they are in, without centering them back 
-				// By default, let user scroll out of region, but have a button that if they tap it will center them
-				// The button will be tied to an event:
+                // 
+                // Allow user to scroll outside of region they are in, without centering them back 
+                // By default, let user scroll out of region, but have a button that if they tap it will center them
+                // The button will be tied to an event:
                 //
-				//  MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, MainMap.VisibleRegion.Radius));
-				// 
+                //  MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, MainMap.VisibleRegion.Radius));
+                // 
                 //  Whenever the button is tapped, it always centers unless they scroll away
                 // 
-				MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(MainMap.VisibleRegion.Center, MainMap.VisibleRegion.Radius));
-			};
+                MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(MainMap.VisibleRegion.Center, MainMap.VisibleRegion.Radius));
+            };
 
             var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);
 
-			MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(0.10)));
-			MainMap.IsShowingUser = true;
+            MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(0.10)));
+            MainMap.IsShowingUser = true;
 
             if (!locator.IsListening)
             {
                 await locator.StartListeningAsync(TimeSpan.FromSeconds(5.0), 0);
             }
-		}
+        }
     }
 }

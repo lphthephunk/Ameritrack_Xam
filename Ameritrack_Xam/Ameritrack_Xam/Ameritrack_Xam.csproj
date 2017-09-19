@@ -47,11 +47,13 @@
     <Compile Include="Pages\Views\MainMapPage.xaml.cs">
       <DependentUpon>MainMapPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\MapExtension.cs" />
     <Compile Include="PCL\DAL\DbConnect.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
     <Compile Include="PCL\Interfaces\ISQLite.cs" />
     <Compile Include="PCL\Models\Employee.cs" />
     <Compile Include="PCL\Models\Fault.cs" />
+    <Compile Include="PCL\Models\CustomPin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

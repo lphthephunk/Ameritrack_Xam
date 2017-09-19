@@ -2247,7 +2247,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.224": {
+      "Xamarin.Forms/2.3.4.270": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -2265,10 +2265,10 @@
           "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.224": {
+      "Xamarin.Forms.Maps/2.3.4.270": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.224"
+          "Xamarin.Forms": "2.3.4.270"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -4616,7 +4616,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.224": {
+      "Xamarin.Forms/2.3.4.270": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -4634,10 +4634,10 @@
           "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.224": {
+      "Xamarin.Forms.Maps/2.3.4.270": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.224"
+          "Xamarin.Forms": "2.3.4.270"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -7024,7 +7024,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.224": {
+      "Xamarin.Forms/2.3.4.270": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -7042,10 +7042,10 @@
           "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.224": {
+      "Xamarin.Forms.Maps/2.3.4.270": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.224"
+          "Xamarin.Forms": "2.3.4.270"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -9402,7 +9402,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.224": {
+      "Xamarin.Forms/2.3.4.270": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -9420,10 +9420,10 @@
           "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.224": {
+      "Xamarin.Forms.Maps/2.3.4.270": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.224"
+          "Xamarin.Forms": "2.3.4.270"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -11819,7 +11819,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.224": {
+      "Xamarin.Forms/2.3.4.270": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -11837,10 +11837,10 @@
           "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.224": {
+      "Xamarin.Forms.Maps/2.3.4.270": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.224"
+          "Xamarin.Forms": "2.3.4.270"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -14197,7 +14197,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.224": {
+      "Xamarin.Forms/2.3.4.270": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -14215,10 +14215,10 @@
           "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.224": {
+      "Xamarin.Forms.Maps/2.3.4.270": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.224"
+          "Xamarin.Forms": "2.3.4.270"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -16614,7 +16614,7 @@
           "lib/UAP10/Plugin.Media.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.224": {
+      "Xamarin.Forms/2.3.4.270": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -16632,10 +16632,10 @@
           "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.targets": {}
         }
       },
-      "Xamarin.Forms.Maps/2.3.4.224": {
+      "Xamarin.Forms.Maps/2.3.4.270": {
         "type": "package",
         "dependencies": {
-          "Xamarin.Forms": "2.3.4.224"
+          "Xamarin.Forms": "2.3.4.270"
         },
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Maps.UWP.dll": {},
@@ -24988,10 +24988,10 @@
         "xam.plugin.media.nuspec"
       ]
     },
-    "Xamarin.Forms/2.3.4.224": {
-      "sha512": "cjA3h83bCmnEjEYLcvi2n+rPc3rs3kuB/r5z5R/BFtBLp8kgV8AEImKBcYglsZ80uX3OSIVnPXN9lJ25GMGAmg==",
+    "Xamarin.Forms/2.3.4.270": {
+      "sha512": "D4QNulRsghAnjGefCuxvHaH9xLdk9gmSrqSoyIH9YqRa/+HNil7nLCt3Dwb7np1eNlKD6AoW+Kgv9Umur/yoUQ==",
       "type": "package",
-      "path": "xamarin.forms/2.3.4.224",
+      "path": "xamarin.forms/2.3.4.270",
       "files": [
         "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Mdb.dll",
         "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Pdb.dll",
@@ -25080,6 +25080,7 @@
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.pdb",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Core.xml",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.dll",
+        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.dll.mdb",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Platform.pdb",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll",
         "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Xamarin.Forms.Xaml.dll.mdb",
@@ -25141,14 +25142,14 @@
         "lib/wpa81/Xamarin.Forms.Platform.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.2.3.4.224.nupkg.sha512",
+        "xamarin.forms.2.3.4.270.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
-    "Xamarin.Forms.Maps/2.3.4.224": {
-      "sha512": "ptrZYNAdFJ+AMdG9LjGv3y7PBwsAiHcKU8VKTiQbTZFrg7RY9uoiZkzcy+jXxfApliucWeehrPddfmOIBrzO7Q==",
+    "Xamarin.Forms.Maps/2.3.4.270": {
+      "sha512": "S7YwZpfPEYZUQA76Qc5KYxZhCqTRBpWWTLvHbAM2f6/mG75t00VblPcWU0cE2rhDVFYQUu9yz5YltyaDKNuBUQ==",
       "type": "package",
-      "path": "xamarin.forms.maps/2.3.4.224",
+      "path": "xamarin.forms.maps/2.3.4.270",
       "files": [
         "build/win81/ARM/Xamarin.Forms.Maps.WinRT.Tablet.dll",
         "build/win81/ARM/Xamarin.Forms.Maps.WinRT.Tablet.pri",
@@ -25202,7 +25203,7 @@
         "lib/wpa81/Xamarin.Forms.Maps.WinRT.Phone.dll",
         "lib/wpa81/Xamarin.Forms.Maps.WinRT.Phone.pri",
         "lib/wpa81/Xamarin.Forms.Maps.dll",
-        "xamarin.forms.maps.2.3.4.224.nupkg.sha512",
+        "xamarin.forms.maps.2.3.4.270.nupkg.sha512",
         "xamarin.forms.maps.nuspec"
       ]
     },
@@ -25218,8 +25219,8 @@
       "SQLite.Net-PCL >= 3.1.1",
       "SQLite.Net.Async-PCL >= 3.1.1",
       "Xam.Plugin.Media >= 3.0.1",
-      "Xamarin.Forms >= 2.3.4.224",
-      "Xamarin.Forms.Maps >= 2.3.4.224"
+      "Xamarin.Forms >= 2.3.4.270",
+      "Xamarin.Forms.Maps >= 2.3.4.270"
     ],
     "UAP,Version=v10.0": []
   },
@@ -25248,8 +25249,8 @@
       "SQLite.Net-PCL": "3.1.1",
       "SQLite.Net.Async-PCL": "3.1.1",
       "Xam.Plugin.Media": "3.0.1",
-      "Xamarin.Forms": "2.3.4.224",
-      "Xamarin.Forms.Maps": "2.3.4.224"
+      "Xamarin.Forms": "2.3.4.270",
+      "Xamarin.Forms.Maps": "2.3.4.270"
     },
     "frameworks": {
       "uap10.0": {}

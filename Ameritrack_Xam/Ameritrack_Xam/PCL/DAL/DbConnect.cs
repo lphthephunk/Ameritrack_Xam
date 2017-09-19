@@ -22,6 +22,9 @@ namespace Ameritrack_Xam.PCL.DAL
             asyncConnection.CreateTableAsync<Fault>();
         }
 
+        // this region contains all necessary queries that we would need to make to the database (ie: insert, update, delete, read)
+        #region Database Query Methods
+
         public bool DeleteFault(Fault _fault)
         {
             throw new NotImplementedException();
@@ -62,12 +65,6 @@ namespace Ameritrack_Xam.PCL.DAL
         {
             throw new NotImplementedException();
         }
-
-        // this region contains all necessary queries that we would need to make to the database (ie: insert, update, delete, read)
-        #region Database Query Methods
-
-        // ex: public List<Employee> GetEmployees() { }
-        // public List<Fault> GetFaults() { }
 
         #endregion
     }
