@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Ameritrack_Xam"
+             xmlns:local="clr-namespace:Ameritrack_Xam.Pages.Views"
              xmlns:map="clr-namespace:Ameritrack_Xam.Pages.Views"
-             x:Class="Ameritrack_Xam.MainPage">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
+             x:Class="Ameritrack_Xam.MainMapPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
-        <map:MapExtension x:Name="MainMap"
+            <map:MapExtension x:Name="MainMap"
                           HasZoomEnabled="True"
                           IsShowingUser="True"
                           MapType="Street">
-            
-        </map:MapExtension>
-        
-        <Button x:Name="GoToFormPage"
+
+            </map:MapExtension>
+
+            <Button x:Name="GoToFormPage"
                 Grid.Row="1"
                 WidthRequest="100"
                 HeightRequest="100"
                 Text="Go To Form Page"
                 Clicked="GoToFormPage_Clicked">
-        </Button>
-    </Grid>
-
+            </Button>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>

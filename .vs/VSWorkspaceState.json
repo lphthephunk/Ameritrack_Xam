@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Ameritrack_Xam",
+    "\\Ameritrack_Xam\\Ameritrack_Xam",
+    "\\Ameritrack_Xam\\Ameritrack_Xam\\Pages",
+    "\\Ameritrack_Xam\\Ameritrack_Xam\\Pages\\Views"
   ],
+  "SelectedNode": "\\Ameritrack_Xam\\Ameritrack_Xam\\Pages\\Views\\MainMapPage.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

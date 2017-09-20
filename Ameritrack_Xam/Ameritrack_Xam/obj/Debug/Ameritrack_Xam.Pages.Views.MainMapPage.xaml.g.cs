@@ -13,7 +13,7 @@ namespace Ameritrack_Xam {
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Cody_\\Source\\Repos\\Ameritrack_Xam\\Ameritrack_Xam\\Ameritrack_Xam\\Pages\\Vi" +
         "ews\\MainMapPage.xaml")]
-    public partial class MainPage : global::Xamarin.Forms.ContentPage {
+    public partial class MainMapPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Ameritrack_Xam.Pages.Views.MapExtension MainMap;
@@ -23,7 +23,7 @@ namespace Ameritrack_Xam {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainMapPage));
             MainMap = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Ameritrack_Xam.Pages.Views.MapExtension>(this, "MainMap");
             GoToFormPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "GoToFormPage");
         }

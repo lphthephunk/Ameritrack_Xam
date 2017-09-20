@@ -1,22 +1,17 @@
 ﻿using Ameritrack_Xam.Pages.ViewModels;
 using Ameritrack_Xam.Pages.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Plugin.Geolocator;
-using System.Diagnostics;
 
 namespace Ameritrack_Xam
 {
-    public partial class MainPage : ContentPage
+    public partial class MainMapPage : ContentPage
     {
         private MapPageVM ViewModel;
 
-        public MainPage()
+        public MainMapPage()
         {
             InitializeComponent();
 
@@ -27,11 +22,13 @@ namespace Ameritrack_Xam
             // hide nav-bar
             // NavigationPage.SetHasNavigationBar(this, false);
 
-            //GetUserLocation()
+            GetUserLocation();
 
             MainMap.Tap += (sender, e) =>
             {
                 System.Diagnostics.Debug.WriteLine(e.Position.Latitude + " " + e.Position.Longitude);
+                // below code is just for a sample pin
+                // TODO: prompt the user to input this information
                 var pin = new Pin()
                 {
                     Position = new Position(e.Position.Latitude, e.Position.Longitude),
@@ -61,7 +58,7 @@ namespace Ameritrack_Xam
 
         private void GoToPinPosition(Position position)
         {
-            MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMeters(0.2)));
+            //MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMeters(0.2)));
         }
 
         private async void GetUserLocation()

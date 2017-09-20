@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ameritrack_Xam.Pages.Views.MainMasterDetail"
+                  xmlns:views="clr-namespace:Ameritrack_Xam.Pages.Views"
+                  xmlns:main="clr-namespace:Ameritrack_Xam">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0"
+                       Text="Menu"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       FontSize="Medium"/>
+                <Button x:Name="PreviousFaultsBtn"
+                        Grid.Row="1"
+                        Text="Previous Faults"
+                        Clicked="PreviousFaultsBtn_Clicked"/>
+                <Button x:Name="ProfileBtn"
+                        Grid.Row="2"
+                        Text="Profile"
+                        Clicked="ProfileBtn_Clicked"/>
+                <Button x:Name="LogoutBtn"
+                        Clicked="LogoutBtn_Clicked"
+                        Grid.Row="3"
+                        Text="Logout"/>
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <main:MainMapPage/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

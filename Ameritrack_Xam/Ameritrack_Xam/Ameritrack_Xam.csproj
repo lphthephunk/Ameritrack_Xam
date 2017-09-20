@@ -47,6 +47,9 @@
     <Compile Include="Pages\Views\MainMapPage.xaml.cs">
       <DependentUpon>MainMapPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\MainMasterDetail.xaml.cs">
+      <DependentUpon>MainMasterDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Views\MapExtension.cs" />
     <Compile Include="PCL\DAL\DbConnect.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
@@ -60,10 +63,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Views\MainMapPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -114,6 +113,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Pages\Views\FormPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Views\MainMasterDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Views\MainMapPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

@@ -33,9 +33,9 @@ namespace Ameritrack_Xam.Pages.Views
             employeeID.Text = testEmpInfo.EmployeeFirstName + " " + testEmpInfo.EmployeeLastName;
         }
 
-        async void OnLoginButtonClicked(object sender, System.EventArgs e)
+        private async void OnLoginButtonClicked(object sender, System.EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+            await Navigation.PushModalAsync(new MainMasterDetail());
 		}
     }
 }

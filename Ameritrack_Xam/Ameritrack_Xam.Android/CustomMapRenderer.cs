@@ -27,8 +27,6 @@ namespace Ameritrack_Xam.Droid
         private GoogleMap _map;
         private MapExtension _formsMap;
 
-        //private List<Ameritrack_Xam.PCL.Models.CustomPin> PinsList = new List<PCL.Models.CustomPin>();
-
         private List<Pin> PinsList = new List<Pin>();
 
         public void OnMapReady(GoogleMap googleMap)
@@ -120,13 +118,6 @@ namespace Ameritrack_Xam.Droid
         {
             ((MapExtension)Element).OnTap(new Position(e.Point.Latitude, e.Point.Longitude));
             UpdatePins();
-            //var pin = new Pin
-            //{
-            //    Type = PinType.Place,
-            //    Position = new Position(e.Point.Latitude, e.Point.Longitude)
-            //};
-
-            //PinsList.Add(pin);
         }
     }
 }
