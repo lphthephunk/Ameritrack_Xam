@@ -35,7 +35,7 @@ namespace Ameritrack_Xam.Pages.Views
 
         private async void OnLoginButtonClicked(object sender, System.EventArgs e)
 		{
-            await Navigation.PushModalAsync(new MainMasterDetail());
+            await Navigation.PushModalAsync(new MainMasterDetail(), false);
 		}
     }
 }

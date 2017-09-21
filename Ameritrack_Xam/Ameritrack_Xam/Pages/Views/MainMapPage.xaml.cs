@@ -4,6 +4,7 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Plugin.Geolocator;
+using System.Threading.Tasks;
 
 namespace Ameritrack_Xam
 {
@@ -19,31 +20,33 @@ namespace Ameritrack_Xam
 
             BindingContext = ViewModel;
 
+            GetUserLocation();
+
             // hide nav-bar
             // NavigationPage.SetHasNavigationBar(this, false);
 
-            GetUserLocation();
+            MainMap.Tap += MainMap_Tap;
+        }
 
-            MainMap.Tap += (sender, e) =>
+        private void MainMap_Tap(object sender, MapTapEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(e.Position.Latitude + " " + e.Position.Longitude);
+            // below code is just for a sample pin
+            // TODO: prompt the user to input this information
+            var pin = new Pin()
             {
-                System.Diagnostics.Debug.WriteLine(e.Position.Latitude + " " + e.Position.Longitude);
-                // below code is just for a sample pin
-                // TODO: prompt the user to input this information
-                var pin = new Pin()
-                {
-                    Position = new Position(e.Position.Latitude, e.Position.Longitude),
-                    Label = "User Touch Pin",
-                    Type = PinType.Place,
-                    Address = "test address"
-                };
-
-                MainMap.Pins.Add(pin);
-
-                // add the pin to the MapExtension List of pins
-                MainMap.ListOfPins.Add(pin);
-
-                GoToPinPosition(pin.Position);
+                Position = new Position(e.Position.Latitude, e.Position.Longitude),
+                Label = "User Touch Pin",
+                Type = PinType.Place,
+                Address = "test address"
             };
+
+            MainMap.Pins.Add(pin);
+
+            // add the pin to the MapExtension List of pins
+            MainMap.ListOfPins.Add(pin);
+
+            GoToPinPosition(pin.Position);
         }
 
         /// <summary>
@@ -86,7 +89,6 @@ namespace Ameritrack_Xam
             var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);
 
             MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(position.Latitude, position.Longitude), Distance.FromMiles(0.10)));
-            MainMap.IsShowingUser = true;
 
             if (!locator.IsListening)
             {

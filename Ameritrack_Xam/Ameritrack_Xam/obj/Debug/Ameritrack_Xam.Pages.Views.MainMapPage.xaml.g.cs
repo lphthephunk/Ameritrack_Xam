@@ -19,13 +19,9 @@ namespace Ameritrack_Xam {
         private global::Ameritrack_Xam.Pages.Views.MapExtension MainMap;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
-        private global::Xamarin.Forms.Button GoToFormPage;
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(MainMapPage));
             MainMap = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Ameritrack_Xam.Pages.Views.MapExtension>(this, "MainMap");
-            GoToFormPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "GoToFormPage");
         }
     }
 }

@@ -3,28 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Ameritrack_Xam.Pages.Views"
              xmlns:map="clr-namespace:Ameritrack_Xam.Pages.Views"
-             x:Class="Ameritrack_Xam.MainMapPage">
+             x:Class="Ameritrack_Xam.MainMapPage"
+             xmlns:utilites="clr-namespace:Ameritrack_Xam.PCL.Utilities">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="9*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-
-            <map:MapExtension x:Name="MainMap"
-                          HasZoomEnabled="True"
-                          IsShowingUser="True"
-                          MapType="Street">
-
-            </map:MapExtension>
-
-            <Button x:Name="GoToFormPage"
-                Grid.Row="1"
-                WidthRequest="100"
-                HeightRequest="100"
-                Text="Go To Form Page"
-                Clicked="GoToFormPage_Clicked">
-            </Button>
-        </Grid>
+        <map:MapExtension x:Name="MainMap"
+                              HasZoomEnabled="True"
+                              IsShowingUser="True"
+                              MapType="Street">
+        </map:MapExtension>
     </ContentPage.Content>
 </ContentPage>

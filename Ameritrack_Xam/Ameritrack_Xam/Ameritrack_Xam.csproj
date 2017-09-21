@@ -107,6 +107,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PCL\Helpers\" />
     <Folder Include="PCL\Services\" />
     <Folder Include="PCL\Utilities\" />
   </ItemGroup>

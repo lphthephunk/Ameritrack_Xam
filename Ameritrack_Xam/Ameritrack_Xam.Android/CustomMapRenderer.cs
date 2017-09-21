@@ -13,11 +13,11 @@ using Xamarin.Forms;
 using Ameritrack_Xam.Pages.Views;
 using Ameritrack_Xam.Droid;
 using Xamarin.Forms.Maps.Android;
-using Android.Gms.Maps;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Platform.Android;
-using Android.Gms.Maps.Model;
 using System.ComponentModel;
+using Android.Gms.Maps;
+using Android.Gms.Maps.Model;
 
 [assembly: ExportRenderer(typeof(MapExtension), typeof(CustomMapRenderer))]
 namespace Ameritrack_Xam.Droid
@@ -32,12 +32,16 @@ namespace Ameritrack_Xam.Droid
         public void OnMapReady(GoogleMap googleMap)
         {
             _map = googleMap;
+            this.NativeMap = googleMap;
+            _map.UiSettings.ZoomControlsEnabled = true;
+            _map.UiSettings.ZoomGesturesEnabled = true;
+            _map.UiSettings.RotateGesturesEnabled = true;
 
             if (_map != null)
             {
                 _map.MapClick += googleMap_MapClick;
                 _map.MyLocationEnabled = _formsMap.IsShowingUser;
-                
+
                 foreach (var customPin in _formsMap.ListOfPins)
                 {
                     var markerIcon = new MarkerOptions();
@@ -68,8 +72,6 @@ namespace Ameritrack_Xam.Droid
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-
-            UpdatePins();
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Map> e)
