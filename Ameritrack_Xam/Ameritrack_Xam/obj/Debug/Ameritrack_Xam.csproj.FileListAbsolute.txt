@@ -81,3 +81,6 @@ C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Deb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.Pages.Views.MainMapPage.xaml.g.cs
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\SQLiteNetExtensions.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\Newtonsoft.Json.xml

@@ -40,6 +40,9 @@ namespace Ameritrack_Xam.Droid
                 _map.MapClick += googleMap_MapClick;
                 _map.MyLocationEnabled = _formsMap.IsShowingUser;
 
+                // marker click event to edit the faults
+                _map.MarkerClick += _map_MarkerClick;
+
                 foreach (var customPin in _formsMap.ListOfPins)
                 {
                     var markerIcon = new MarkerOptions();
@@ -65,6 +68,16 @@ namespace Ameritrack_Xam.Droid
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// Handles the Marker Click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void _map_MarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("Clicked!");
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
