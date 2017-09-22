@@ -117,7 +117,9 @@ namespace Ameritrack_Xam.Droid
         private void googleMap_MapClick(object sender, GoogleMap.MapClickEventArgs e)
         {
             ((MapExtension)Element).OnTap(new Position(e.Point.Latitude, e.Point.Longitude));
-            //UpdatePins();
+
+            // display the new pin
+            UpdatePins();
 
             var builder = new AlertDialog.Builder(this.Context);
             builder.SetTitle("Confirmation")
