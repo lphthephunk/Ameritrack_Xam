@@ -20,6 +20,7 @@ namespace Ameritrack_Xam.PCL.DAL
             asyncConnection = DependencyService.Get<ISQLite>().GetConnection();
             asyncConnection.CreateTableAsync<Employee>();
             asyncConnection.CreateTableAsync<Fault>();
+            asyncConnection.CreateTableAsync<CustomPin>();
         }
 
         // this region contains all necessary queries that we would need to make to the database (ie: insert, update, delete, read)

@@ -126,10 +126,10 @@ namespace Ameritrack_Xam.Droid
                 .SetMessage("Is this pin location correct?")
                 .SetPositiveButton("Yes", (alertSender, args) =>
                 {
-                    // TODO: bring to form page
-
                     // update the pins so that the new pin is reflected on the Custom Renderer PinsList
                     UpdatePins();
+
+                    // TODO: open the fault-popup
                 })
                 .SetNegativeButton("No", (alertSender, args) =>
                 {

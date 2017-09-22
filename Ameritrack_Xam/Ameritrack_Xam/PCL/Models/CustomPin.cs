@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,10 +13,17 @@ namespace Ameritrack_Xam.PCL.Models
 {
     public class CustomPin : INotifyPropertyChanged
     {
+        [PrimaryKey, AutoIncrement]
         private int _pinId { get; set; }
         private double _latitude { get; set; }
         private double _longitude { get; set; }
         private string _locationName { get; set; }
+
+        // One CustomPin to many faults
+        // CascadeOperation is set to All so that if we delete this CustomPin (ie: the location of the faults)..
+        // ... all faults associated with this CustomPin will be deleted in the database
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Fault> Faults { get; set; }
 
         public int PinId
         {

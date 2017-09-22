@@ -30,7 +30,6 @@ namespace Ameritrack_Xam
 
         private void MainMap_Tap(object sender, MapTapEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(e.Position.Latitude + " " + e.Position.Longitude);
             // below code is just for a sample pin
             // TODO: prompt the user to input this information
             var pin = new Pin()
@@ -38,15 +37,11 @@ namespace Ameritrack_Xam
                 Position = new Position(e.Position.Latitude, e.Position.Longitude),
                 Label = "User Touch Pin",
                 Type = PinType.Place,
-                Address = "test address"
+                Address = "Lat: " + Math.Round(e.Position.Latitude, 3) + ", Lng: " + Math.Round(e.Position.Longitude, 3)
             };
-
-            //MainMap.Pins.Add(pin);
 
             // add the pin to the MapExtension List of pins
             MainMap.ListOfPins.Add(pin);
-
-            GoToPinPosition(pin.Position);
         }
 
         /// <summary>
@@ -57,11 +52,6 @@ namespace Ameritrack_Xam
         private async void GoToFormPage_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new FormPage());
-        }
-
-        private void GoToPinPosition(Position position)
-        {
-            //MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMeters(0.2)));
         }
 
         private async void GetUserLocation()
@@ -83,6 +73,7 @@ namespace Ameritrack_Xam
                 // 
                 //  Whenever the button is tapped, it always centers unless they scroll away
                 //
+
                 if (MainMap.VisibleRegion != null)
                 {
                     MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(MainMap.VisibleRegion.Center, MainMap.VisibleRegion.Radius));

@@ -52,13 +52,13 @@ C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Collections.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Threading.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Linq.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.ComponentModel.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Reflection.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.IO.dll
-C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Globalization.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Linq.Expressions.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\System.Reflection.Extensions.dll

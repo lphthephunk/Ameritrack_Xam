@@ -1,4 +1,5 @@
 ﻿using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,16 @@ namespace Ameritrack_Xam.PCL.Models
         private string _faultType { get; set; }
 
         private byte[] _faultPicture { get; set; }
+
+        // foreign key to associate this fault with a CustomPin (ie: a fault location)
+        [ForeignKey(typeof(CustomPin))]
+        public int CustomPinId { get; set; }
+
+        // Many faults to one custom pin
+        // CascadeRead allows us to only read the CustomPin associated with this fault
+        // this is useful because we can delete a fault without deleting the entire CustomPin associated with the fault
+        [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
+        public CustomPin CustomPin { get; set; }
 
         public int FaultId
         {

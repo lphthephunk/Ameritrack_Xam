@@ -18,10 +18,7 @@ namespace Ameritrack_Xam.Pages.Views
 
         public MapExtension() { }
 
-        public MapExtension(MapSpan region) : base(region)
-        {
-
-        }
+        public MapExtension(MapSpan region) : base(region) { }
 
         public void OnTap(Position coordinate)
         {
@@ -30,11 +27,7 @@ namespace Ameritrack_Xam.Pages.Views
 
         protected virtual void OnTap(MapTapEventArgs e)
         {
-            var handler = Tap;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            Tap?.Invoke(this, e);
         }
     }
 
