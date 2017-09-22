@@ -77,7 +77,18 @@ namespace Ameritrack_Xam.Droid
         /// <param name="e"></param>
         private void _map_MarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Clicked!");
+            var builder = new AlertDialog.Builder(this.Context);
+            builder.SetTitle("Edit?")
+                .SetMessage("Do you want to edit this pin?")
+                .SetPositiveButton("Yes", (alertSender, args) =>
+                {
+                    // TODO: go to Fault-Popup
+                })
+                .SetNegativeButton("No", (alertSender, args) =>
+                {
+                    return;
+                });
+            builder.Show().Window.SetGravity(GravityFlags.Bottom);
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
