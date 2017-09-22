@@ -27,8 +27,6 @@ namespace Ameritrack_Xam.Droid
         private GoogleMap _map;
         private MapExtension _formsMap;
 
-        private List<Pin> PinsList = new List<Pin>();
-
         public void OnMapReady(GoogleMap googleMap)
         {
             _map = googleMap;
@@ -119,7 +117,33 @@ namespace Ameritrack_Xam.Droid
         private void googleMap_MapClick(object sender, GoogleMap.MapClickEventArgs e)
         {
             ((MapExtension)Element).OnTap(new Position(e.Point.Latitude, e.Point.Longitude));
-            UpdatePins();
+            //UpdatePins();
+
+            var builder = new AlertDialog.Builder(this.Context);
+            builder.SetTitle("Confirmation")
+                .SetMessage("Is this pin location correct?")
+                .SetPositiveButton("Yes", (alertSender, args) =>
+                {
+                    // TODO: bring to form page
+
+                    // update the pins so that the new pin is reflected on the Custom Renderer PinsList
+                    UpdatePins();
+                })
+                .SetNegativeButton("No", (alertSender, args) =>
+                {
+                    // find the most recent pin in the list
+                    var lastIndice = _formsMap.ListOfPins.Count();
+                    if (lastIndice == 0)
+                    {
+                        Toast.MakeText(this.Context, "Pin Cancelled", ToastLength.Short).Show();
+                        UpdatePins();
+                        return;
+                    }
+                    _formsMap.ListOfPins.RemoveAt(lastIndice - 1);
+
+                    UpdatePins();
+                });
+            builder.Show().Window.SetGravity(GravityFlags.Bottom);
         }
     }
 }

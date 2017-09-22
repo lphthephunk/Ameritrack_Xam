@@ -11,9 +11,23 @@ namespace Ameritrack_Xam.PCL.Models
 {
     public class CustomPin : INotifyPropertyChanged
     {
+        private int _pinId { get; set; }
         private double _latitude { get; set; }
         private double _longitude { get; set; }
         private string _locationName { get; set; }
+
+        public int PinId
+        {
+            get { return _pinId; }
+            set
+            {
+                if (value != _pinId)
+                {
+                    _pinId = value;
+                    OnPropertyChanged(nameof(PinId));
+                }
+            }
+        }
 
         public double Latitude
         {

@@ -41,7 +41,7 @@ namespace Ameritrack_Xam
                 Address = "test address"
             };
 
-            MainMap.Pins.Add(pin);
+            //MainMap.Pins.Add(pin);
 
             // add the pin to the MapExtension List of pins
             MainMap.ListOfPins.Add(pin);
@@ -82,8 +82,11 @@ namespace Ameritrack_Xam
                 //  MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(pos, MainMap.VisibleRegion.Radius));
                 // 
                 //  Whenever the button is tapped, it always centers unless they scroll away
-                // 
-                MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(MainMap.VisibleRegion.Center, MainMap.VisibleRegion.Radius));
+                //
+                if (MainMap.VisibleRegion != null)
+                {
+                    MainMap.MoveToRegion(MapSpan.FromCenterAndRadius(MainMap.VisibleRegion.Center, MainMap.VisibleRegion.Radius));
+                }
             };
 
             var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(20), null, true);

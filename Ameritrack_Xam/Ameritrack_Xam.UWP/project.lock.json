@@ -547,6 +547,9 @@
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
       },
+      "System.Data.SQLite/1.0.105.2": {
+        "type": "package"
+      },
       "System.Diagnostics.Contracts/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -2236,6 +2239,17 @@
           }
         }
       },
+      "Xam.Plugin.Geolocator/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        }
+      },
       "Xam.Plugin.Media/3.0.1": {
         "type": "package",
         "compile": {
@@ -3081,6 +3095,9 @@
         "runtime": {
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
+      },
+      "System.Data.SQLite/1.0.105.2": {
+        "type": "package"
       },
       "System.Diagnostics.Contracts/4.0.1": {
         "type": "package",
@@ -4605,6 +4622,17 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Xam.Plugin.Geolocator/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        }
+      },
       "Xam.Plugin.Media/3.0.1": {
         "type": "package",
         "compile": {
@@ -5489,6 +5517,9 @@
         "runtime": {
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
+      },
+      "System.Data.SQLite/1.0.105.2": {
+        "type": "package"
       },
       "System.Diagnostics.Contracts/4.0.1": {
         "type": "package",
@@ -7013,6 +7044,17 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Xam.Plugin.Geolocator/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        }
+      },
       "Xam.Plugin.Media/3.0.1": {
         "type": "package",
         "compile": {
@@ -7867,6 +7909,9 @@
         "runtime": {
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
+      },
+      "System.Data.SQLite/1.0.105.2": {
+        "type": "package"
       },
       "System.Diagnostics.Contracts/4.0.1": {
         "type": "package",
@@ -9389,6 +9434,17 @@
         },
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Xam.Plugin.Geolocator/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
       "Xam.Plugin.Media/3.0.1": {
@@ -10285,6 +10341,9 @@
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
       },
+      "System.Data.SQLite/1.0.105.2": {
+        "type": "package"
+      },
       "System.Diagnostics.Contracts/4.0.1": {
         "type": "package",
         "dependencies": {
@@ -11808,6 +11867,17 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Xam.Plugin.Geolocator/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        }
+      },
       "Xam.Plugin.Media/3.0.1": {
         "type": "package",
         "compile": {
@@ -12662,6 +12732,9 @@
         "runtime": {
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
+      },
+      "System.Data.SQLite/1.0.105.2": {
+        "type": "package"
       },
       "System.Diagnostics.Contracts/4.0.1": {
         "type": "package",
@@ -14186,6 +14259,17 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Xam.Plugin.Geolocator/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        }
+      },
       "Xam.Plugin.Media/3.0.1": {
         "type": "package",
         "compile": {
@@ -15079,6 +15163,9 @@
         "runtime": {
           "lib/netstandard1.2/System.Data.Common.dll": {}
         }
+      },
+      "System.Data.SQLite/1.0.105.2": {
+        "type": "package"
       },
       "System.Diagnostics.Contracts/4.0.1": {
         "type": "package",
@@ -16601,6 +16688,17 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Xam.Plugin.Geolocator/4.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
+        },
+        "runtime": {
+          "lib/UAP10/Plugin.Geolocator.Abstractions.dll": {},
+          "lib/UAP10/Plugin.Geolocator.dll": {}
         }
       },
       "Xam.Plugin.Media/3.0.1": {
@@ -20587,6 +20685,15 @@
         "ref/xamarinwatchos10/_._",
         "system.data.common.4.1.0.nupkg.sha512",
         "system.data.common.nuspec"
+      ]
+    },
+    "System.Data.SQLite/1.0.105.2": {
+      "sha512": "KpxsS20dAlirpfH5AV5CRUm0263klqFhfjucLmcPsE4DBIS/AxViKUKWebabWBmd6yuFSqFRzqLkO/PnOKOFAg==",
+      "type": "package",
+      "path": "system.data.sqlite/1.0.105.2",
+      "files": [
+        "system.data.sqlite.1.0.105.2.nupkg.sha512",
+        "system.data.sqlite.nuspec"
       ]
     },
     "System.Diagnostics.Contracts/4.0.1": {
@@ -24953,6 +25060,47 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Xam.Plugin.Geolocator/4.0.1": {
+      "sha512": "K03RbOsc1nrbOpD4zd5/hHVyL4kDW1K2IHcRzS7V4DHIgVpopoSoqAN5zI/x0Gu0HMwwJZzn8D6iCRQoghfM0Q==",
+      "type": "package",
+      "path": "xam.plugin.geolocator/4.0.1",
+      "files": [
+        "lib/MonoAndroid10/Plugin.Geolocator.Abstractions.dll",
+        "lib/MonoAndroid10/Plugin.Geolocator.Abstractions.pdb",
+        "lib/MonoAndroid10/Plugin.Geolocator.dll",
+        "lib/MonoAndroid10/Plugin.Geolocator.pdb",
+        "lib/MonoAndroid10/Plugin.Geolocator.xml",
+        "lib/UAP10/Plugin.Geolocator.Abstractions.dll",
+        "lib/UAP10/Plugin.Geolocator.Abstractions.pdb",
+        "lib/UAP10/Plugin.Geolocator.XML",
+        "lib/UAP10/Plugin.Geolocator.dll",
+        "lib/UAP10/Plugin.Geolocator.pdb",
+        "lib/UAP10/Plugin.Geolocator.pri",
+        "lib/Xamarin.Mac20/Plugin.Geolocator.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.Geolocator.Abstractions.pdb",
+        "lib/Xamarin.Mac20/Plugin.Geolocator.dll",
+        "lib/Xamarin.Mac20/Plugin.Geolocator.pdb",
+        "lib/Xamarin.Mac20/Plugin.Geolocator.xml",
+        "lib/Xamarin.iOS10/Plugin.Geolocator.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Geolocator.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Geolocator.dll",
+        "lib/Xamarin.iOS10/Plugin.Geolocator.pdb",
+        "lib/Xamarin.iOS10/Plugin.Geolocator.xml",
+        "lib/XamarinTVOS/Plugin.Geolocator.Abstractions.dll",
+        "lib/XamarinTVOS/Plugin.Geolocator.Abstractions.pdb",
+        "lib/XamarinTVOS/Plugin.Geolocator.dll",
+        "lib/XamarinTVOS/Plugin.Geolocator.pdb",
+        "lib/netstandard1.0/Plugin.Geolocator.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Geolocator.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Geolocator.deps.json",
+        "lib/netstandard1.0/Plugin.Geolocator.dll",
+        "lib/netstandard1.0/Plugin.Geolocator.pdb",
+        "lib/netstandard1.0/Plugin.Geolocator.xml",
+        "readme.txt",
+        "xam.plugin.geolocator.4.0.1.nupkg.sha512",
+        "xam.plugin.geolocator.nuspec"
+      ]
+    },
     "Xam.Plugin.Media/3.0.1": {
       "sha512": "g/FOs1yxjrHGlcVp4tNcSIAl92dazWxCLP2N1/h8P9h/eGsFj8uIgrJDZrtb1Laam2//4A8FyQy8kzOODWNGnA==",
       "type": "package",
@@ -25218,6 +25366,8 @@
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.4.0",
       "SQLite.Net-PCL >= 3.1.1",
       "SQLite.Net.Async-PCL >= 3.1.1",
+      "System.Data.SQLite >= 1.0.105.2",
+      "Xam.Plugin.Geolocator >= 4.0.1",
       "Xam.Plugin.Media >= 3.0.1",
       "Xamarin.Forms >= 2.3.4.270",
       "Xamarin.Forms.Maps >= 2.3.4.270"
@@ -25248,6 +25398,8 @@
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
       "SQLite.Net-PCL": "3.1.1",
       "SQLite.Net.Async-PCL": "3.1.1",
+      "System.Data.SQLite": "1.0.105.2",
+      "Xam.Plugin.Geolocator": "4.0.1",
       "Xam.Plugin.Media": "3.0.1",
       "Xamarin.Forms": "2.3.4.270",
       "Xamarin.Forms.Maps": "2.3.4.270"
