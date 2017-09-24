@@ -12,6 +12,8 @@ namespace Ameritrack_Xam.PCL.Models
 {
     public class Fault : INotifyPropertyChanged
     {
+        // for the sake of variable security, we hide the privately bound variable from the end-user
+        // that is why we have the public variables with get and set properties
         [PrimaryKey, AutoIncrement]
         private int _faultId { get; set; }
 
@@ -35,14 +37,23 @@ namespace Ameritrack_Xam.PCL.Models
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
         public CustomPin CustomPin { get; set; }
 
+        // FaultId is the public variable associated with _faultId
+        // we return _faultId with the the get method from FaultId
+        // this is so the private variable cannot be directly modified
         public int FaultId
         {
             get { return _faultId; }
             set
             {
+                // this is the body of our set method
+                // this is where the value that the user is entering on the front-end gets bound to the private variable _faultId
+                // that user-defined value is what is represented by the "value" attribute
                 if (value != _faultId)
                 {
                     _faultId = value;
+                    // OnPropertyChanged is used for automatic updating of the front-end
+                    // ie: if the user were to update the front end after entering a new value for FaultId, it would automatically be
+                       //  the new value for _faultId would automatically be bubbled up to the front-end
                     OnPropertyChanged(nameof(FaultId));
                 }
             }
@@ -115,8 +126,14 @@ namespace Ameritrack_Xam.PCL.Models
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Detects which attribute of Fault is being updated by the user on the front-end
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
+            // This is simply stating: "Have I been called? If I have, then I'll identify the sender (this) and update the 
+            // attribute defined as propertyName
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
