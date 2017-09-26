@@ -13,11 +13,8 @@ namespace Ameritrack_Xam.PCL.Models
     {
         [PrimaryKey, AutoIncrement]
         private int _employeeId { get; set; } // this is the index for the SQLite table; not the actual credentials of the employee
-
         private string _employeeFirstName { get; set; }
-
         private string _employeeLastName { get; set; }
-
         private int _employeeCredentials { get; set; } // Ameritrack-given employee 
 
         public int EmployeeId

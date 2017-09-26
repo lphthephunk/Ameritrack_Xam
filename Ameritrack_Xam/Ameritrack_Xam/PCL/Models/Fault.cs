@@ -1,12 +1,12 @@
-﻿using SQLite.Net.Attributes;
-using SQLiteNetExtensions.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
 
 namespace Ameritrack_Xam.PCL.Models
 {
@@ -16,16 +16,10 @@ namespace Ameritrack_Xam.PCL.Models
         // that is why we have the public variables with get and set properties
         [PrimaryKey, AutoIncrement]
         private int _faultId { get; set; }
-
-        private string _contactName { get; set; }
-
-        private int _contactNumber { get; set; }
-
         private string _faultComments { get; set; }
-
         private string _faultType { get; set; }
-
         private byte[] _faultPicture { get; set; }
+        private bool _urgent { get; set; }
 
         // foreign key to associate this fault with a CustomPin (ie: a fault location)
         [ForeignKey(typeof(CustomPin))]
@@ -55,32 +49,6 @@ namespace Ameritrack_Xam.PCL.Models
                     // ie: if the user were to update the front end after entering a new value for FaultId, it would automatically be
                        //  the new value for _faultId would automatically be bubbled up to the front-end
                     OnPropertyChanged(nameof(FaultId));
-                }
-            }
-        }
-
-        public string ContactName
-        {
-            get { return _contactName; }
-            set
-            {
-                if (value != _contactName)
-                {
-                    _contactName = value;
-                    OnPropertyChanged(nameof(ContactName));
-                }
-            }
-        }
-
-        public int ContactNumber
-        {
-            get { return _contactNumber; }
-            set
-            {
-                if (value != _contactNumber)
-                {
-                    _contactNumber = value;
-                    OnPropertyChanged(nameof(ContactNumber));
                 }
             }
         }
@@ -123,6 +91,19 @@ namespace Ameritrack_Xam.PCL.Models
                 }
             }
         }
+
+		public bool Urgent
+		{
+			get { return _urgent; }
+			set
+			{
+				if (value != _urgent)
+				{
+					_urgent = value;
+					OnPropertyChanged(nameof(Urgent));
+				}
+			}
+		}
 
         public event PropertyChangedEventHandler PropertyChanged;
 

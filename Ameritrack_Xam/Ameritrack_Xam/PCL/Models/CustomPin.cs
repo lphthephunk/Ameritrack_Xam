@@ -25,6 +25,12 @@ namespace Ameritrack_Xam.PCL.Models
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Fault> Faults { get; set; }
 
+		// Many CustomPins to one Report
+		// CascadeRead allows us to only read the Report associated with this CustomPin
+		// this is useful because we can delete a CustomPin without deleting the entire Report associated with the CustomPin
+		[ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
+		public Report Report { get; set; }
+
         public int PinId
         {
             get { return _pinId; }
