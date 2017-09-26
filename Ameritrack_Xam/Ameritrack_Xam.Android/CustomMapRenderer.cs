@@ -39,6 +39,7 @@ namespace Ameritrack_Xam.Droid
             {
                 _map.MapClick += googleMap_MapClick;
                 _map.MyLocationEnabled = _formsMap.IsShowingUser;
+                _map.InfoWindowLongClick += _map_InfoWindowLongClick;
 
                 // marker click event to edit the faults
                 _map.MarkerClick += _map_MarkerClick;
@@ -71,24 +72,32 @@ namespace Ameritrack_Xam.Droid
         }
 
         /// <summary>
+        /// Click event to handle deleting and editing pin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void _map_InfoWindowLongClick(object sender, GoogleMap.InfoWindowLongClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Handles the Marker Click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void _map_MarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
         {
-            var builder = new AlertDialog.Builder(this.Context);
-            builder.SetTitle("Edit?")
-                .SetMessage("Do you want to edit this pin?")
-                .SetPositiveButton("Yes", (alertSender, args) =>
-                {
-                    // TODO: go to Fault-Popup
-                })
-                .SetNegativeButton("No", (alertSender, args) =>
-                {
-                    return;
-                });
-            builder.Show().Window.SetGravity(GravityFlags.Bottom);
+            var thisMarker = sender as Marker;
+
+            if (thisMarker.IsInfoWindowShown)
+            {
+                thisMarker.HideInfoWindow();
+            }
+            else
+            {
+                thisMarker.ShowInfoWindow();
+            }
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -122,6 +131,7 @@ namespace Ameritrack_Xam.Droid
             markerIcon.SetPosition(new LatLng(customPin.Position.Latitude, customPin.Position.Longitude));
             markerIcon.SetTitle(customPin.Label);
             markerIcon.SetSnippet(customPin.Address);
+            markerIcon.Draggable(true);
 
             return markerIcon;
         }
@@ -131,9 +141,10 @@ namespace Ameritrack_Xam.Droid
             if (_map != null)
             {
                 _map.Clear();
-                foreach (var customPin in _formsMap.ListOfPins)
+
+                foreach (var pin in _formsMap.ListOfPins)
                 {
-                    _map.AddMarker(CreateMarkerFromCustomPin(customPin));
+                    _map.AddMarker(CreateMarkerFromCustomPin(pin));
                 }
             }
         }

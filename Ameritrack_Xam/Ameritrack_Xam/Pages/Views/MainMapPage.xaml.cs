@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Plugin.Geolocator;
 using System.Threading.Tasks;
+using Ameritrack_Xam.PCL.Models;
 
 namespace Ameritrack_Xam
 {
@@ -32,16 +33,19 @@ namespace Ameritrack_Xam
         {
             // below code is just for a sample pin
             // TODO: prompt the user to input this information
-            var pin = new Pin()
+            var customPin = new CustomPin
             {
-                Position = new Position(e.Position.Latitude, e.Position.Longitude),
-                Label = "User Touch Pin",
-                Type = PinType.Place,
-                Address = "Lat: " + Math.Round(e.Position.Latitude, 3) + ", Lng: " + Math.Round(e.Position.Longitude, 3)
+                Pin = new Pin()
+                {
+                    Position = new Position(e.Position.Latitude, e.Position.Longitude),
+                    Label = "Edit or Delete",
+                    Type = PinType.Place,
+                    Address = "Lat: " + Math.Round(e.Position.Latitude, 3) + ", Lng: " + Math.Round(e.Position.Longitude, 3)
+                },
             };
 
             // add the pin to the MapExtension List of pins
-            MainMap.ListOfPins.Add(pin);
+            MainMap.ListOfPins.Add(customPin.Pin);
         }
 
         /// <summary>

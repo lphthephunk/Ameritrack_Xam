@@ -11,8 +11,8 @@
 namespace Ameritrack_Xam {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("/Users/khoapham/Projects/lphthephunk/Ameritrack_Xam/Ameritrack_Xam/Ameritrack_Xam" +
-        "/App.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Cody_\\Source\\Repos\\Ameritrack_Xam\\Ameritrack_Xam\\Ameritrack_Xam\\App.xaml" +
+        "")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

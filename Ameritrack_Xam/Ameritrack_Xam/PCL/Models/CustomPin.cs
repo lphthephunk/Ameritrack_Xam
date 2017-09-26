@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
 namespace Ameritrack_Xam.PCL.Models
@@ -18,6 +19,10 @@ namespace Ameritrack_Xam.PCL.Models
         private double _latitude { get; set; }
         private double _longitude { get; set; }
         private string _locationName { get; set; }
+
+        public Button EditButton { get; set; }
+        public Button DeleteButton { get; set; }
+        public Pin Pin { get; set; }
 
         // One CustomPin to many faults
         // CascadeOperation is set to All so that if we delete this CustomPin (ie: the location of the faults)..
