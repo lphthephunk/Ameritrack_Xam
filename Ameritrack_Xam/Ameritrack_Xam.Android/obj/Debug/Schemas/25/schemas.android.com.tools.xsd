@@ -2,7 +2,7 @@
 <xs:schema xmlns:tools="http://schemas.android.com/tools" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/tools" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>8/30/2017 4:25:48 PM</xs:documentation>
+    <xs:documentation>9/28/2017 3:42:28 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="layout">
     <xs:annotation>
@@ -39,7 +39,6 @@
             <xs:enumeration value="@layout/abc_search_dropdown_item_icons_2line" />
             <xs:enumeration value="@layout/abc_search_view" />
             <xs:enumeration value="@layout/abc_select_dialog_material" />
-            <xs:enumeration value="@layout/cameralayout" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -54,6 +53,7 @@
             <xs:enumeration value="@layout/design_navigation_menu" />
             <xs:enumeration value="@layout/design_navigation_menu_item" />
             <xs:enumeration value="@layout/design_text_input_password_icon" />
+            <xs:enumeration value="@layout/mapinfo" />
             <xs:enumeration value="@layout/mr_chooser_dialog" />
             <xs:enumeration value="@layout/mr_chooser_list_item" />
             <xs:enumeration value="@layout/mr_controller_material_dialog_b" />
@@ -156,7 +156,6 @@
             <xs:enumeration value="@layout/abc_search_dropdown_item_icons_2line" />
             <xs:enumeration value="@layout/abc_search_view" />
             <xs:enumeration value="@layout/abc_select_dialog_material" />
-            <xs:enumeration value="@layout/cameralayout" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -171,6 +170,7 @@
             <xs:enumeration value="@layout/design_navigation_menu" />
             <xs:enumeration value="@layout/design_navigation_menu_item" />
             <xs:enumeration value="@layout/design_text_input_password_icon" />
+            <xs:enumeration value="@layout/mapinfo" />
             <xs:enumeration value="@layout/mr_chooser_dialog" />
             <xs:enumeration value="@layout/mr_chooser_list_item" />
             <xs:enumeration value="@layout/mr_controller_material_dialog_b" />
@@ -273,7 +273,6 @@
             <xs:enumeration value="@layout/abc_search_dropdown_item_icons_2line" />
             <xs:enumeration value="@layout/abc_search_view" />
             <xs:enumeration value="@layout/abc_select_dialog_material" />
-            <xs:enumeration value="@layout/cameralayout" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -288,6 +287,7 @@
             <xs:enumeration value="@layout/design_navigation_menu" />
             <xs:enumeration value="@layout/design_navigation_menu_item" />
             <xs:enumeration value="@layout/design_text_input_password_icon" />
+            <xs:enumeration value="@layout/mapinfo" />
             <xs:enumeration value="@layout/mr_chooser_dialog" />
             <xs:enumeration value="@layout/mr_chooser_list_item" />
             <xs:enumeration value="@layout/mr_controller_material_dialog_b" />
@@ -390,7 +390,6 @@
             <xs:enumeration value="@layout/abc_search_dropdown_item_icons_2line" />
             <xs:enumeration value="@layout/abc_search_view" />
             <xs:enumeration value="@layout/abc_select_dialog_material" />
-            <xs:enumeration value="@layout/cameralayout" />
             <xs:enumeration value="@layout/design_bottom_navigation_item" />
             <xs:enumeration value="@layout/design_bottom_sheet_dialog" />
             <xs:enumeration value="@layout/design_layout_snackbar" />
@@ -405,6 +404,7 @@
             <xs:enumeration value="@layout/design_navigation_menu" />
             <xs:enumeration value="@layout/design_navigation_menu_item" />
             <xs:enumeration value="@layout/design_text_input_password_icon" />
+            <xs:enumeration value="@layout/mapinfo" />
             <xs:enumeration value="@layout/mr_chooser_dialog" />
             <xs:enumeration value="@layout/mr_chooser_list_item" />
             <xs:enumeration value="@layout/mr_controller_material_dialog_b" />
@@ -529,6 +529,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -548,6 +549,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -565,6 +567,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />

@@ -6,12 +6,15 @@ using Xamarin.Forms.Maps;
 using Plugin.Geolocator;
 using System.Threading.Tasks;
 using Ameritrack_Xam.PCL.Models;
+using Ameritrack_Xam.Pages.Views.PopUps;
+using Rg.Plugins.Popup.Extensions;
 
 namespace Ameritrack_Xam
 {
     public partial class MainMapPage : ContentPage
     {
         private MapPageVM ViewModel;
+        
 
         public MainMapPage()
         {
@@ -27,6 +30,19 @@ namespace Ameritrack_Xam
             // NavigationPage.SetHasNavigationBar(this, false);
 
             MainMap.Tap += MainMap_Tap;
+            MainMap.PinTap += MainMap_PinTap;
+        }
+
+        /// <summary>
+        /// Display the popup with data associated to the pin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void MainMap_PinTap(object sender, PinTapEventArgs e)
+        {
+            var pinPopup = new PinPopupPage();
+
+            await Navigation.PushPopupAsync(pinPopup, true);
         }
 
         private void MainMap_Tap(object sender, MapTapEventArgs e)
@@ -37,25 +53,15 @@ namespace Ameritrack_Xam
             {
                 Pin = new Pin()
                 {
+                    Label = "Test",
                     Position = new Position(e.Position.Latitude, e.Position.Longitude),
-                    Label = "Edit or Delete",
                     Type = PinType.Place,
-                    Address = "Lat: " + Math.Round(e.Position.Latitude, 3) + ", Lng: " + Math.Round(e.Position.Longitude, 3)
                 },
             };
 
             // add the pin to the MapExtension List of pins
             MainMap.ListOfPins.Add(customPin.Pin);
-        }
-
-        /// <summary>
-        /// This method will later be replaced by the user selecting a pin on the map
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private async void GoToFormPage_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new FormPage());
+            MainMap.Pins.Add(customPin.Pin);
         }
 
         private async void GetUserLocation()

@@ -5,9 +5,9 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Fault Form Page" />
-            <Button x:Name="gotoCameraBtn"
+            <Button x:Name="GoToCameraBtn"
                     Text="Go to camera"
-                    Clicked="gotoCameraBtn_Clicked"/>
+                    Clicked="GoToCameraBtn_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -13,6 +13,7 @@ namespace Ameritrack_Xam.Pages.Views
     public class MapExtension : Map
     {
         public event EventHandler<MapTapEventArgs> Tap;
+        public event EventHandler<PinTapEventArgs> PinTap;
 
         public List<Pin> ListOfPins = new List<Pin>();
 
@@ -29,10 +30,25 @@ namespace Ameritrack_Xam.Pages.Views
         {
             Tap?.Invoke(this, e);
         }
+
+        public void OnPinTap(Pin pin)
+        {
+            OnPinTap(new PinTapEventArgs { CurrentPin = pin });
+        }
+
+        private void OnPinTap(PinTapEventArgs e)
+        {
+            PinTap?.Invoke(this, e);
+        }
     }
 
     public class MapTapEventArgs : EventArgs
     {
         public Position Position { get; set; }
+    }
+
+    public class PinTapEventArgs : EventArgs
+    {
+        public Pin CurrentPin { get; set; }
     }
 }

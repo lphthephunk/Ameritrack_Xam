@@ -11,7 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 
 namespace Ameritrack_Xam.PCL.Models
-{
+{    
     public class CustomPin : INotifyPropertyChanged
     {
         [PrimaryKey, AutoIncrement]
@@ -20,8 +20,6 @@ namespace Ameritrack_Xam.PCL.Models
         private double _longitude { get; set; }
         private string _locationName { get; set; }
 
-        public Button EditButton { get; set; }
-        public Button DeleteButton { get; set; }
         public Pin Pin { get; set; }
 
         // One CustomPin to many faults

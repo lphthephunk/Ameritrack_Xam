@@ -331,6 +331,22 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
+      "Rg.Plugins.Popup/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0.49"
+        },
+        "compile": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        }
+      },
       "runtime.native.System.IO.Compression/4.1.0": {
         "type": "package",
         "dependencies": {
@@ -2599,6 +2615,22 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Rg.Plugins.Popup/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0.49"
+        },
+        "compile": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
         }
       },
       "runtime.any.System.Collections/4.0.11": {
@@ -5005,6 +5037,22 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Rg.Plugins.Popup/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0.49"
+        },
+        "compile": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -7453,6 +7501,22 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
+      "Rg.Plugins.Popup/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0.49"
+        },
+        "compile": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        }
+      },
       "runtime.any.System.Collections/4.0.11": {
         "type": "package",
         "dependencies": {
@@ -9866,6 +9930,22 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Rg.Plugins.Popup/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0.49"
+        },
+        "compile": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -12320,6 +12400,22 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
+      "Rg.Plugins.Popup/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0.49"
+        },
+        "compile": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        }
+      },
       "runtime.any.System.Collections/4.0.11": {
         "type": "package",
         "dependencies": {
@@ -14733,6 +14829,22 @@
         },
         "runtime": {
           "lib/netcore45/Newtonsoft.Json.dll": {}
+        }
+      },
+      "Rg.Plugins.Popup/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Forms": "2.3.0.49"
+        },
+        "compile": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Rg.Plugins.Popup.Platform.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.UWP.dll": {},
+          "lib/uap10.0/Rg.Plugins.Popup.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.0.10": {
@@ -19324,6 +19436,32 @@
         "newtonsoft.json.6.0.8.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "Rg.Plugins.Popup/1.0.4": {
+      "sha512": "KTpeQmUT3RgTkCIwtsdGRuNh6gLlrZ78f2kW6gwo9UmTBR2RIHMx/Tc6FZEplFQBVApJ8e7S7EnM/SuZ+9jMCg==",
+      "type": "package",
+      "path": "rg.plugins.popup/1.0.4",
+      "files": [
+        "lib/MonoAndroid/Rg.Plugins.Popup.Droid.dll",
+        "lib/MonoAndroid/Rg.Plugins.Popup.Platform.dll",
+        "lib/MonoAndroid/Rg.Plugins.Popup.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.IOS.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.Platform.dll",
+        "lib/MonoTouch/Rg.Plugins.Popup.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.IOS.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.Platform.dll",
+        "lib/Xamarin.IOS/Rg.Plugins.Popup.dll",
+        "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.Platform.dll",
+        "lib/portable-win+net45+wp8+win8+wpa81/Rg.Plugins.Popup.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.Platform.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.UWP.dll",
+        "lib/uap10.0/Rg.Plugins.Popup.dll",
+        "lib/wpa81/Rg.Plugins.Popup.Platform.dll",
+        "lib/wpa81/Rg.Plugins.Popup.WinPhone.dll",
+        "lib/wpa81/Rg.Plugins.Popup.dll",
+        "rg.plugins.popup.1.0.4.nupkg.sha512",
+        "rg.plugins.popup.nuspec"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -25572,6 +25710,7 @@
   "projectFileDependencyGroups": {
     "": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.4.0",
+      "Rg.Plugins.Popup >= 1.0.4",
       "SQLite.Net-PCL >= 3.1.1",
       "SQLite.Net.Async-PCL >= 3.1.1",
       "SQLiteNetExtensions >= 1.3.0",
@@ -25605,6 +25744,7 @@
     },
     "dependencies": {
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
+      "Rg.Plugins.Popup": "1.0.4",
       "SQLite.Net-PCL": "3.1.1",
       "SQLite.Net.Async-PCL": "3.1.1",
       "SQLiteNetExtensions": "1.3.0",

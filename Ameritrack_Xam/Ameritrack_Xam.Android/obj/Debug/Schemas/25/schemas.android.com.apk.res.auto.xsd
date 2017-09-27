@@ -2,7 +2,7 @@
 <xs:schema xmlns:app="http://schemas.android.com/apk/res-auto" attributeFormDefault="qualified" targetNamespace="http://schemas.android.com/apk/res-auto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:annotation>
     <xs:documentation>v25</xs:documentation>
-    <xs:documentation>8/30/2017 4:25:48 PM</xs:documentation>
+    <xs:documentation>9/28/2017 3:42:28 PM</xs:documentation>
   </xs:annotation>
   <xs:attribute name="allowStacking">
     <xs:annotation>
@@ -439,6 +439,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -543,6 +545,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -559,6 +562,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -574,6 +579,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -1827,6 +1833,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -1931,6 +1939,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -1947,6 +1956,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -1962,6 +1973,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -2227,6 +2239,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -2246,6 +2259,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -2263,6 +2277,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -2487,6 +2502,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -2591,6 +2608,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -2607,6 +2625,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -2622,6 +2642,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -3007,6 +3028,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -3111,6 +3134,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -3127,6 +3151,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -3142,6 +3168,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -3530,6 +3557,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -3634,6 +3663,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -3650,6 +3680,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -3665,6 +3697,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -4050,6 +4083,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -4154,6 +4189,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -4170,6 +4206,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -4185,6 +4223,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -6916,6 +6955,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -7020,6 +7061,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -7036,6 +7078,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -7051,6 +7095,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -7436,6 +7481,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -7540,6 +7587,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -7556,6 +7604,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -7571,6 +7621,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -7836,6 +7887,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -7855,6 +7907,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -7872,6 +7925,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -8073,6 +8127,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -8177,6 +8233,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -8193,6 +8250,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -8208,6 +8267,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -8838,6 +8898,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -8942,6 +9004,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -8958,6 +9021,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -8973,6 +9038,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -9358,6 +9424,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -9462,6 +9530,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -9478,6 +9547,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -9493,6 +9564,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -10886,6 +10958,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -10990,6 +11064,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -11006,6 +11081,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -11021,6 +11098,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -11406,6 +11484,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -11510,6 +11590,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -11526,6 +11607,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -11541,6 +11624,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -11987,6 +12071,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -12091,6 +12177,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -12107,6 +12194,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -12122,6 +12211,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -12507,6 +12597,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -12611,6 +12703,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -12627,6 +12720,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -12642,6 +12737,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -13117,6 +13213,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -13221,6 +13319,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -13237,6 +13336,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -13252,6 +13353,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -13562,6 +13664,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -13581,6 +13684,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -13598,6 +13702,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -13909,6 +14014,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -14013,6 +14120,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -14029,6 +14137,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -14044,6 +14154,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:color/background_dark" />
             <xs:enumeration value="@android:color/background_light" />
             <xs:enumeration value="@android:color/black" />
@@ -14508,6 +14619,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -14612,6 +14725,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -14628,6 +14742,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -14643,6 +14759,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -15230,6 +15347,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -15334,6 +15453,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -15350,6 +15470,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -15365,6 +15487,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -15952,6 +16075,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -16056,6 +16181,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -16072,6 +16198,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -16087,6 +16215,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -16472,6 +16601,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -16576,6 +16707,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -16592,6 +16724,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -16607,6 +16741,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -16872,6 +17007,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -16891,6 +17027,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -16908,6 +17045,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -17109,6 +17247,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -17213,6 +17353,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -17229,6 +17370,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -17244,6 +17387,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -17509,6 +17653,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -17528,6 +17673,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -17545,6 +17691,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -18167,6 +18314,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -18271,6 +18420,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -18287,6 +18437,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -18302,6 +18454,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -18567,6 +18720,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -18586,6 +18740,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -18603,6 +18758,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -18804,6 +18960,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -18908,6 +19066,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -18924,6 +19083,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -18939,6 +19100,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -19204,6 +19366,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -19223,6 +19386,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -19240,6 +19404,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -19441,6 +19606,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -19545,6 +19712,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -19561,6 +19729,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -19576,6 +19746,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -20226,6 +20397,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -20330,6 +20503,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -20346,6 +20520,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -20361,6 +20537,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -20934,6 +21111,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -21038,6 +21217,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -21054,6 +21234,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -21069,6 +21251,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -21334,6 +21517,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -21353,6 +21537,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -21370,6 +21555,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -21818,6 +22004,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -21922,6 +22110,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -21938,6 +22127,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -21953,6 +22144,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@string/abc_action_bar_home_description" />
             <xs:enumeration value="@string/abc_action_bar_home_description_format" />
             <xs:enumeration value="@string/abc_action_bar_home_subtitle_description_format" />
@@ -21985,6 +22177,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -22004,6 +22197,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -22021,6 +22215,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -22661,6 +22856,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -22765,6 +22962,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -22781,6 +22979,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -22796,6 +22996,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -23181,6 +23382,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -23285,6 +23488,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -23301,6 +23505,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -23316,6 +23522,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -23884,6 +24091,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -23988,6 +24197,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -24004,6 +24214,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -24019,6 +24231,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -24606,6 +24819,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -24710,6 +24925,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -24726,6 +24942,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -24741,6 +24959,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -25006,6 +25225,7 @@
             <xs:enumeration value="@string/abc_shareactionprovider_share_with_application" />
             <xs:enumeration value="@string/abc_toolbar_collapse_description" />
             <xs:enumeration value="@string/appbar_scrolling_view_behavior" />
+            <xs:enumeration value="@string/ApplicationName" />
             <xs:enumeration value="@string/bottom_sheet_behavior" />
             <xs:enumeration value="@string/character_counter_pattern" />
             <xs:enumeration value="@string/common_google_play_services_enable_button" />
@@ -25025,6 +25245,7 @@
             <xs:enumeration value="@string/common_open_on_phone" />
             <xs:enumeration value="@string/common_signin_button_text" />
             <xs:enumeration value="@string/common_signin_button_text_long" />
+            <xs:enumeration value="@string/Hello" />
             <xs:enumeration value="@string/mr_button_content_description" />
             <xs:enumeration value="@string/mr_cast_button_connected" />
             <xs:enumeration value="@string/mr_cast_button_connecting" />
@@ -25042,6 +25263,7 @@
             <xs:enumeration value="@string/mr_controller_pause" />
             <xs:enumeration value="@string/mr_controller_play" />
             <xs:enumeration value="@string/mr_controller_stop" />
+            <xs:enumeration value="@string/mr_controller_stop_casting" />
             <xs:enumeration value="@string/mr_controller_volume_slider" />
             <xs:enumeration value="@string/mr_system_route_name" />
             <xs:enumeration value="@string/mr_user_route_category_name" />
@@ -25243,6 +25465,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -25347,6 +25571,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -25363,6 +25588,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -25378,6 +25605,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -25965,6 +26193,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -26069,6 +26299,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -26085,6 +26316,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -26100,6 +26333,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -26861,6 +27095,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -26965,6 +27201,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -26981,6 +27218,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -26996,6 +27235,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -27381,6 +27621,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -27485,6 +27727,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -27501,6 +27744,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -27516,6 +27761,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -30027,6 +30273,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -30131,6 +30379,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -30147,6 +30396,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -30162,6 +30413,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -32343,6 +32595,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -32447,6 +32701,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -32463,6 +32718,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -32478,6 +32735,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -33065,6 +33323,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -33169,6 +33429,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -33185,6 +33446,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -33200,6 +33463,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -33585,6 +33849,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -33689,6 +33955,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -33705,6 +33972,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -33720,6 +33989,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />
@@ -34371,6 +34641,8 @@
             <xs:enumeration value="@drawable/ic_media_pause_light" />
             <xs:enumeration value="@drawable/ic_media_play_dark" />
             <xs:enumeration value="@drawable/ic_media_play_light" />
+            <xs:enumeration value="@drawable/ic_media_stop_dark" />
+            <xs:enumeration value="@drawable/ic_media_stop_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_dark" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_00_light" />
             <xs:enumeration value="@drawable/ic_mr_button_connected_01_dark" />
@@ -34475,6 +34747,7 @@
             <xs:enumeration value="@drawable/ic_vol_type_tv_dark" />
             <xs:enumeration value="@drawable/ic_vol_type_tv_light" />
             <xs:enumeration value="@drawable/icon" />
+            <xs:enumeration value="@drawable/login_bg" />
             <xs:enumeration value="@drawable/mr_button_connected_dark" />
             <xs:enumeration value="@drawable/mr_button_connected_light" />
             <xs:enumeration value="@drawable/mr_button_connecting_dark" />
@@ -34491,6 +34764,8 @@
             <xs:enumeration value="@drawable/mr_media_pause_light" />
             <xs:enumeration value="@drawable/mr_media_play_dark" />
             <xs:enumeration value="@drawable/mr_media_play_light" />
+            <xs:enumeration value="@drawable/mr_media_stop_dark" />
+            <xs:enumeration value="@drawable/mr_media_stop_light" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_dark" />
             <xs:enumeration value="@drawable/mr_vol_type_audiotrack_light" />
             <xs:enumeration value="@drawable/navigation_empty_icon" />
@@ -34506,6 +34781,7 @@
             <xs:enumeration value="@drawable/notification_template_icon_low_bg" />
             <xs:enumeration value="@drawable/notification_tile_bg" />
             <xs:enumeration value="@drawable/notify_panel_notification_icon_bg" />
+            <xs:enumeration value="@drawable/trash_can_512" />
             <xs:enumeration value="@android:drawable/alert_dark_frame" />
             <xs:enumeration value="@android:drawable/alert_light_frame" />
             <xs:enumeration value="@android:drawable/arrow_down_float" />

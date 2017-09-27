@@ -25,7 +25,7 @@ namespace Ameritrack_Xam.Pages.Views
             BindingContext = ViewModel;
         }
 
-        private async void gotoCameraBtn_Clicked(object sender, EventArgs e)
+        private async void GoToCameraBtn_Clicked(object sender, EventArgs e)
         {
             if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
             {

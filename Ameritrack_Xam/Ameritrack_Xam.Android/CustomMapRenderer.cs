@@ -18,6 +18,10 @@ using Xamarin.Forms.Platform.Android;
 using System.ComponentModel;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using static Android.Gms.Maps.GoogleMap;
+using Android.Graphics;
+using System.Timers;
+using System.Threading.Tasks;
 
 [assembly: ExportRenderer(typeof(MapExtension), typeof(CustomMapRenderer))]
 namespace Ameritrack_Xam.Droid
@@ -26,6 +30,8 @@ namespace Ameritrack_Xam.Droid
     {
         private GoogleMap _map;
         private MapExtension _formsMap;
+
+        private bool isPinPopupShown = false;
 
         public void OnMapReady(GoogleMap googleMap)
         {
@@ -39,7 +45,6 @@ namespace Ameritrack_Xam.Droid
             {
                 _map.MapClick += googleMap_MapClick;
                 _map.MyLocationEnabled = _formsMap.IsShowingUser;
-                _map.InfoWindowLongClick += _map_InfoWindowLongClick;
 
                 // marker click event to edit the faults
                 _map.MarkerClick += _map_MarkerClick;
@@ -71,15 +76,51 @@ namespace Ameritrack_Xam.Droid
             }
         }
 
+
         /// <summary>
-        /// Click event to handle deleting and editing pin
+        /// This could be used to calculate which button is pressed on the pin popup NOT WORKING CURRENTLY UNUSED
         /// </summary>
-        /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _map_InfoWindowLongClick(object sender, GoogleMap.InfoWindowLongClickEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        //private void DetermineWhichButtonIsTouched(MotionEvent e)
+        //{
+        //    // TODO: find out why the buttons aren't giving off dimensions
+        //    int leftOfEditBtn = EditPinBtn.Left;
+        //    int topOfEditBtn = EditPinBtn.Top;
+
+        //    Rect editBtnArea = new Rect(leftOfEditBtn, topOfEditBtn, leftOfEditBtn + EditPinBtn.Width, topOfEditBtn + EditPinBtn.Height);
+
+        //    int rightOfDeleteBtn = ((Android.Views.View)(DeletePinBtn.Parent)).Right;
+        //    int topOfDeleteBtn = ((Android.Views.View)(DeletePinBtn.Parent)).Top;
+
+        //    Rect delteBtnArea = new Rect(rightOfDeleteBtn, topOfDeleteBtn, rightOfDeleteBtn + DeletePinBtn.Width, topOfDeleteBtn + DeletePinBtn.Height);
+
+        //    if (editBtnArea.Contains((int)e.GetX(), (int)e.GetY()))
+        //    {
+        //        switch (e.ActionMasked)
+        //        {
+        //            case MotionEventActions.Down:
+        //                System.Diagnostics.Debug.WriteLine("Edit button pressed");
+        //                break;
+        //            case MotionEventActions.Up:
+        //                break;
+        //            default:
+        //                break;
+        //        }
+        //    }
+        //    else if (delteBtnArea.Contains((int)e.GetX(), (int)e.GetY()))
+        //    {
+        //        switch (e.ActionMasked)
+        //        {
+        //            case MotionEventActions.Down:
+        //                System.Diagnostics.Debug.WriteLine("Delete button pressed");
+        //                break;
+        //            case MotionEventActions.Up:
+        //                break;
+        //            default:
+        //                break;
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Handles the Marker Click
@@ -88,16 +129,16 @@ namespace Ameritrack_Xam.Droid
         /// <param name="e"></param>
         private void _map_MarkerClick(object sender, GoogleMap.MarkerClickEventArgs e)
         {
-            var thisMarker = sender as Marker;
+            ((MapExtension)Element).OnPinTap(ConvertMarkerToPin(e.Marker));
+        }
 
-            if (thisMarker.IsInfoWindowShown)
-            {
-                thisMarker.HideInfoWindow();
-            }
-            else
-            {
-                thisMarker.ShowInfoWindow();
-            }
+        /// <summary>
+        /// Sets the fault image in the custom InfoWindow if available
+        /// </summary>
+        private void SetFaultImage(Android.Widget.ImageView faultImageView, Marker selectedMarker)
+        {
+            // TODO: query the database for this current marker's bitmap fault image
+            //faultImageView.SetImageBitmap()
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -123,6 +164,14 @@ namespace Ameritrack_Xam.Droid
                 _formsMap = (MapExtension)e.NewElement;
                 ((MapView)Control).GetMapAsync(this);
             }
+        }
+
+        private Pin ConvertMarkerToPin(Marker _marker)
+        {
+            return new Pin
+            {
+                Position = new Position(_marker.Position.Latitude, _marker.Position.Longitude)
+            };
         }
 
         private MarkerOptions CreateMarkerFromCustomPin(Pin customPin)
@@ -155,32 +204,33 @@ namespace Ameritrack_Xam.Droid
 
             // display the new pin
             UpdatePins();
-
-            var builder = new AlertDialog.Builder(this.Context);
-            builder.SetTitle("Confirmation")
-                .SetMessage("Is this pin location correct?")
-                .SetPositiveButton("Yes", (alertSender, args) =>
-                {
-                    // update the pins so that the new pin is reflected on the Custom Renderer PinsList
-                    UpdatePins();
-
-                    // TODO: open the fault-popup
-                })
-                .SetNegativeButton("No", (alertSender, args) =>
-                {
-                    // find the most recent pin in the list
-                    var lastIndice = _formsMap.ListOfPins.Count();
-                    if (lastIndice == 0)
-                    {
-                        Toast.MakeText(this.Context, "Pin Cancelled", ToastLength.Short).Show();
-                        UpdatePins();
-                        return;
-                    }
-                    _formsMap.ListOfPins.RemoveAt(lastIndice - 1);
-
-                    UpdatePins();
-                });
-            builder.Show().Window.SetGravity(GravityFlags.Bottom);
         }
     }
+
+    ///// <summary>
+    ///// Adapter class used to inflate the custom pin popup window
+    ///// </summary>
+    //public class CustomMarkerPopupAdapter : Java.Lang.Object, GoogleMap.IInfoWindowAdapter
+    //{
+    //    private LayoutInflater _layoutInflater = null;
+
+    //    public CustomMarkerPopupAdapter(LayoutInflater inflater)
+    //    {
+    //        _layoutInflater = inflater;
+    //    }
+
+    //    public Android.Views.View GetInfoWindow(Marker marker)
+    //    {
+    //        return null;
+    //    }
+
+    //    public Android.Views.View GetInfoContents(Marker marker)
+    //    {
+    //        var customPopup = _layoutInflater.Inflate(Resource.Layout.MapInfo, null);
+
+    //        //marker.Title = customPopup.FindViewById<TextView>(Resource.Id.PinDeletionText).Text;
+            
+    //        return customPopup;
+    //    }
+    //}
 }

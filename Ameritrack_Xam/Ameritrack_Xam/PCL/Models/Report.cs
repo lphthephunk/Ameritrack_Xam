@@ -1,4 +1,17 @@
-﻿using System; using System.Collections.Generic; using System.ComponentModel; using System.Linq; using System.Runtime.CompilerServices; using System.Text; using System.Threading.Tasks; using SQLite.Net.Attributes; using SQLiteNetExtensions.Attributes;  using Xamarin.Forms;  namespace Ameritrack_Xam.PCL.Models {
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
+
+using Xamarin.Forms;
+
+namespace Ameritrack_Xam.PCL.Models
+{
 	public class Report : INotifyPropertyChanged
 	{
 		[PrimaryKey, AutoIncrement]
@@ -127,4 +140,6 @@
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
-	} }  
+	}
+}
+
