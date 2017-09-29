@@ -40,7 +40,7 @@ namespace Ameritrack_Xam
         /// <param name="e"></param>
         private async void MainMap_PinTap(object sender, PinTapEventArgs e)
         {
-            var pinPopup = new PinPopupPage();
+            var pinPopup = new PinPopupPage(e.CurrentPin);
 
             await Navigation.PushPopupAsync(pinPopup, true);
         }

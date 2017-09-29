@@ -21,6 +21,6 @@
     <StackLayout HeightRequest="500"
                  WidthRequest="500"
                  Padding="20,20,20,20">
-        <Label Text="Working Popup" FontSize="20" TextColor="Black" HorizontalOptions="Center"/>
+        <Label x:Name="TestLabel" Text="Working Popup" FontSize="20" TextColor="Black" HorizontalOptions="Center"/>
     </StackLayout>
 </pages:PopupPage>

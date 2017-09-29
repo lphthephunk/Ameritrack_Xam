@@ -54,6 +54,7 @@
     <Compile Include="Pages\Views\PopUps\PinPopupPage.xaml.cs">
       <DependentUpon>PinPopupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\PopupViewModels\PinPopupVM.cs" />
     <Compile Include="PCL\DAL\DbConnect.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
     <Compile Include="PCL\Interfaces\ISQLite.cs" />
