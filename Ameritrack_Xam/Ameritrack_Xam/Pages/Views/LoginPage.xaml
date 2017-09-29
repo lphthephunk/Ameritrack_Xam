@@ -20,6 +20,14 @@
                FontSize="24"
                PlaceholderColor="Silver" />
 
+        <Label Text="Invalid Credentials"
+               FontSize="12"
+               HorizontalTextAlignment="Center" 
+               VerticalOptions="CenterAndExpand"
+               x:Name="incorrectIDWarning"
+               IsVisible="false"
+               TextColor="White" />
+
         <Button Text="Login"
                 VerticalOptions="CenterAndExpand"
                 Margin="50, 0"

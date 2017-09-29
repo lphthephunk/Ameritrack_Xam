@@ -7,35 +7,48 @@ using Xamarin.Forms;
 
 namespace Ameritrack_Xam.Pages.Views
 {
-    public partial class LoginPage : ContentPage
-    {
-        LoginVM ViewModel;
+	public partial class LoginPage : ContentPage
+	{
+		LoginVM ViewModel;
 
-        public LoginPage()
-        {
-            InitializeComponent();
-
-            ViewModel = new LoginVM();
-
-            InsertTestEmp();
-        }
-
-        private void InsertTestEmp()
-        {
-            ViewModel.InsertMockEmployee();
-        }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            var testEmpInfo = await ViewModel.PullEmployeeInfo();
-
-            employeeID.Text = testEmpInfo.EmployeeFirstName + " " + testEmpInfo.EmployeeLastName;
-        }
-
-        private async void OnLoginButtonClicked(object sender, System.EventArgs e)
+		public LoginPage()
 		{
-            await Navigation.PushModalAsync(new MainMasterDetail(), false);
+			InitializeComponent();
+
+			ViewModel = new LoginVM();
+
+			InsertTestEmp();
 		}
-    }
+
+		private void InsertTestEmp()
+		{
+			ViewModel.InsertMockEmployee();
+		}
+
+		protected override async void OnAppearing()
+		{
+			base.OnAppearing();
+			var testEmpInfo = await ViewModel.PullEmployeeInfo();
+
+			employeeID.Text = testEmpInfo.EmployeeFirstName + " " + testEmpInfo.EmployeeLastName;
+		}
+
+		private async void OnLoginButtonClicked(object sender, System.EventArgs e)
+		{
+			if (await ViewModel.IsValidID(employeeID.Text))
+			{
+				await Navigation.PushModalAsync(new MainMasterDetail(), false);
+				incorrectIDWarning.IsVisible = false;
+			}
+			else
+			{
+				incorrectIDWarning.IsVisible = true;
+			}
+		}
+
+		public string entryText()
+		{
+			return employeeID.Text;
+		}
+	}
 }

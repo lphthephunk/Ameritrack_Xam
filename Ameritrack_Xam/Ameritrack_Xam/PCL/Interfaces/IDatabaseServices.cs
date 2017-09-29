@@ -7,22 +7,22 @@ using System.Threading.Tasks;
 
 namespace Ameritrack_Xam.PCL.Interfaces
 {
-    interface IDatabaseServices
-    {
-        Task<Employee> GetEmployee(int empId);
+	interface IDatabaseServices
+	{
+		Task<Employee> GetEmployee(string empId);
 
-        List<Employee> GetAllEmployees();
+		List<Employee> GetAllEmployees();
 
-        Task InsertEmployee(Employee _employee);
+		Task InsertEmployee(Employee _employee);
 
-        bool UpdateEmployee(Employee _employee);
+		bool UpdateEmployee(Employee _employee);
 
-        bool InsertFault(Fault _fault);
+		bool InsertFault(Fault _fault);
 
-        bool UpdateFault(Fault _fault);
+		bool UpdateFault(Fault _fault);
 
-        bool DeleteFault(Fault _fault);
+		bool DeleteFault(Fault _fault);
 
-        List<Fault> GetAllFaults();
-    }
+		List<Fault> GetAllFaults();
+	}
 }

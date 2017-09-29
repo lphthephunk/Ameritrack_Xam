@@ -142,6 +142,9 @@ class MonoPackageManager_Resources {
 		"Xamarin.GooglePlayServices.Basement.dll",
 		"Xamarin.GooglePlayServices.Maps.dll",
 		"Xamarin.GooglePlayServices.Tasks.dll",
+		"Xamarin.Auth.dll",
+		"PCLCrypto.dll",
+		"Validation.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

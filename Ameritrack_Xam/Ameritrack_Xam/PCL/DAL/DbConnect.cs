@@ -45,7 +45,7 @@ namespace Ameritrack_Xam.PCL.DAL
             throw new NotImplementedException();
         }
 
-        public async Task<Employee> GetEmployee(int empId)
+        public async Task<Employee> GetEmployee(string empId)
         {
             // emp is a dynamically typed variable that can be explicitly typed as a List<> object
             // using var is just quick for short-hand
