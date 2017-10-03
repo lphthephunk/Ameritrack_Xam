@@ -26,7 +26,6 @@
     <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20, 20, 20, 20">
         <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
           <Label Text="First Popup Page" TextColor="Gray" FontSize="20" HorizontalOptions="Center"></Label>
-
             <Entry Placeholder="Name of track..."
                    x:Name="TrackName">
             </Entry>
@@ -54,7 +53,6 @@
                            HorizontalOptions="CenterAndExpand"></Label>                
                 </StackLayout>
             </StackLayout>
-          
         </StackLayout>
     </StackLayout>
 </pages:PopupPage>
