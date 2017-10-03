@@ -89,15 +89,23 @@
             <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.Maps.Geocoder.GetAddressesForPositionAsync(Xamarin.Forms.Maps.Position)">
-            <param name="position">To be added.</param>
+            <param name="position">The position near which to search.</param>
             <summary>Returns the addresses near <paramref name="position" />, asynchronously.</summary>
             <returns>To be added.</returns>
             <remarks>To be added.</remarks>
         </member>
+        <member name="F:Xamarin.Forms.Maps.Geocoder.GetAddressesForPositionFuncAsync">
+            <summary>For internal use by the Xamarin.Forms platform.</summary>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="M:Xamarin.Forms.Maps.Geocoder.GetPositionsForAddressAsync(System.String)">
-            <param name="address">To be added.</param>
+            <param name="address">The address for which to return positions.</param>
             <summary>Returns a list of positions for <paramref name="address" />.</summary>
             <returns>To be added.</returns>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="F:Xamarin.Forms.Maps.Geocoder.GetPositionsForAddressAsyncFunc">
+            <summary>For internal use by the Xamarin.Forms platform.</summary>
             <remarks>To be added.</remarks>
         </member>
         <member name="T:Xamarin.Forms.Maps.Map">
@@ -129,7 +137,7 @@ var cp = new ContentPage {
             <remarks>To be added.</remarks>
         </member>
         <member name="C:Xamarin.Forms.Maps.Map(Xamarin.Forms.Maps.MapSpan)">
-            <param name="region">To be added.</param>
+            <param name="region">The region to show.</param>
             <summary>Creates a new <see cref="T:Xamarin.Forms.Maps.Map" /> object with that shows the region that is specified by <paramref name="region" />.</summary>
             <remarks>To be added.</remarks>
         </member>
@@ -168,6 +176,11 @@ var cp = new ContentPage {
             <summary>Identifies the <see cref="P:Xamarin.Forms.Maps.Map.IsShowingUser" /> bindable property.</summary>
             <remarks>To be added.</remarks>
         </member>
+        <member name="P:Xamarin.Forms.Maps.Map.LastMoveToRegion">
+            <summary>For internal use by the Xamarin.Forms platform.</summary>
+            <value>To be added.</value>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="P:Xamarin.Forms.Maps.Map.MapType">
             <summary>The <see cref="T:Xamarin.Forms.Maps.MapType" /> display style of this <see cref="T:Xamarin.Forms.Maps.Map" />.</summary>
             <value>To be added.</value>
@@ -187,6 +200,11 @@ var cp = new ContentPage {
             <value>To be added.</value>
             <remarks>To be added.</remarks>
         </member>
+        <member name="M:Xamarin.Forms.Maps.Map.SetVisibleRegion(Xamarin.Forms.Maps.MapSpan)">
+            <param name="value">To be added.</param>
+            <summary>For internal use by the Xamarin.Forms platform.</summary>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="M:Xamarin.Forms.Maps.Map.System#Collections#IEnumerable#GetEnumerator">
             <summary>An <see cref="T:System.Collections.IEnumerator" /> of the <see cref="T:Xamarin.Forms.Maps.Pin" />s on this <see cref="T:Xamarin.Forms.Maps.Map" />.</summary>
             <returns>To be added.</returns>
@@ -202,9 +220,9 @@ var cp = new ContentPage {
             <remarks>To be added.</remarks>
         </member>
         <member name="C:Xamarin.Forms.Maps.MapSpan(Xamarin.Forms.Maps.Position,System.Double,System.Double)">
-            <param name="center">To be added.</param>
-            <param name="latitudeDegrees">To be added.</param>
-            <param name="longitudeDegrees">To be added.</param>
+            <param name="center">The center of the new span.</param>
+            <param name="latitudeDegrees">The latitude of the span.</param>
+            <param name="longitudeDegrees">The longitude of the span.</param>
             <summary>Returns a <see cref="T:Xamarin.Forms.Maps.MapSpan" /> that is centered on <paramref name="center" /> and extends to <paramref name="latitudeDegress" /> and <paramref name="longitudeDegress" />.</summary>
             <remarks>To be added.</remarks>
         </member>
@@ -221,16 +239,16 @@ var cp = new ContentPage {
             <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.Maps.MapSpan.Equals(System.Object)">
-            <param name="obj">To be added.</param>
+            <param name="obj">The object with which to compare.</param>
             <summary>Whether <paramref name="obj" /> is a <see cref="T:Xamarin.Forms.MapsSpan" /> with identical position and radius values as this <see cref="T:Xamarin.Forms.Maps.MapSpan" />.</summary>
             <returns>
                 <see langword="true" /> if <paramref name="obj" /> is a <see cref="T:Xamarin.Forms.MapsSpan" /> with identical position and radius values as this <see cref="T:Xamarin.Forms.Maps.MapSpan" />.</returns>
             <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.Maps.MapSpan.FromCenterAndRadius(Xamarin.Forms.Maps.Position,Xamarin.Forms.Maps.Distance)">
-            <param name="center">To be added.</param>
-            <param name="radius">To be added.</param>
-            <summary>Returns a <see cref="Xamarin.Forms.Maps.MapSpan" /> that displays the area that is defined by <paramref name="center" /> and <paramref name="radius" />.</summary>
+            <param name="center">The center of the span.</param>
+            <param name="radius">The radius to include in the span.</param>
+            <summary>Returns a <see cref="T:Xamarin.Forms.Maps.MapSpan" /> that displays the area that is defined by <paramref name="center" /> and <paramref name="radius" />.</summary>
             <returns>To be added.</returns>
             <remarks>To be added.</remarks>
         </member>
@@ -335,7 +353,7 @@ public static Page GetMapPage ()
             <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.Maps.Pin.Equals(System.Object)">
-            <param name="obj">To be added.</param>
+            <param name="obj">The object to compare with.</param>
             <summary>Whether <paramref name="obj" /> with equivalent <see cref="P:Xamarin.Forms.Maps.Pin.Type" />, <see cref="P:Xamarin.Forms.Maps.Pin.Position" />, <see cref="P:Xamarin.Forms.Maps.Pin.Label" /> and <see cref="P:Xamarin.Forms.Maps.Pin.Address" />.</summary>
             <returns>
                 <see langword="true" /> if <paramref name="obj" /> is a <see cref="T:Xamarin.Forms.Maps.Pin" /> with equivalent <see cref="P:Xamarin.Forms.Maps.Pin.Type" />, <see cref="P:Xamarin.Forms.Maps.Pin.Position" />, <see cref="P:Xamarin.Forms.Maps.Pin.Label" /> and <see cref="P:Xamarin.Forms.Maps.Pin.Address" /> values.</returns>
@@ -348,9 +366,18 @@ public static Page GetMapPage ()
                 <para>A <see cref="T:Xamarin.Forms.Maps.Pin" /> hash-value is based on its <see cref="P:Xamarin.Forms.Maps.Pin.Type" />, <see cref="P:Xamarin.Forms.Maps.Pin.Position" />, <see cref="P:Xamarin.Forms.Maps.Pin.Label" /> and <see cref="P:Xamarin.Forms.Maps.Pin.Address" /> properties.</para>
             </remarks>
         </member>
+        <member name="P:Xamarin.Forms.Maps.Pin.Id">
+            <summary>For internal use by the Xamarin.Forms platform.</summary>
+            <value>To be added.</value>
+            <remarks>To be added.</remarks>
+        </member>
         <member name="P:Xamarin.Forms.Maps.Pin.Label">
             <summary>A user-readable <langword see="string" /> associated with the <see cref="T:Xamarin.Forms.Maps.Pin" />.</summary>
             <value>To be added.</value>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="F:Xamarin.Forms.Maps.Pin.LabelProperty">
+            <summary>Backing store for the <see cref="P:Xamarin.Forms.Maps.Pin.Label" /> property.</summary>
             <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.Maps.Pin.op_Equality(Xamarin.Forms.Maps.Pin,Xamarin.Forms.Maps.Pin)">
@@ -376,6 +403,11 @@ public static Page GetMapPage ()
         </member>
         <member name="F:Xamarin.Forms.Maps.Pin.PositionProperty">
             <summary>Identifies the <see cref="P:Xamarin.Forms.Maps.Pin.Position" /> bindable property.</summary>
+            <remarks>To be added.</remarks>
+        </member>
+        <member name="M:Xamarin.Forms.Maps.Pin.SendTap">
+            <summary>For internal use by the Xamarin.Forms platform.</summary>
+            <returns>To be added.</returns>
             <remarks>To be added.</remarks>
         </member>
         <member name="P:Xamarin.Forms.Maps.Pin.Type">
@@ -414,7 +446,7 @@ public static Page GetMapPage ()
             <remarks>To be added.</remarks>
         </member>
         <member name="M:Xamarin.Forms.Maps.Position.Equals(System.Object)">
-            <param name="obj">To be added.</param>
+            <param name="obj">The object to compare with.</param>
             <summary>Returns a Boolean value that indicates whether or not <paramref name="obj" /> is another <see cref="T:Xamarin.Forms.Position" /> structure and represents exactly the same latitude and longitude as <see langword="this" /> one.</summary>
             <returns>
                 <see langword="true" /> if <paramref name="obj" /> is another <see cref="T:Xamarin.Forms.Position" /> structure and represents exactly the same latitude and longitude as <see langword="this" /> one. Otherwise, <see langword="false" />.</returns>

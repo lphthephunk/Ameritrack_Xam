@@ -1,17 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ameritrack_Xam.Pages.Views.MainMasterDetail"
                   xmlns:views="clr-namespace:Ameritrack_Xam.Pages.Views"
                   xmlns:main="clr-namespace:Ameritrack_Xam">
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu">
-            <Grid>
+        <ContentPage Title="Menu"
+                 BackgroundColor="#e8e8e8">
+
+          <StackLayout Orientation="Vertical">
+            
+            <!-- 
+                 This StackLayout you can use for other
+                 data that you want to have in your menu drawer
+            -->
+            <StackLayout BackgroundColor="#e74c3c"
+                         HeightRequest="75">
+
+                <Label Text="Hi, Jerry."
+                     FontSize="20"
+                     VerticalOptions="CenterAndExpand"
+                     TextColor="White"
+                     HorizontalOptions="Center"/>
+            </StackLayout>
+
+
+          </StackLayout>
+
+        </ContentPage>
+            
+            <!--<Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0"
                        Text="Menu"
@@ -30,8 +53,7 @@
                         Clicked="LogoutBtn_Clicked"
                         Grid.Row="3"
                         Text="Logout"/>
-            </Grid>
-        </ContentPage>
+            </Grid>-->
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>
