@@ -15,6 +15,7 @@ using Ameritrack_Xam.PCL.Interfaces;
 using SQLite.Net;
 using System.IO;
 using SQLite.Net.Async;
+using Mono.Data.Sqlite;
 
 [assembly: Dependency(typeof(SqliteService))]
 
@@ -36,7 +37,7 @@ namespace Ameritrack_Xam.Droid.DatabaseService
                 File.Create(path);
             }
 
-            var platform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();
+            var platform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroidN();
 
             var param = new SQLiteConnectionString(path, false);
 

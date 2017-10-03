@@ -462,3 +462,12 @@ C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLite-net.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLite.Net.Platform.XamarinAndroidN.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLite-net.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam.Android\bin\Debug\SQLite-net.xml

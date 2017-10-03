@@ -94,3 +94,9 @@ C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Deb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.dll
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.pdb
 C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\obj\Debug\Ameritrack_Xam.csprojResolveAssemblyReference.cache
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\SQLite-net.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\SQLitePCLRaw.core.dll
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\SQLite-net.pdb
+C:\Users\Cody_\Source\Repos\Ameritrack_Xam\Ameritrack_Xam\Ameritrack_Xam\bin\Debug\SQLite-net.xml
