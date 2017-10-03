@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
@@ -18,9 +18,43 @@
       HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
     <!-- Content -->
-    <StackLayout HeightRequest="500"
+    <!--<StackLayout HeightRequest="500"
                  WidthRequest="500"
                  Padding="20,20,20,20">
         <Label x:Name="TestLabel" Text="Working Popup" FontSize="20" TextColor="Black" HorizontalOptions="Center"/>
+    </StackLayout>-->
+    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20, 20, 20, 20">
+        <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
+          <Label Text="First Popup Page" TextColor="Gray" FontSize="20" HorizontalOptions="Center"></Label>
+
+            <Entry Placeholder="Name of track..."
+                   x:Name="TrackName">
+            </Entry>
+                
+            <Picker Title="Select a Common Defect"
+                    x:Name="CommonDefectsPicker"
+                    SelectedIndexChanged="Handle_SelectedIndexChanged"
+                    Unfocused="Handle_Unfocused">
+            </Picker>
+
+            <Entry Placeholder="Enter notes about this defect..."
+                   HeightRequest="150">
+            </Entry>
+            
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button Text="Camera"
+                        HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Delete"
+                        HorizontalOptions="FillAndExpand"></Button>
+                
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Switch HorizontalOptions="CenterAndExpand"></Switch>
+                    <Label Text="Urgent"
+                           HorizontalOptions="CenterAndExpand"></Label>                
+                </StackLayout>
+            </StackLayout>
+          
+        </StackLayout>
     </StackLayout>
 </pages:PopupPage>
