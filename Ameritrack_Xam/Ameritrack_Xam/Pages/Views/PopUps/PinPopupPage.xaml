@@ -36,9 +36,10 @@
                     Unfocused="Handle_Unfocused">
             </Picker>
 
-            <Entry Placeholder="Enter notes about this defect..."
-                   HeightRequest="150">
-            </Entry>
+            <StackLayout>
+                <Label Text="Notes" Margin="5"></Label>
+                <Editor HeightRequest="150" BackgroundColor="#F6F6F6"></Editor>
+            </StackLayout>
             
             <StackLayout Orientation="Horizontal"
                          HorizontalOptions="FillAndExpand">
