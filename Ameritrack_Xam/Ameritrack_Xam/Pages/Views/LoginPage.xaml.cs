@@ -35,15 +35,16 @@ namespace Ameritrack_Xam.Pages.Views
 
 		private async void OnLoginButtonClicked(object sender, System.EventArgs e)
 		{
-			if (await ViewModel.IsValidID(employeeID.Text))
-			{
-				await Navigation.PushModalAsync(new MainMasterDetail(), false);
-				incorrectIDWarning.IsVisible = false;
-			}
-			else
-			{
-				incorrectIDWarning.IsVisible = true;
-			}
+            //if (await ViewModel.IsValidID(employeeID.Text))
+            //{
+            //	await Navigation.PushModalAsync(new MainMasterDetail(), false);
+            //	incorrectIDWarning.IsVisible = false;
+            //}
+            //else
+            //{
+            //	incorrectIDWarning.IsVisible = true;
+            //}
+            await Navigation.PushModalAsync(new MainMasterDetail(), false);
 		}
 
 		public string entryText()

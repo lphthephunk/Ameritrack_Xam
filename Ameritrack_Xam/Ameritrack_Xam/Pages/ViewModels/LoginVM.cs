@@ -19,7 +19,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
 
 		public LoginVM()
 		{
-			storeService = DependencyService.Get<ICredentialsService>();
+			//storeService = DependencyService.Get<ICredentialsService>();
 		}
 
 		public async void InsertMockEmployee()
