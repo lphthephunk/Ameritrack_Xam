@@ -43,10 +43,9 @@
     <Compile Include="Pages\Views\MainMapPage.xaml.cs">
       <DependentUpon>MainMapPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Views\MainMasterDetail.xaml.cs">
-      <DependentUpon>MainMasterDetail.xaml</DependentUpon>
+    <Compile Include="Pages\Views\MainPage.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Views\MapExtension.cs" />
     <Compile Include="Pages\Views\PopUps\PinPopupPage.xaml.cs">
       <DependentUpon>PinPopupPage.xaml</DependentUpon>
     </Compile>
@@ -64,6 +63,13 @@
     <Compile Include="PCL\Models\Report.cs" />
     <Compile Include="PCL\Services\ICredentialsService.cs" />
     <Compile Include="PCL\Services\StoreCredentials.cs" />
+    <Compile Include="Pages\Views\NavigationDrawerPage.xaml.cs">
+      <DependentUpon>NavigationDrawerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Views\MapExtension.cs" />
+    <Compile Include="Pages\Views\MyInspectionsPage.xaml.cs">
+      <DependentUpon>MyInspectionsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -71,6 +77,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Views\NavigationDrawerPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Views\MyInspectionsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -148,7 +160,7 @@
     <Folder Include="PCL\Utilities\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Pages\Views\MainMasterDetail.xaml">
+    <EmbeddedResource Include="Pages\Views\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

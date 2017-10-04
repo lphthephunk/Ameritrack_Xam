@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ameritrack_Xam.Pages.Views.MainMasterDetail"
+             x:Class="Ameritrack_Xam.Pages.Views.MainPage"
                   xmlns:views="clr-namespace:Ameritrack_Xam.Pages.Views"
                   xmlns:main="clr-namespace:Ameritrack_Xam">
     <MasterDetailPage.Master>

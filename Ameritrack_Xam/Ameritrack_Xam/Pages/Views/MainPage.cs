@@ -10,12 +10,15 @@ using Xamarin.Forms.Xaml;
 namespace Ameritrack_Xam.Pages.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainMasterDetail : MasterDetailPage
+    public partial class MainPage : MasterDetailPage
     {
-        public MainMasterDetail()
+        public MainPage()
         {
             InitializeComponent();
-            MasterBehavior = MasterBehavior.Popover;
+            // MasterBehavior = MasterBehavior.Popover;
+            this.Master = new NavigationDrawerPage();
+            this.Detail = new NavigationPage(new MainMapPage());
+            App.MasterDetail = this;
         }
 
         private void PreviousFaultsBtn_Clicked(object sender, EventArgs e)

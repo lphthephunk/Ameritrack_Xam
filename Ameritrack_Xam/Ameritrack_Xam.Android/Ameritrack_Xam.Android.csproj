@@ -227,6 +227,7 @@
     <AndroidResource Include="Resources\layout\MapInfo.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\gradient.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

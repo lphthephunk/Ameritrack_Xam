@@ -18,6 +18,7 @@ namespace Ameritrack_Xam.Pages.Views
 			ViewModel = new LoginVM();
 
 			InsertTestEmp();
+            Title = "Login Page";
 		}
 
 		private void InsertTestEmp()
@@ -44,7 +45,7 @@ namespace Ameritrack_Xam.Pages.Views
             //{
             //	incorrectIDWarning.IsVisible = true;
             //}
-            await Navigation.PushModalAsync(new MainMasterDetail(), false);
+            await Navigation.PushModalAsync(new MainPage(), false);
 		}
 
 		public string entryText()

@@ -9,6 +9,8 @@ namespace Ameritrack_Xam
 {
     public partial class App : Application
     {
+        public static MasterDetailPage MasterDetail { get; set; }
+
         public App()
         {
             InitializeComponent();

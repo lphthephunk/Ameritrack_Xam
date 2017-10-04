@@ -120,6 +120,7 @@
     <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\login_bg.png" />
+    <BundleResource Include="Resources\gradient.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Media, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
