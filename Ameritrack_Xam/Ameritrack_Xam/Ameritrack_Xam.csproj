@@ -51,8 +51,10 @@
     </Compile>
     <Compile Include="Pages\Views\PopupViewModels\PinPopupVM.cs" />
     <Compile Include="PCL\DAL\DbConnect.cs" />
+    <Compile Include="PCL\Helpers\CommonDefectsCache.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
     <Compile Include="PCL\Interfaces\ISQLite.cs" />
+    <Compile Include="PCL\Models\CommonDefects.cs" />
     <Compile Include="PCL\Models\Employee.cs" />
     <Compile Include="PCL\Models\Fault.cs" />
     <Compile Include="PCL\Models\CustomPin.cs" />
@@ -156,7 +158,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PCL\Helpers\" />
     <Folder Include="PCL\Utilities\" />
   </ItemGroup>
   <ItemGroup>

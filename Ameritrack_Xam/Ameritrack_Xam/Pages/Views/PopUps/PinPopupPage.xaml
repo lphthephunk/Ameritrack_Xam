@@ -17,14 +17,10 @@
       EasingOut="SinIn"
       HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
+  
     <!-- Content -->
-    <!--<StackLayout HeightRequest="500"
-                 WidthRequest="500"
-                 Padding="20,20,20,20">
-        <Label x:Name="TestLabel" Text="Working Popup" FontSize="20" TextColor="Black" HorizontalOptions="Center"/>
-    </StackLayout>-->
-    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20, 20, 20, 20">
-        <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
+
+        <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
           <Label Text="First Popup Page" TextColor="Gray" FontSize="20" HorizontalOptions="Center"></Label>
             <Entry Placeholder="Name of track..."
                    x:Name="TrackName">
@@ -32,8 +28,8 @@
                 
             <Picker Title="Select a Common Defect"
                     x:Name="CommonDefectsPicker"
-                    SelectedIndexChanged="Handle_SelectedIndexChanged"
-                    Unfocused="Handle_Unfocused">
+                    SelectedIndexChanged="Handle_SelectedIndexChangedDefectPicker"
+                    Unfocused="Handle_UnfocusedDefectPicker">
             </Picker>
 
             <StackLayout>
@@ -55,5 +51,4 @@
                 </StackLayout>
             </StackLayout>
         </StackLayout>
-    </StackLayout>
 </pages:PopupPage>

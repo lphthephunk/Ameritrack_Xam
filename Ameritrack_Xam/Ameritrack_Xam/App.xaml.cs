@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Xamarin.Forms;
 using Ameritrack_Xam.Pages.Views;
+using Ameritrack_Xam.PCL.Helpers;
 
 namespace Ameritrack_Xam
 {
@@ -21,6 +22,7 @@ namespace Ameritrack_Xam
         protected override void OnStart()
         {
             // Handle when your app starts
+            //CommonDefectsCache.GetDefectsFromServer();
         }
 
         protected override void OnSleep()

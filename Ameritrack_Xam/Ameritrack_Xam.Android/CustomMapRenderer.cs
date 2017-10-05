@@ -206,31 +206,4 @@ namespace Ameritrack_Xam.Droid
             UpdatePins();
         }
     }
-
-    ///// <summary>
-    ///// Adapter class used to inflate the custom pin popup window
-    ///// </summary>
-    //public class CustomMarkerPopupAdapter : Java.Lang.Object, GoogleMap.IInfoWindowAdapter
-    //{
-    //    private LayoutInflater _layoutInflater = null;
-
-    //    public CustomMarkerPopupAdapter(LayoutInflater inflater)
-    //    {
-    //        _layoutInflater = inflater;
-    //    }
-
-    //    public Android.Views.View GetInfoWindow(Marker marker)
-    //    {
-    //        return null;
-    //    }
-
-    //    public Android.Views.View GetInfoContents(Marker marker)
-    //    {
-    //        var customPopup = _layoutInflater.Inflate(Resource.Layout.MapInfo, null);
-
-    //        //marker.Title = customPopup.FindViewById<TextView>(Resource.Id.PinDeletionText).Text;
-            
-    //        return customPopup;
-    //    }
-    //}
 }

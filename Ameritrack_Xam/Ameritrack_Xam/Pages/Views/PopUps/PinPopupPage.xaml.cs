@@ -21,38 +21,37 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 		Pin CurrentPinContext;
 
 
-		public PinPopupPage(Pin TappedPin)
-		{
-			InitializeComponent();
+        public PinPopupPage(Pin TappedPin)
+        {
+            InitializeComponent();
 
-			ViewModel = new PinPopupVM();
+            ViewModel = new PinPopupVM();
 
-			BindingContext = ViewModel;
+            BindingContext = ViewModel; // BindingContext allows us to bind to objects from our ViewModel and display them on the UI
+                                        // The real benefit of this is real-time updating and displaying data without having to do any extra code
 
-			CurrentPinContext = TappedPin;
+            CurrentPinContext = TappedPin;
 
+            CloseWhenBackgroundIsClicked = true;
             // Need a source for the defects 
             // CommonDefectsPicker.ItemsSource = Defects;
 
-			//TestLabel.Text = "Lat: " + TappedPin.Position.Latitude + " Lng: " + TappedPin.Position.Longitude;
-		}
+            // Let's set the defects as a bindable list in xaml. It's a bit cleaner that way
 
-		void Handle_SelectedIndexChanged(object sender, System.EventArgs e)
+            //TestLabel.Text = "Lat: " + TappedPin.Position.Latitude + " Lng: " + TappedPin.Position.Longitude;
+        }
+
+        void Handle_SelectedIndexChangedDefectPicker(object sender, System.EventArgs e)
 		{
 			// Called when the user selects a common defect different from the one currently selected
 			var picker = (Picker)sender;
 			Debug.WriteLine("The item is " + picker.Items[picker.SelectedIndex]);
 		}
 
-		void Handle_Unfocused(object sender, Xamarin.Forms.FocusEventArgs e)
+	    void Handle_UnfocusedDefectPicker(object sender, Xamarin.Forms.FocusEventArgs e)
 		{
-			// This is called if the user opens the picker, but does not pick anything and rather taps outside of it to dismiss it.
-			Debug.WriteLine("In unfocused");
+            // This is called if the user opens the picker, but does not pick anything and rather taps outside of it to dismiss it.
+            Debug.WriteLine("In unfocused");
 		}
-
-		private void OnClose(object sender, EventArgs e)
-		{
-			PopupNavigation.PopAsync();
-		}
-	}
+    }
 }

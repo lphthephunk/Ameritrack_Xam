@@ -25,6 +25,7 @@ namespace Ameritrack_Xam.PCL.DAL
             asyncConnection.CreateTableAsync<Employee>();
             asyncConnection.CreateTableAsync<Fault>();
             asyncConnection.CreateTableAsync<CustomPin>();
+            asyncConnection.CreateTableAsync<CommonDefects>();
         }
 
         // this region contains all necessary queries that we would need to make to the database (ie: insert, update, delete, read)
