@@ -72,6 +72,9 @@
     <Compile Include="Pages\Views\MyInspectionsPage.xaml.cs">
       <DependentUpon>MyInspectionsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\PopUps\InspectionHeaderPopupPage.xaml.cs">
+      <DependentUpon>InspectionHeaderPopupPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -85,6 +88,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\Views\MyInspectionsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\Views\PopUps\InspectionHeaderPopupPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

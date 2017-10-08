@@ -5,55 +5,7 @@
                   xmlns:views="clr-namespace:Ameritrack_Xam.Pages.Views"
                   xmlns:main="clr-namespace:Ameritrack_Xam">
     <MasterDetailPage.Master>
-        <ContentPage Title="Menu"
-                 BackgroundColor="#e8e8e8">
-
-          <StackLayout Orientation="Vertical">
-            
-            <!-- 
-                 This StackLayout you can use for other
-                 data that you want to have in your menu drawer
-            -->
-            <StackLayout BackgroundColor="#e74c3c"
-                         HeightRequest="75">
-
-                <Label Text="Hi, Jerry."
-                     FontSize="20"
-                     VerticalOptions="CenterAndExpand"
-                     TextColor="White"
-                     HorizontalOptions="Center"/>
-            </StackLayout>
-
-
-          </StackLayout>
-
-        </ContentPage>
-            
-            <!--<Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="100"/>
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0"
-                       Text="Menu"
-                       HorizontalTextAlignment="Center"
-                       TextColor="Black"
-                       FontSize="Medium"/>
-                <Button x:Name="PreviousFaultsBtn"
-                        Grid.Row="1"
-                        Text="Previous Faults"
-                        Clicked="PreviousFaultsBtn_Clicked"/>
-                <Button x:Name="ProfileBtn"
-                        Grid.Row="2"
-                        Text="Profile"
-                        Clicked="ProfileBtn_Clicked"/>
-                <Button x:Name="LogoutBtn"
-                        Clicked="LogoutBtn_Clicked"
-                        Grid.Row="3"
-                        Text="Logout"/>
-            </Grid>-->
+        
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>

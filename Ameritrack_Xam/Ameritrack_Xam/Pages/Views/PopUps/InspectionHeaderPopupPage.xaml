@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="Ameritrack_Xam.Pages.Views.PopUps.InspectionHeaderPopupPage">
+	<!--Animations use example-->
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+  
+    <!-- Content -->
+    <StackLayout BackgroundColor="White" WidthRequest="500" Padding="20, 20, 20, 20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <StackLayout>
+            <Label Text="Where are you inspecting?" 
+                   HorizontalTextAlignment="Center" 
+                   FontSize="18" />
+            <!-- Separator -->
+                <BoxView Grid.Row="2"
+                     Color="#5b5d68"
+                     HeightRequest="0.5" />
+        </StackLayout>
+
+        <Entry Placeholder="Customer name..."
+           x:Name="CustomerName">
+        </Entry>
+
+        <Entry Placeholder="Customer address..."
+               x:Name="CustomerAddress">
+        </Entry>
+
+        <Entry Placeholder="Customer contact name..."
+               x:Name="CustomerContactName">
+        </Entry>
+
+        <Entry Placeholder="Inspector name..."
+               x:Name="InspectorName">
+        </Entry>
+
+        <Button x:Name="StartInspectionBtn"
+                Text="Start"
+                TextColor="Black"
+                BackgroundColor="#ccdeea"/>
+    </StackLayout>
+</pages:PopupPage>

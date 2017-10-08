@@ -99,5 +99,10 @@ namespace Ameritrack_Xam
                 await locator.StartListeningAsync(TimeSpan.FromSeconds(5.0), 0);
             }
         }
+
+        private async void Handle_Start_Inspection_Clicked(object sender, System.EventArgs e)
+        {
+            await Navigation.PushPopupAsync(new InspectionHeaderPopupPage(), true);
+        }
     }
 }

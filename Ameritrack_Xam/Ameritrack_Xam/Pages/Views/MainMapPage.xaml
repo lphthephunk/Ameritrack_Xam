@@ -5,11 +5,35 @@
              xmlns:map="clr-namespace:Ameritrack_Xam.Pages.Views"
              x:Class="Ameritrack_Xam.MainMapPage"
              xmlns:utilites="clr-namespace:Ameritrack_Xam.PCL.Utilities">
-    <ContentPage.Content>
-        <map:MapExtension x:Name="MainMap"
-                              HasZoomEnabled="True"
-                              IsShowingUser="True"
-                              MapType="Street">
+
+    
+    <Grid BackgroundColor="White"
+          RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="75"/>
+        </Grid.RowDefinitions>
+
+        <!-- Row 0 -->
+        <map:MapExtension Grid.Row="0"
+                          x:Name="MainMap"
+                          HasZoomEnabled="True"
+                          IsShowingUser="True"
+                          MapType="Street">
         </map:MapExtension>
-    </ContentPage.Content>
+
+        <!-- Row 1 -->
+        <BoxView Grid.Row="1" Color="#005b96" />
+        <Label Grid.Row="1" 
+               Text="START INSPECTION"
+               TextColor="White"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               FontSize="18"
+               Margin="20"/>
+        <Button Grid.Row="1" 
+                x:Name="MyInspectionsBtn"
+                BackgroundColor="Transparent"
+                Clicked="Handle_Start_Inspection_Clicked"/>
+    </Grid>
 </ContentPage>
