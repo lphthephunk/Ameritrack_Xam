@@ -49,9 +49,10 @@ namespace Ameritrack_Xam.Pages.ViewModels
 
         public async Task<bool> IsValidID(string _userEntryPassword)
         {
+            // TODO: Fix how this portion of the code handles null values
             var emp = await DatabaseService.GetEmployee(_userEntryPassword);
 
-            if (emp.EmployeeCredentials != null)
+            if (emp != null)
             {
                 //doCredentialsExist = storeService.DoCredentialsExist();
 

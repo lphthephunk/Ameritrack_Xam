@@ -50,7 +50,6 @@
       <DependentUpon>PinPopupPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Views\PopupViewModels\PinPopupVM.cs" />
-    <Compile Include="PCL\DAL\DbConnect.cs" />
     <Compile Include="PCL\Helpers\AsyncSemaphore.cs" />
     <Compile Include="PCL\Helpers\CommonDefectsCache.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
