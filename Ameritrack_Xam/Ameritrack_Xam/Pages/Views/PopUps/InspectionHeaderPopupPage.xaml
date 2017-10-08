@@ -49,6 +49,7 @@
         <Button x:Name="StartInspectionBtn"
                 Text="Start"
                 TextColor="Black"
-                BackgroundColor="#ccdeea"/>
+                BackgroundColor="#ccdeea"
+                Clicked="Handle_Inspection_Start"/>
     </StackLayout>
 </pages:PopupPage>

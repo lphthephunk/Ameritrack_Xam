@@ -20,5 +20,10 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         {
             InitializeComponent();
         }
+
+        void Handle_Inspection_Start(object sender, System.EventArgs e)
+        {
+            // Handle the inspection starting
+        }
     }
 }
