@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "Microsoft.Bcl.Build": "1.0.21",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.4.0",
     "Rg.Plugins.Popup": "1.0.4",
     "sqlite-net-pcl": "1.4.118",

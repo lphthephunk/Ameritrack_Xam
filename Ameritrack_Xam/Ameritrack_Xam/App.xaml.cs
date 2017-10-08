@@ -5,6 +5,8 @@ using System.Text;
 using Xamarin.Forms;
 using Ameritrack_Xam.Pages.Views;
 using Ameritrack_Xam.PCL.Helpers;
+using Ameritrack_Xam.PCL.Interfaces;
+using System.Threading.Tasks;
 
 namespace Ameritrack_Xam
 {

@@ -9,6 +9,10 @@ namespace Ameritrack_Xam.PCL.Interfaces
 {
 	interface IDatabaseServices
 	{
+        Task InitDatabase();
+
+        Task CreateAllTables();
+
 		Task<Employee> GetEmployee(string empId);
 
 		List<Employee> GetAllEmployees();

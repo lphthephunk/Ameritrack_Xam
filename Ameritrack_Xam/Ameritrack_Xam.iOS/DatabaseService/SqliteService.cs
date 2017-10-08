@@ -8,8 +8,8 @@ using UIKit;
 using Xamarin.Forms;
 using Ameritrack_Xam.iOS.DatabaseService;
 using Ameritrack_Xam.PCL.Interfaces;
-using SQLite.Net;
 using System.IO;
+using SQLite.Net;
 using SQLite.Net.Async;
 
 [assembly: Dependency(typeof(SqliteService))]
@@ -20,7 +20,7 @@ namespace Ameritrack_Xam.iOS.DatabaseService
     {
         public SqliteService() { }
 
-        public SQLiteAsyncConnection GetConnection()
+        public SQLiteAsyncConnection GetConnectionAsync()
         {
             var dbFileName = "RailServeDb.db3";
             string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);

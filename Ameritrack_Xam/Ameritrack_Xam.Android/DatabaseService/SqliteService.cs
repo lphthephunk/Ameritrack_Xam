@@ -9,15 +9,14 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Xamarin.Forms;
-using Ameritrack_Xam.Droid.DatabaseService;
 using Ameritrack_Xam.PCL.Interfaces;
-using SQLite.Net;
-using System.IO;
 using SQLite.Net.Async;
-using Mono.Data.Sqlite;
+using System.IO;
+using SQLite.Net;
+using System.Runtime.CompilerServices;
+using Ameritrack_Xam.Droid.DatabaseService;
 
-[assembly: Dependency(typeof(SqliteService))]
+[assembly: Xamarin.Forms.Dependency(typeof(Ameritrack_Xam.Droid.DatabaseService.SqliteService))]
 
 namespace Ameritrack_Xam.Droid.DatabaseService
 {
@@ -25,20 +24,20 @@ namespace Ameritrack_Xam.Droid.DatabaseService
     {
         public SqliteService() { }
 
-        public SQLiteAsyncConnection GetConnection()
+        public SQLiteAsyncConnection GetConnectionAsync()
         {
             var dbFileName = "RailServeDb.db3";
-
             string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
 
+            //string libraryPath = Path.Combine(documentPath, "..", "Library");
             var path = Path.Combine(documentPath, dbFileName);
+
             if (!File.Exists(path))
             {
                 File.Create(path);
             }
 
             var platform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroidN();
-
             var param = new SQLiteConnectionString(path, false);
 
             // return db connection

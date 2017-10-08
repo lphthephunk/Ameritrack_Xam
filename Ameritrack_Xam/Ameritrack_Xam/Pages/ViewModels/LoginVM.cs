@@ -8,21 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Ameritrack_Xam.PCL.Interfaces;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
 	public class LoginVM
 	{
-		ICredentialsService storeService;
-		private DbConnect DatabaseService = new DbConnect();
+        //ICredentialsService storeService;
+        IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
 		bool doCredentialsExist;
 
 		public LoginVM()
 		{
-			//storeService = DependencyService.Get<ICredentialsService>();
+            InitDatabase();
 		}
 
-		public async void InsertMockEmployee()
+        public async Task InitDatabase()
+        {
+            await DatabaseService.InitDatabase();
+        }
+
+		public async Task InsertMockEmployee()
 		{
 			Employee emp = new Employee
 			{
@@ -31,10 +37,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
 				EmployeeCredentials = "1234",
 			};
 
-			if (DatabaseService.GetEmployee("1234") != null)
-			{
-				await DatabaseService.InsertEmployee(emp);
-			}
+            await DatabaseService.InsertEmployee(emp);
 		}
 
 		public async Task<Employee> PullEmployeeInfo()
@@ -44,26 +47,26 @@ namespace Ameritrack_Xam.Pages.ViewModels
 			return emp;
 		}
 
-		public async Task<bool> IsValidID(string _userEntryPassword)
-		{
-			var emp = await DatabaseService.GetEmployee(_userEntryPassword);
+        public async Task<bool> IsValidID(string _userEntryPassword)
+        {
+            var emp = await DatabaseService.GetEmployee(_userEntryPassword);
 
-			if (emp.EmployeeCredentials != null)
-			{
-				doCredentialsExist = storeService.DoCredentialsExist();
+            if (emp.EmployeeCredentials != null)
+            {
+                //doCredentialsExist = storeService.DoCredentialsExist();
 
-				if (!doCredentialsExist)
+                //if (!doCredentialsExist)
 
-				{
-					storeService.SaveCredentials(emp.EmployeeCredentials);
-				}
+                //{
+                //    storeService.SaveCredentials(emp.EmployeeCredentials);
+                //}
 
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-	}
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
 }

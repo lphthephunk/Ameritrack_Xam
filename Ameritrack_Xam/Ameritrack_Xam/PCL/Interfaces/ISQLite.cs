@@ -10,6 +10,6 @@ namespace Ameritrack_Xam.PCL.Interfaces
 {
     public interface ISQLite
     {
-        SQLiteAsyncConnection GetConnection();
+        SQLiteAsyncConnection GetConnectionAsync();
     }
 }
