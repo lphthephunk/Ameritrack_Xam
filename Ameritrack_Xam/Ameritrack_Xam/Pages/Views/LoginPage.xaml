@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Ameritrack_Xam.Pages.Views.LoginPage"
-             BackgroundImage="login_bg.png" >
+             BackgroundImage="login_bg.png" 
+             Appearing="ContentPage_Appearing">
     
 	<StackLayout>
         <Label Text="Railserve Login"
@@ -27,6 +28,9 @@
                x:Name="incorrectIDWarning"
                IsVisible="false"
                TextColor="White" />
+
+        <Switch x:Name="StayLoggedInSwitch"
+                Toggled="StayLoggedInSwitch_Toggled"/>
 
         <Button Text="Login"
                 VerticalOptions="CenterAndExpand"

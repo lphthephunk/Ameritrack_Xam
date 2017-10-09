@@ -26,18 +26,15 @@ namespace Ameritrack_Xam.Pages.Views
 			await ViewModel.InsertMockEmployee();
 		}
 
-		//protected override async void OnAppearing()
-		//{
-		//	base.OnAppearing();
-		//	var testEmpInfo = await ViewModel.PullEmployeeInfo();
-
-		//	employeeID.Text = testEmpInfo.EmployeeFirstName + " " + testEmpInfo.EmployeeLastName;
-		//}
-
 		private async void OnLoginButtonClicked(object sender, System.EventArgs e)
 		{
             if (await ViewModel.IsValidID(employeeID.Text))
             {
+                if (StayLoggedInSwitch.IsToggled)
+                {
+                    ViewModel.StoreCredentials(employeeID.Text);
+                }
+
                 await Navigation.PushModalAsync(new MainPage(), false);
                 incorrectIDWarning.IsVisible = false;
             }
@@ -45,12 +42,22 @@ namespace Ameritrack_Xam.Pages.Views
             {
                 incorrectIDWarning.IsVisible = true;
             }
-            await Navigation.PushModalAsync(new MainPage(), false);
 		}
 
-		public string entryText()
-		{
-			return employeeID.Text;
-		}
-	}
+        private void StayLoggedInSwitch_Toggled(object sender, ToggledEventArgs e)
+        {
+            if (!StayLoggedInSwitch.IsToggled)
+            {
+                ViewModel.RemoveCredentials();
+            }
+        }
+
+        private void ContentPage_Appearing(object sender, EventArgs e)
+        {
+            if (ViewModel.IsStored())
+            {
+                employeeID.Text = ViewModel.GetCredentials();
+            }
+        }
+    }
 }

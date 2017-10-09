@@ -1,18 +1,23 @@
-﻿using System;
+﻿using Ameritrack_Xam.PCL.Interfaces;
+using System;
 using System.Linq;
 using Xamarin.Auth;
+using Xamarin.Forms;
+
+[assembly: Dependency(typeof(Ameritrack_Xam.PCL.Services.StoreCredentials))]
+
 namespace Ameritrack_Xam.PCL.Services
 {
 	public class StoreCredentials : ICredentialsService
 	{
-		public string EmployeeId
-		{
-			get
-			{
-				var employeeInfo = AccountStore.Create().FindAccountsForService("StoreUserInfo").FirstOrDefault();
-				return (employeeInfo != null) ? employeeInfo.Username : null;
-			}
-		}
+		//public string EmployeeId
+		//{
+		//	get
+		//	{
+		//		var employeeInfo = AccountStore.Create().FindAccountsForService("StoreUserInfo").FirstOrDefault();
+		//		return (employeeInfo != null) ? employeeInfo.Username : null;
+		//	}
+		//}
 
 		public void SaveCredentials(string _employeeId)
 		{
@@ -20,7 +25,7 @@ namespace Ameritrack_Xam.PCL.Services
 			{
 				Account employeeInfoId = new Account
 				{
-					Username = EmployeeId
+					Username = _employeeId
 				};
 				// currently set up to where password is employee ID
 				employeeInfoId.Properties.Add("EmployeeID", _employeeId);
@@ -41,6 +46,11 @@ namespace Ameritrack_Xam.PCL.Services
 		{
 			return AccountStore.Create().FindAccountsForService("StoreUserInfo").Any() ? true : false;
 		}
+
+        public string GetCredentials()
+        {
+            return AccountStore.Create().FindAccountsForService("StoreUserInfo").FirstOrDefault().Username;
+        }
 	}
 }
 

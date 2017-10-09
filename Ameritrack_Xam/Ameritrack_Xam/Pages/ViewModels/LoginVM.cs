@@ -1,5 +1,4 @@
-﻿using Ameritrack_Xam.PCL.DAL;
-using Ameritrack_Xam.PCL.Models;
+﻿using Ameritrack_Xam.PCL.Models;
 using Ameritrack_Xam.PCL.Services;
 using Ameritrack_Xam.Pages.Views;
 using System;
@@ -14,9 +13,8 @@ namespace Ameritrack_Xam.Pages.ViewModels
 {
 	public class LoginVM
 	{
-        //ICredentialsService storeService;
+        ICredentialsService StoreService = DependencyService.Get<ICredentialsService>();
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
-		bool doCredentialsExist;
 
 		public LoginVM()
 		{
@@ -49,25 +47,47 @@ namespace Ameritrack_Xam.Pages.ViewModels
 
         public async Task<bool> IsValidID(string _userEntryPassword)
         {
-            // TODO: Fix how this portion of the code handles null values
             var emp = await DatabaseService.GetEmployee(_userEntryPassword);
 
             if (emp != null)
             {
-                //doCredentialsExist = storeService.DoCredentialsExist();
-
-                //if (!doCredentialsExist)
-
-                //{
-                //    storeService.SaveCredentials(emp.EmployeeCredentials);
-                //}
-
                 return true;
             }
             else
             {
                 return false;
             }
+        }
+
+        public void StoreCredentials(string credentials)
+        {
+            if (!StoreService.DoCredentialsExist())
+            {
+                StoreService.SaveCredentials(credentials);
+            }
+        }
+
+        public void RemoveCredentials()
+        {
+            if (StoreService.DoCredentialsExist())
+            {
+                StoreService.DeleteCredentials();
+            }
+        }
+
+        public string GetCredentials()
+        {
+            return StoreService.GetCredentials();
+        }
+
+        public bool IsStored()
+        {
+            if (StoreService.DoCredentialsExist())
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

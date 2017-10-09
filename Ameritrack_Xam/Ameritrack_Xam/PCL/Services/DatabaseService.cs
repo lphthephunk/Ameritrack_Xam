@@ -11,6 +11,7 @@ using Ameritrack_Xam.PCL.Helpers;
 using Ameritrack_Xam.PCL.Services;
 
 [assembly: Dependency(typeof(DatabaseService))]
+
 namespace Ameritrack_Xam.PCL.Services
 {
     public class DatabaseService : IDatabaseServices
