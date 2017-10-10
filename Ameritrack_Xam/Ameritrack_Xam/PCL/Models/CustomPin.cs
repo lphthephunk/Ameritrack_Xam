@@ -20,6 +20,7 @@ namespace Ameritrack_Xam.PCL.Models
         private double _longitude { get; set; }
         private string _locationName { get; set; }
 
+        [Ignore]
         public Pin Pin { get; set; }
 
         // One CustomPin to many faults

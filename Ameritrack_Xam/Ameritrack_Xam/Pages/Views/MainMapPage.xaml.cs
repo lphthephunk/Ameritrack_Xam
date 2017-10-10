@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Ameritrack_Xam.PCL.Models;
 using Ameritrack_Xam.Pages.Views.PopUps;
 using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Services;
 
 namespace Ameritrack_Xam
 {
@@ -29,8 +30,37 @@ namespace Ameritrack_Xam
             // hide nav-bar
             // NavigationPage.SetHasNavigationBar(this, false);
 
+            PopulateMapWithPins();
+
             MainMap.Tap += MainMap_Tap;
             MainMap.PinTap += MainMap_PinTap;
+        }
+
+        private async void PopulateMapWithPins()
+        {
+                var pins = await ViewModel.GetAllPins();
+                if (pins != null && pins.Count > 0)
+                {
+                    foreach (var pin in pins)
+                    {
+                        // construct a new pin since we can't store that object in the sqlite db
+
+                        MainMap.ListOfPins.Add(CreatePinFromCoords(pin.Latitude, pin.Longitude));
+                        MainMap.Pins.Add(CreatePinFromCoords(pin.Latitude, pin.Longitude));
+                    }
+                }
+        }
+
+        private Pin CreatePinFromCoords(double lat, double lng)
+        {
+            var pin = new Pin()
+            {
+                Label = "Placeholder",
+                Position = new Position(lat, lng),
+                Type = PinType.Place
+            };
+
+            return pin;
         }
 
         /// <summary>
@@ -40,12 +70,15 @@ namespace Ameritrack_Xam
         /// <param name="e"></param>
         private async void MainMap_PinTap(object sender, PinTapEventArgs e)
         {
-            var pinPopup = new PinPopupPage(e.CurrentPin);
+            var pinPopup = new PinPopupPage(await ViewModel.FindCustomPin(e.CurrentPin));
 
-            await Navigation.PushPopupAsync(pinPopup, true);
+            if (pinPopup != null)
+            {
+                await PopupNavigation.PushAsync(pinPopup, true);
+            }
         }
 
-        private void MainMap_Tap(object sender, MapTapEventArgs e)
+        private async void MainMap_Tap(object sender, MapTapEventArgs e)
         {
             // below code is just for a sample pin
             // TODO: prompt the user to input this information
@@ -53,15 +86,20 @@ namespace Ameritrack_Xam
             {
                 Pin = new Pin()
                 {
-                    Label = "Test",
+                    Label = "Placeholder",
                     Position = new Position(e.Position.Latitude, e.Position.Longitude),
                     Type = PinType.Place,
                 },
+                Latitude = e.Position.Latitude,
+                Longitude = e.Position.Longitude,
             };
 
             // add the pin to the MapExtension List of pins
             MainMap.ListOfPins.Add(customPin.Pin);
             MainMap.Pins.Add(customPin.Pin);
+
+            // insert this custom pin into the local database
+            await ViewModel.InsertPin(customPin);
         }
 
         private async void GetUserLocation()

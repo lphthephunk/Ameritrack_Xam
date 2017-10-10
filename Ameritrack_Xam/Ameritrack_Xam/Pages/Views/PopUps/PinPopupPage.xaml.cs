@@ -11,6 +11,7 @@ using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using Ameritrack_Xam.PCL.Models;
 
 namespace Ameritrack_Xam.Pages.Views.PopUps
 {
@@ -18,10 +19,9 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 	{
 		PinPopupVM ViewModel;
 
-		Pin CurrentPinContext;
+        CustomPin CustomPinContext;
 
-
-        public PinPopupPage(Pin TappedPin)
+        public PinPopupPage(CustomPin TappedPin)
         {
             InitializeComponent();
 
@@ -29,16 +29,82 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 
             BindingContext = ViewModel; // BindingContext allows us to bind to objects from our ViewModel and display them on the UI
                                         // The real benefit of this is real-time updating and displaying data without having to do any extra code
+            SetupBindings();
 
-            CurrentPinContext = TappedPin;
+            SubmitBtn.Clicked += SubmitBtn_Clicked;
+
+            // temporary until Rg.Plugins finishes the tap issue
+            CloseBtn.Clicked += CloseBtn_Clicked;
+
+            CustomPinContext = TappedPin;
 
             CloseWhenBackgroundIsClicked = true;
-            // Need a source for the defects 
-            // CommonDefectsPicker.ItemsSource = Defects;
+        }
 
-            // Let's set the defects as a bindable list in xaml. It's a bit cleaner that way
+        protected override async void OnParentSet()
+        {
+            base.OnParentSet();
+            try
+            {
+                var faultData = await ViewModel.PopulatePopup(CustomPinContext.Latitude, CustomPinContext.Longitude);
 
-            //TestLabel.Text = "Lat: " + TappedPin.Position.Latitude + " Lng: " + TappedPin.Position.Longitude;
+                if (faultData != null)
+                {
+                    TrackName.Text = faultData.TrackName;
+                    CommonDefectsPicker.SelectedItem = faultData.FaultType;
+                    NotesEditor.Text = faultData.FaultComments;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private async void CloseBtn_Clicked(object sender, EventArgs e)
+        {
+            await PopupNavigation.RemovePageAsync(this, true);
+        }
+
+        private async void SubmitBtn_Clicked(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TrackName.Text) || string.IsNullOrWhiteSpace(TrackName.Text))
+            {
+                TrackName.Placeholder = "*Required";
+                TrackName.PlaceholderColor = Color.Red;
+            }
+            if (CommonDefectsPicker.SelectedItem == null)
+            {
+                CommonDefectsPicker.BackgroundColor = Color.Red;
+            }
+            else if ((string.IsNullOrEmpty(NotesEditor.Text) || string.IsNullOrWhiteSpace(NotesEditor.Text))
+                && (!string.IsNullOrEmpty(TrackName.Text) || !string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedItem != null)
+            {
+                var result = await DisplayAlert("", "Are you sure you don't want to add any notes?", "Yes", "No");
+                if (result)
+                {
+                    // submit to database
+                    await ViewModel.SubmitFaultToDb(CustomPinContext.PinId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled);
+
+                    // close popup
+                    await PopupNavigation.RemovePageAsync(this, true);
+                }
+            }
+            else if ((!string.IsNullOrEmpty(NotesEditor.Text) || !string.IsNullOrWhiteSpace(NotesEditor.Text))
+                && (!string.IsNullOrEmpty(TrackName.Text) || !string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedItem != null)
+            {
+                // submit to database
+                await ViewModel.SubmitFaultToDb(CustomPinContext.PinId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled);
+
+                // close popup
+                await PopupNavigation.RemovePageAsync(this, true);
+            }
+        }
+
+        private void SetupBindings()
+        {
+            CommonDefectsPicker.SetBinding(Picker.ItemsSourceProperty, "ListOfDefects");
+            CommonDefectsPicker.ItemDisplayBinding = new Binding("DefectName");
         }
 
         void Handle_SelectedIndexChangedDefectPicker(object sender, System.EventArgs e)

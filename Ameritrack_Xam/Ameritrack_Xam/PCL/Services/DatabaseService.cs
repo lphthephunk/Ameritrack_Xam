@@ -9,6 +9,7 @@ using SQLite.Net.Async;
 using Xamarin.Forms;
 using Ameritrack_Xam.PCL.Helpers;
 using Ameritrack_Xam.PCL.Services;
+using Xamarin.Forms.Maps;
 
 [assembly: Dependency(typeof(DatabaseService))]
 
@@ -34,6 +35,8 @@ namespace Ameritrack_Xam.PCL.Services
             asyncConnection = Database.GetConnectionAsync();
         }
 
+        public DatabaseService(bool GetConnection = false) { }
+
         public async Task CreateAllTables()
         {
             using (await locker.LockAsync())
@@ -45,7 +48,20 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
-        public bool DeleteFault(Fault _fault)
+        public async Task InsertFault(Fault _fault)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.InsertAsync(_fault);
+            }
+        }
+
+        public Task UpdateFault(Fault _fault)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteFault(Fault _fault)
         {
             throw new NotImplementedException();
         }
@@ -60,12 +76,21 @@ namespace Ameritrack_Xam.PCL.Services
             throw new NotImplementedException();
         }
 
+        public async Task<Fault> GetFault(double lat, double lng)
+        {
+            using (await locker.LockAsync())
+            {
+                var fault = await asyncConnection.Table<Fault>().Where(x => x.CustomPin.Latitude == lat && x.CustomPin.Longitude == lng).FirstOrDefaultAsync();
+                System.Diagnostics.Debug.WriteLine("HIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                return fault;
+            }
+        }
+
         public async Task<Employee> GetEmployee(string empId)
         {
             using (await locker.LockAsync())
             {
-                var emp = await asyncConnection.Table<Employee>().Where(x => x.EmployeeCredentials == empId).FirstOrDefaultAsync();
-                return emp;
+                return await asyncConnection.Table<Employee>().Where(x => x.EmployeeCredentials == empId).FirstOrDefaultAsync();
             }
         }
 
@@ -77,19 +102,41 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
-        public bool InsertFault(Fault _fault)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool UpdateEmployee(Employee _employee)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateFault(Fault _fault)
+        public async Task InsertCommonDefects(CommonDefects defects)
         {
-            throw new NotImplementedException();
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.InsertOrReplaceAsync(defects);
+            }
+        }
+
+        public async Task<CustomPin> FindCustomPin(Pin tappedPin)
+        {
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<CustomPin>().Where(x => x.Latitude == tappedPin.Position.Latitude && x.Longitude == tappedPin.Position.Longitude).FirstOrDefaultAsync();
+            }
+        }
+
+        public async Task InsertCustomPin(CustomPin placedPin)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.InsertAsync(placedPin);
+            }
+        }
+
+        public async Task<List<CustomPin>> GetAllCustomPins()
+        {
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<CustomPin>().ToListAsync();
+            }
         }
     }
 }

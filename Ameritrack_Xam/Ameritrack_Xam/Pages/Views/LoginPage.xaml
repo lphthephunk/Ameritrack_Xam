@@ -28,9 +28,23 @@
                x:Name="incorrectIDWarning"
                IsVisible="false"
                TextColor="White" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Switch x:Name="StayLoggedInSwitch"
-                Toggled="StayLoggedInSwitch_Toggled"/>
+            <Label Text="Remember Me" Grid.Column="0"
+                   HorizontalOptions="End"
+                   TextColor="White"
+                   FontSize="Medium"/>
+
+            <Switch x:Name="StayLoggedInSwitch"
+                Toggled="StayLoggedInSwitch_Toggled"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"/>
+            
+        </Grid>
 
         <Button Text="Login"
                 VerticalOptions="CenterAndExpand"

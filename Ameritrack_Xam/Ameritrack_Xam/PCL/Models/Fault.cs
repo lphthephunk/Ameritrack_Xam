@@ -16,6 +16,7 @@ namespace Ameritrack_Xam.PCL.Models
         // that is why we have the public variables with get and set properties
         [PrimaryKey, AutoIncrement]
         private int _faultId { get; set; }
+        private string _trackName { get; set; }
         private string _faultComments { get; set; }
         private string _faultType { get; set; }
         private byte[] _faultPicture { get; set; }
@@ -49,6 +50,19 @@ namespace Ameritrack_Xam.PCL.Models
                     // ie: if the user were to update the front end after entering a new value for FaultId, it would automatically be
                        //  the new value for _faultId would automatically be bubbled up to the front-end
                     OnPropertyChanged(nameof(FaultId));
+                }
+            }
+        }
+
+        public string TrackName
+        {
+            get { return _trackName; }
+            set
+            {
+                if (value != _trackName)
+                {
+                    _trackName = value;
+                    OnPropertyChanged(nameof(TrackName));
                 }
             }
         }

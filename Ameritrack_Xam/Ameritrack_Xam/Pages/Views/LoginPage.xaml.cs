@@ -17,7 +17,7 @@ namespace Ameritrack_Xam.Pages.Views
 
 			ViewModel = new LoginVM();
 
-			//InsertTestEmp();
+			InsertTestEmp();
             Title = "Login Page";
 		}
 
@@ -57,6 +57,11 @@ namespace Ameritrack_Xam.Pages.Views
             if (ViewModel.IsStored())
             {
                 employeeID.Text = ViewModel.GetCredentials();
+                StayLoggedInSwitch.IsToggled = true;
+            }
+            else
+            {
+                StayLoggedInSwitch.IsToggled = false;
             }
         }
     }

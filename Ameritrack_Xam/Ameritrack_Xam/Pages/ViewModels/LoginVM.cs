@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Ameritrack_Xam.PCL.Interfaces;
+using Ameritrack_Xam.PCL.Helpers;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
@@ -24,6 +25,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
         public async Task InitDatabase()
         {
             await DatabaseService.InitDatabase();
+            CommonDefectsCache.GetDefectsFromServer();
         }
 
 		public async Task InsertMockEmployee()

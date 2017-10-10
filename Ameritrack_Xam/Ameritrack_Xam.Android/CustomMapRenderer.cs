@@ -51,26 +51,29 @@ namespace Ameritrack_Xam.Droid
 
                 foreach (var customPin in _formsMap.ListOfPins)
                 {
-                    var markerIcon = new MarkerOptions();
-                    markerIcon.SetPosition(new LatLng(customPin.Position.Latitude, customPin.Position.Longitude));
-                    markerIcon.SetTitle(customPin.Label);
-                    markerIcon.SetSnippet(customPin.Address);
-
-                    _map.AddMarker(markerIcon);
-
-                    switch (_formsMap.MapType)
+                    if (customPin != null)
                     {
-                        case MapType.Street:
-                            _map.MapType = GoogleMap.MapTypeTerrain;
-                            break;
-                        case MapType.Satellite:
-                            _map.MapType = GoogleMap.MapTypeSatellite;
-                            break;
-                        case MapType.Hybrid:
-                            _map.MapType = GoogleMap.MapTypeHybrid;
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
+                        var markerIcon = new MarkerOptions();
+                        markerIcon.SetPosition(new LatLng(customPin.Position.Latitude, customPin.Position.Longitude));
+                        markerIcon.SetTitle(customPin.Label);
+                        markerIcon.SetSnippet(customPin.Address);
+
+                        _map.AddMarker(markerIcon);
+
+                        switch (_formsMap.MapType)
+                        {
+                            case MapType.Street:
+                                _map.MapType = GoogleMap.MapTypeTerrain;
+                                break;
+                            case MapType.Satellite:
+                                _map.MapType = GoogleMap.MapTypeSatellite;
+                                break;
+                            case MapType.Hybrid:
+                                _map.MapType = GoogleMap.MapTypeHybrid;
+                                break;
+                            default:
+                                throw new ArgumentOutOfRangeException();
+                        }
                     }
                 }
             }
