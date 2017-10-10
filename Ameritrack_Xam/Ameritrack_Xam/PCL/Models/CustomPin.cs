@@ -15,7 +15,7 @@ namespace Ameritrack_Xam.PCL.Models
     public class CustomPin : INotifyPropertyChanged
     {
         [PrimaryKey, AutoIncrement]
-        private int _pinId { get; set; }
+        public int? PinId { get; set; }
         private double _latitude { get; set; }
         private double _longitude { get; set; }
         private string _locationName { get; set; }
@@ -34,19 +34,6 @@ namespace Ameritrack_Xam.PCL.Models
 		// this is useful because we can delete a CustomPin without deleting the entire Report associated with the CustomPin
 		[ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
 		public Report Report { get; set; }
-
-        public int PinId
-        {
-            get { return _pinId; }
-            set
-            {
-                if (value != _pinId)
-                {
-                    _pinId = value;
-                    OnPropertyChanged(nameof(PinId));
-                }
-            }
-        }
 
         public double Latitude
         {

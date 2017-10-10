@@ -80,9 +80,9 @@ namespace Ameritrack_Xam.PCL.Services
         {
             using (await locker.LockAsync())
             {
-                var fault = await asyncConnection.Table<Fault>().Where(x => x.CustomPin.Latitude == lat && x.CustomPin.Longitude == lng).FirstOrDefaultAsync();
-                System.Diagnostics.Debug.WriteLine("HIT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                return fault;
+                var faults = await asyncConnection.Table<Fault>().ToListAsync();
+                var pin = await GetOneCustomPin(lat, lng);
+                return faults.Where(x => x.CustomPinId == pin.PinId).FirstOrDefault();
             }
         }
 
@@ -119,7 +119,8 @@ namespace Ameritrack_Xam.PCL.Services
         {
             using (await locker.LockAsync())
             {
-                return await asyncConnection.Table<CustomPin>().Where(x => x.Latitude == tappedPin.Position.Latitude && x.Longitude == tappedPin.Position.Longitude).FirstOrDefaultAsync();
+                var pin = await asyncConnection.Table<CustomPin>().Where(x => x.Latitude == tappedPin.Position.Latitude && x.Longitude == tappedPin.Position.Longitude).ToListAsync();
+                return pin.FirstOrDefault();
             }
         }
 
@@ -136,6 +137,14 @@ namespace Ameritrack_Xam.PCL.Services
             using (await locker.LockAsync())
             {
                 return await asyncConnection.Table<CustomPin>().ToListAsync();
+            }
+        }
+
+        public async Task<CustomPin> GetOneCustomPin(double lat, double lng)
+        {
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<CustomPin>().Where(x => x.Latitude == lat && x.Longitude == lng).FirstOrDefaultAsync();
             }
         }
     }

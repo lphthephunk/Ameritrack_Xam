@@ -12,21 +12,8 @@ namespace Ameritrack_Xam.PCL.Models
     public class CommonDefects : INotifyPropertyChanged
     {
         [PrimaryKey, AutoIncrement]
-        private int _commonDefectId { get; set; }
+        public int? CommonDefectId { get; set; }
         private string _defectName { get; set; }
-
-        public int CommonDefectId
-        {
-            get { return _commonDefectId; }
-            set
-            {
-                if (value != _commonDefectId)
-                {
-                    _commonDefectId = value;
-                    OnPropertyChanged(nameof(CommonDefectId));
-                }
-            }
-        }
 
         public string DefectName
         {

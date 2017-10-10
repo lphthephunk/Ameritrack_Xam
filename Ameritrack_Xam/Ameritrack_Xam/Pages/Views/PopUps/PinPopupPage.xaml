@@ -25,7 +25,9 @@
         HorizontalOptions="CenterAndExpand"/>
       
         <Entry Placeholder="Name of track..."
-               x:Name="TrackName">
+               x:Name="TrackName"
+               BindingContext="{Binding FaultData}"
+               Text="{Binding TrackName}">
         </Entry>
       
         <Picker Title="Select a Common Defect"

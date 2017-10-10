@@ -10,7 +10,7 @@
                FontSize="36"
                HorizontalTextAlignment="Center" 
                VerticalOptions="CenterAndExpand"
-               TextColor="White" />
+               TextColor="White"/>
 
         <Entry x:Name="employeeID"
                Placeholder="Employee ID"

@@ -39,5 +39,7 @@ namespace Ameritrack_Xam.PCL.Interfaces
         Task InsertCustomPin(CustomPin placedPin);
 
         Task<List<CustomPin>> GetAllCustomPins();
+
+        Task<CustomPin> GetOneCustomPin(double latitude, double longitude);
 	}
 }

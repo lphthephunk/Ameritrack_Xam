@@ -12,26 +12,13 @@ namespace Ameritrack_Xam.PCL.Models
 	public class Employee : INotifyPropertyChanged
 	{
 		[PrimaryKey, AutoIncrement]
-		private int _employeeId { get; set; } // this is the index for the SQLite table; not the actual credentials of the employee
+        public int? EmployeeId { get; set; }
 
 		private string _employeeFirstName { get; set; }
 
 		private string _employeeLastName { get; set; }
 
 		private string _employeeCredentials { get; set; } // Ameritrack-given employee 
-
-		public int EmployeeId
-		{
-			get { return _employeeId; }
-			set
-			{
-				if (value != _employeeId)
-				{
-					_employeeId = value;
-					OnPropertyChanged(nameof(EmployeeId));
-				}
-			}
-		}
 
 		public string EmployeeFirstName
 		{

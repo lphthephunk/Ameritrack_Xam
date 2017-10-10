@@ -15,7 +15,7 @@ namespace Ameritrack_Xam.PCL.Models
         // for the sake of variable security, we hide the privately bound variable from the end-user
         // that is why we have the public variables with get and set properties
         [PrimaryKey, AutoIncrement]
-        private int _faultId { get; set; }
+        public int? FaultId { get; set; }
         private string _trackName { get; set; }
         private string _faultComments { get; set; }
         private string _faultType { get; set; }
@@ -24,35 +24,13 @@ namespace Ameritrack_Xam.PCL.Models
 
         // foreign key to associate this fault with a CustomPin (ie: a fault location)
         [ForeignKey(typeof(CustomPin))]
-        public int CustomPinId { get; set; }
+        public int? CustomPinId { get; set; }
 
         // Many faults to one custom pin
         // CascadeRead allows us to only read the CustomPin associated with this fault
         // this is useful because we can delete a fault without deleting the entire CustomPin associated with the fault
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
         public CustomPin CustomPin { get; set; }
-
-        // FaultId is the public variable associated with _faultId
-        // we return _faultId with the the get method from FaultId
-        // this is so the private variable cannot be directly modified
-        public int FaultId
-        {
-            get { return _faultId; }
-            set
-            {
-                // this is the body of our set method
-                // this is where the value that the user is entering on the front-end gets bound to the private variable _faultId
-                // that user-defined value is what is represented by the "value" attribute
-                if (value != _faultId)
-                {
-                    _faultId = value;
-                    // OnPropertyChanged is used for automatic updating of the front-end
-                    // ie: if the user were to update the front end after entering a new value for FaultId, it would automatically be
-                       //  the new value for _faultId would automatically be bubbled up to the front-end
-                    OnPropertyChanged(nameof(FaultId));
-                }
-            }
-        }
 
         public string TrackName
         {

@@ -70,11 +70,20 @@ namespace Ameritrack_Xam
         /// <param name="e"></param>
         private async void MainMap_PinTap(object sender, PinTapEventArgs e)
         {
-            var pinPopup = new PinPopupPage(await ViewModel.FindCustomPin(e.CurrentPin));
-
-            if (pinPopup != null)
+            try
             {
-                await PopupNavigation.PushAsync(pinPopup, true);
+                var tappedPin = await ViewModel.FindCustomPin(e.CurrentPin);
+
+                var pinPopup = new PinPopupPage(tappedPin);
+
+                if (pinPopup != null)
+                {
+                    await Navigation.PushPopupAsync(pinPopup, true);
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
 

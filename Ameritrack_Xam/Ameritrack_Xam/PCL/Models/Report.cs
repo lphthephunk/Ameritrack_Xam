@@ -15,8 +15,8 @@ namespace Ameritrack_Xam.PCL.Models
 	public class Report : INotifyPropertyChanged
 	{
 		[PrimaryKey, AutoIncrement]
-		private int _reportId { get; set; }
-		private string _clientName { get; set; }
+        public int? ReportId { get; set; }
+        private string _clientName { get; set; }
 		private string _clientContact { get; set; }
 		private string _inspectorFirstName { get; set; }
 		private string _inspectorLastName { get; set; }
@@ -29,19 +29,6 @@ namespace Ameritrack_Xam.PCL.Models
 		// ... all CustomPins associated with this Report will be deleted in the database
 		[OneToMany(CascadeOperations = CascadeOperation.All)]
 		public List<CustomPin> CustomPins { get; set; }
-
-		public int ReportId
-		{
-			get { return _reportId; }
-			set
-			{
-				if (value != _reportId)
-				{
-					_reportId = value;
-					OnPropertyChanged(nameof(ReportId));
-				}
-			}
-		}
 
 		public string ClientName
 		{

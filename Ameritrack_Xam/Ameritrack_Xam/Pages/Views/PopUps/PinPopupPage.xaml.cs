@@ -25,45 +25,25 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         {
             InitializeComponent();
 
-            ViewModel = new PinPopupVM();
+            ViewModel = new PinPopupVM(TappedPin);
 
             BindingContext = ViewModel; // BindingContext allows us to bind to objects from our ViewModel and display them on the UI
                                         // The real benefit of this is real-time updating and displaying data without having to do any extra code
             SetupBindings();
+
+            CustomPinContext = TappedPin;
 
             SubmitBtn.Clicked += SubmitBtn_Clicked;
 
             // temporary until Rg.Plugins finishes the tap issue
             CloseBtn.Clicked += CloseBtn_Clicked;
 
-            CustomPinContext = TappedPin;
-
             CloseWhenBackgroundIsClicked = true;
-        }
-
-        protected override async void OnParentSet()
-        {
-            base.OnParentSet();
-            try
-            {
-                var faultData = await ViewModel.PopulatePopup(CustomPinContext.Latitude, CustomPinContext.Longitude);
-
-                if (faultData != null)
-                {
-                    TrackName.Text = faultData.TrackName;
-                    CommonDefectsPicker.SelectedItem = faultData.FaultType;
-                    NotesEditor.Text = faultData.FaultComments;
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-            }
         }
 
         private async void CloseBtn_Clicked(object sender, EventArgs e)
         {
-            await PopupNavigation.RemovePageAsync(this, true);
+            await PopupNavigation.PopAsync();
         }
 
         private async void SubmitBtn_Clicked(object sender, EventArgs e)
@@ -87,7 +67,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                     await ViewModel.SubmitFaultToDb(CustomPinContext.PinId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled);
 
                     // close popup
-                    await PopupNavigation.RemovePageAsync(this, true);
+                    await PopupNavigation.PopAsync();
                 }
             }
             else if ((!string.IsNullOrEmpty(NotesEditor.Text) || !string.IsNullOrWhiteSpace(NotesEditor.Text))
@@ -97,12 +77,13 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 await ViewModel.SubmitFaultToDb(CustomPinContext.PinId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled);
 
                 // close popup
-                await PopupNavigation.RemovePageAsync(this, true);
+                await PopupNavigation.PopAsync();
             }
         }
 
         private void SetupBindings()
         {
+            // common defects bindings
             CommonDefectsPicker.SetBinding(Picker.ItemsSourceProperty, "ListOfDefects");
             CommonDefectsPicker.ItemDisplayBinding = new Binding("DefectName");
         }

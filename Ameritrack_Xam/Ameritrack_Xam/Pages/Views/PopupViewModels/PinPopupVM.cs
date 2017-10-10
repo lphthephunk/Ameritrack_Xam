@@ -16,19 +16,30 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
         public ObservableCollection<CommonDefects> ListOfDefects { get; set; }
+        public ObservableCollection<Fault> FaultData { get; set; }
 
-        public PinPopupVM()
+        public PinPopupVM(CustomPin TappedPin)
         {
             if (CommonDefectsCache.UpdatedDefectsList != null)
             {
                 ListOfDefects = new ObservableCollection<CommonDefects>(CommonDefectsCache.UpdatedDefectsList);
             }
+
+            Task.Run(async () => { await PopulatePopup(TappedPin.Latitude, TappedPin.Longitude); });
         }
 
-        public async Task<Fault> PopulatePopup(double lat, double lng)
+        public async Task PopulatePopup(double lat, double lng)
         {
-            var fault = await DatabaseService.GetFault(lat, lng);
-            return fault;
+            try
+            {
+                var theseFaults = await DatabaseService.GetFault(lat, lng);
+                FaultData = new ObservableCollection<Fault>();
+                FaultData.Add(theseFaults);
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Couldn't retrieve faults " + ex.Message);
+            }
         }
 
         /// <summary>
@@ -39,7 +50,7 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
         /// <param name="faultType"></param>
         /// <param name="isUrgent"></param>
         /// <returns></returns>
-        public async Task SubmitFaultToDb(int currentPinId, string trackName, string faultComments, string faultType, bool isUrgent)
+        public async Task SubmitFaultToDb(int? associatedPin, string trackName, string faultComments, string faultType, bool isUrgent)
         {
             // TODO: add pictures Dictionary<string, byte[]> faultPics
             Fault fault = new Fault()
@@ -48,7 +59,7 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
                 FaultComments = faultComments,
                 FaultType = faultType,
                 Urgent = isUrgent,
-                CustomPinId = currentPinId
+                CustomPinId = associatedPin,
             };
 
             await DatabaseService.InsertFault(fault);
