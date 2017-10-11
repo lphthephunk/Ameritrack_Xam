@@ -21,16 +21,18 @@ namespace Ameritrack_Xam.PCL.Models
         private string _faultType { get; set; }
         private byte[] _faultPicture { get; set; }
         private bool _urgent { get; set; }
+		private double _latitude { get; set; }
+		private double _longitude { get; set; }
 
-        // foreign key to associate this fault with a CustomPin (ie: a fault location)
-        [ForeignKey(typeof(CustomPin))]
-        public int? CustomPinId { get; set; }
+        //// foreign key to associate this fault with a CustomPin (ie: a fault location)
+        //[ForeignKey(typeof(CustomPin))]
+        //public int? CustomPinId { get; set; }
 
-        // Many faults to one custom pin
-        // CascadeRead allows us to only read the CustomPin associated with this fault
-        // this is useful because we can delete a fault without deleting the entire CustomPin associated with the fault
-        [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
-        public CustomPin CustomPin { get; set; }
+        //// Many faults to one custom pin
+        //// CascadeRead allows us to only read the CustomPin associated with this fault
+        //// this is useful because we can delete a fault without deleting the entire CustomPin associated with the fault
+        //[ManyToOne(CascadeOperations = CascadeOperation.CascadeRead)]
+        //public CustomPin CustomPin { get; set; }
 
         public string TrackName
         {
@@ -83,6 +85,32 @@ namespace Ameritrack_Xam.PCL.Models
                 }
             }
         }
+
+		public double Latitude
+		{
+			get { return _latitude; }
+			set
+			{
+				if (value != _latitude)
+				{
+					_latitude = value;
+					OnPropertyChanged(nameof(Latitude));
+				}
+			}
+		}
+
+		public double Longitude
+		{
+			get { return _longitude; }
+			set
+			{
+				if (value != _longitude)
+				{
+					_longitude = value;
+					OnPropertyChanged(nameof(Longitude));
+				}
+			}
+		}
 
 		public bool Urgent
 		{
