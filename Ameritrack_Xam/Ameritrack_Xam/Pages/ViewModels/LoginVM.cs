@@ -91,5 +91,12 @@ namespace Ameritrack_Xam.Pages.ViewModels
             else
                 return false;
         }
+
+        public async Task SetUserData(string employeeId)
+        {
+            var employee = await DatabaseService.GetEmployee(employeeId);
+
+            UserDataCache.CurrentEmployeeData = employee;
+        }
     }
 }

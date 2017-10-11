@@ -45,7 +45,8 @@
                      HorizontalOptions="FillAndExpand">
             <Button Text="Camera"
                     HorizontalOptions="FillAndExpand"></Button>
-            <Button Text="Delete"
+            <Button x:Name="DeleteBtn"
+                    Text="Delete"
                     HorizontalOptions="FillAndExpand"></Button>
             
             <StackLayout HorizontalOptions="FillAndExpand">

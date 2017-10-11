@@ -27,8 +27,8 @@ namespace Ameritrack_Xam.PCL.Models
 		// One Report to many CustomPins
 		// CascadeOperation is set to All so that if we delete this Report...
 		// ... all CustomPins associated with this Report will be deleted in the database
-		[OneToMany(CascadeOperations = CascadeOperation.All)]
-		public List<CustomPin> CustomPins { get; set; }
+		//[OneToMany(CascadeOperations = CascadeOperation.All)]
+		//public List<CustomPin> CustomPins { get; set; }
 
 		public string ClientName
 		{

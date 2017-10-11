@@ -49,15 +49,17 @@
     <Compile Include="Pages\Views\PopUps\PinPopupPage.xaml.cs">
       <DependentUpon>PinPopupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Views\PopupViewModels\InspectionHeaderPopupVM.cs" />
     <Compile Include="Pages\Views\PopupViewModels\PinPopupVM.cs" />
     <Compile Include="PCL\Helpers\AsyncSemaphore.cs" />
     <Compile Include="PCL\Helpers\CommonDefectsCache.cs" />
+    <Compile Include="PCL\Helpers\InspectionDataCache.cs" />
+    <Compile Include="PCL\Helpers\UserDataCache.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
     <Compile Include="PCL\Interfaces\ISQLite.cs" />
     <Compile Include="PCL\Models\CommonDefects.cs" />
     <Compile Include="PCL\Models\Employee.cs" />
     <Compile Include="PCL\Models\Fault.cs" />
-    <Compile Include="PCL\Models\CustomPin.cs" />
     <Compile Include="PCL\Services\DatabaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Views\LoginPage.xaml.cs">

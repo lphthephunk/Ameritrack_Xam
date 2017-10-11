@@ -14,13 +14,13 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
         Task CreateAllTables();
 
-		Task<Employee> GetEmployee(string empId);
+		Task<Employee> GetEmployee(string _empId);
 
 		List<Employee> GetAllEmployees();
 
 		Task InsertEmployee(Employee _employee);
 
-		bool UpdateEmployee(Employee _employee);
+		Task UpdateEmployee(Employee _employee);
 
 		Task InsertFault(Fault _fault);
 
@@ -28,18 +28,14 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
 		Task DeleteFault(Fault _fault);
 
-        Task<Fault> GetFault(double latitude, double longitude);
+        Task<Fault> GetFault(double _latitude, double _longitude);
 
-		List<Fault> GetAllFaults();
+		Task<List<Fault>> GetAllFaults();
+
+        Task<List<Fault>> GetAllFaultsByEmployee(string _employeeId);
+
+        Task<List<Fault>> GetAllFaultsByArea(string _area);
 
         Task InsertCommonDefects(CommonDefects defects);
-
-        Task<CustomPin> FindCustomPin(Pin pinPosition);
-
-        Task InsertCustomPin(CustomPin placedPin);
-
-        Task<List<CustomPin>> GetAllCustomPins();
-
-        Task<CustomPin> GetOneCustomPin(double latitude, double longitude);
 	}
 }

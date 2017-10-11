@@ -41,6 +41,8 @@ namespace Ameritrack_Xam.Droid
             _map.UiSettings.ZoomGesturesEnabled = true;
             _map.UiSettings.RotateGesturesEnabled = true;
 
+            UpdatePins();
+
             if (_map != null)
             {
                 _map.MapClick += googleMap_MapClick;
@@ -49,14 +51,14 @@ namespace Ameritrack_Xam.Droid
                 // marker click event to edit the faults
                 _map.MarkerClick += _map_MarkerClick;
 
-                foreach (var customPin in _formsMap.ListOfPins)
+                foreach (var pin in _formsMap.ListOfPins)
                 {
-                    if (customPin != null)
+                    if (pin != null)
                     {
                         var markerIcon = new MarkerOptions();
-                        markerIcon.SetPosition(new LatLng(customPin.Position.Latitude, customPin.Position.Longitude));
-                        markerIcon.SetTitle(customPin.Label);
-                        markerIcon.SetSnippet(customPin.Address);
+                        markerIcon.SetPosition(new LatLng(pin.Position.Latitude, pin.Position.Longitude));
+                        markerIcon.SetTitle(pin.Label);
+                        markerIcon.SetSnippet(pin.Address);
 
                         _map.AddMarker(markerIcon);
 
@@ -78,52 +80,6 @@ namespace Ameritrack_Xam.Droid
                 }
             }
         }
-
-
-        /// <summary>
-        /// This could be used to calculate which button is pressed on the pin popup NOT WORKING CURRENTLY UNUSED
-        /// </summary>
-        /// <param name="e"></param>
-        //private void DetermineWhichButtonIsTouched(MotionEvent e)
-        //{
-        //    // TODO: find out why the buttons aren't giving off dimensions
-        //    int leftOfEditBtn = EditPinBtn.Left;
-        //    int topOfEditBtn = EditPinBtn.Top;
-
-        //    Rect editBtnArea = new Rect(leftOfEditBtn, topOfEditBtn, leftOfEditBtn + EditPinBtn.Width, topOfEditBtn + EditPinBtn.Height);
-
-        //    int rightOfDeleteBtn = ((Android.Views.View)(DeletePinBtn.Parent)).Right;
-        //    int topOfDeleteBtn = ((Android.Views.View)(DeletePinBtn.Parent)).Top;
-
-        //    Rect delteBtnArea = new Rect(rightOfDeleteBtn, topOfDeleteBtn, rightOfDeleteBtn + DeletePinBtn.Width, topOfDeleteBtn + DeletePinBtn.Height);
-
-        //    if (editBtnArea.Contains((int)e.GetX(), (int)e.GetY()))
-        //    {
-        //        switch (e.ActionMasked)
-        //        {
-        //            case MotionEventActions.Down:
-        //                System.Diagnostics.Debug.WriteLine("Edit button pressed");
-        //                break;
-        //            case MotionEventActions.Up:
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //    }
-        //    else if (delteBtnArea.Contains((int)e.GetX(), (int)e.GetY()))
-        //    {
-        //        switch (e.ActionMasked)
-        //        {
-        //            case MotionEventActions.Down:
-        //                System.Diagnostics.Debug.WriteLine("Delete button pressed");
-        //                break;
-        //            case MotionEventActions.Up:
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //    }
-        //}
 
         /// <summary>
         /// Handles the Marker Click
@@ -177,7 +133,7 @@ namespace Ameritrack_Xam.Droid
             };
         }
 
-        private MarkerOptions CreateMarkerFromCustomPin(Pin customPin)
+        private MarkerOptions CreateMarkerFromPCLPin(Pin customPin)
         {
             var markerIcon = new MarkerOptions();
             markerIcon.SetPosition(new LatLng(customPin.Position.Latitude, customPin.Position.Longitude));
@@ -196,7 +152,7 @@ namespace Ameritrack_Xam.Droid
 
                 foreach (var pin in _formsMap.ListOfPins)
                 {
-                    _map.AddMarker(CreateMarkerFromCustomPin(pin));
+                    _map.AddMarker(CreateMarkerFromPCLPin(pin));
                 }
             }
         }

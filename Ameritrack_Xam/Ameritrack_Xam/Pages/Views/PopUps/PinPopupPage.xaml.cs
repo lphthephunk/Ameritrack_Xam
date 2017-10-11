@@ -18,34 +18,69 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 	public partial class PinPopupPage : PopupPage
 	{
 		PinPopupVM ViewModel;
+        Fault FaultContext;
 
-        CustomPin CustomPinContext;
-
-        public PinPopupPage(CustomPin TappedPin)
+        public PinPopupPage(Fault fault)
         {
             InitializeComponent();
 
-            ViewModel = new PinPopupVM(TappedPin);
+            FaultContext = fault;
+
+            ViewModel = new PinPopupVM(fault);
 
             BindingContext = ViewModel; // BindingContext allows us to bind to objects from our ViewModel and display them on the UI
                                         // The real benefit of this is real-time updating and displaying data without having to do any extra code
             SetupBindings();
-
-            CustomPinContext = TappedPin;
 
             SubmitBtn.Clicked += SubmitBtn_Clicked;
 
             // temporary until Rg.Plugins finishes the tap issue
             CloseBtn.Clicked += CloseBtn_Clicked;
 
+            DeleteBtn.Clicked += DeleteBtn_Clicked;
+
             CloseWhenBackgroundIsClicked = true;
         }
 
+        protected override async void OnAppearing()
+        {
+            try
+            {
+                await ViewModel.PopulatePopup(FaultContext.Latitude, FaultContext.Longitude);
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+
+            base.OnAppearing();
+        }
+
+        /// <summary>
+        /// Delete button event to delete this fault data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void DeleteBtn_Clicked(object sender, EventArgs e)
+        {
+            await ViewModel.DeleteFault(FaultContext);
+        }
+
+        /// <summary>
+        /// Close button event to pop the popup page off of the stack
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void CloseBtn_Clicked(object sender, EventArgs e)
         {
             await PopupNavigation.PopAsync();
         }
 
+        /// <summary>
+        /// Handles business logic to submit a fault to the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void SubmitBtn_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TrackName.Text) || string.IsNullOrWhiteSpace(TrackName.Text))
@@ -64,7 +99,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 if (result)
                 {
                     // submit to database
-                    await ViewModel.SubmitFaultToDb(CustomPinContext.PinId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled);
+                    await ViewModel.SubmitFaultToDb(TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
 
                     // close popup
                     await PopupNavigation.PopAsync();
@@ -74,13 +109,16 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 && (!string.IsNullOrEmpty(TrackName.Text) || !string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedItem != null)
             {
                 // submit to database
-                await ViewModel.SubmitFaultToDb(CustomPinContext.PinId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled);
+                await ViewModel.SubmitFaultToDb(TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
 
                 // close popup
                 await PopupNavigation.PopAsync();
             }
         }
 
+        /// <summary>
+        /// Sets up the data bindings for the picker on the popup page
+        /// </summary>
         private void SetupBindings()
         {
             // common defects bindings
@@ -89,16 +127,16 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         }
 
         void Handle_SelectedIndexChangedDefectPicker(object sender, System.EventArgs e)
-		{
-			// Called when the user selects a common defect different from the one currently selected
-			var picker = (Picker)sender;
-			Debug.WriteLine("The item is " + picker.Items[picker.SelectedIndex]);
-		}
+        {
+            // Called when the user selects a common defect different from the one currently selected
+            var picker = (Picker)sender;
+            Debug.WriteLine("The item is " + picker.Items[picker.SelectedIndex]);
+        }
 
-	    void Handle_UnfocusedDefectPicker(object sender, Xamarin.Forms.FocusEventArgs e)
-		{
+        void Handle_UnfocusedDefectPicker(object sender, Xamarin.Forms.FocusEventArgs e)
+        {
             // This is called if the user opens the picker, but does not pick anything and rather taps outside of it to dismiss it.
             Debug.WriteLine("In unfocused");
-		}
+        }
     }
 }

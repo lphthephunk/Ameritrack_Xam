@@ -16,7 +16,9 @@ namespace Ameritrack_Xam.PCL.Models
         // that is why we have the public variables with get and set properties
         [PrimaryKey, AutoIncrement]
         public int? FaultId { get; set; }
+        private string _employee { get; set; }
         private string _trackName { get; set; }
+        private string _areaAddress { get; set; }
         private string _faultComments { get; set; }
         private string _faultType { get; set; }
         private byte[] _faultPicture { get; set; }
@@ -43,6 +45,32 @@ namespace Ameritrack_Xam.PCL.Models
                 {
                     _trackName = value;
                     OnPropertyChanged(nameof(TrackName));
+                }
+            }
+        }
+
+        public string Employee
+        {
+            get { return _employee; }
+            set
+            {
+                if (value != _employee)
+                {
+                    _employee = value;
+                    OnPropertyChanged(nameof(Employee));
+                }
+            }
+        }
+
+        public string AreaAddress
+        {
+            get { return _areaAddress; }
+            set
+            {
+                if (value != _areaAddress)
+                {
+                    _areaAddress = value;
+                    OnPropertyChanged(nameof(AreaAddress));
                 }
             }
         }

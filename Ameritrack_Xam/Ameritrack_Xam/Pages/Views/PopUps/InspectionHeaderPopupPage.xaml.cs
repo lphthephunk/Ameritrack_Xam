@@ -11,19 +11,37 @@ using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using Ameritrack_Xam.PCL.Helpers;
 
 namespace Ameritrack_Xam.Pages.Views.PopUps
 {
     public partial class InspectionHeaderPopupPage : PopupPage
     {
+        InspectionHeaderPopupVM ViewModel;
+
         public InspectionHeaderPopupPage()
         {
             InitializeComponent();
+
+            ViewModel = new InspectionHeaderPopupVM();
+
+            BindingContext = ViewModel;
         }
 
-        void Handle_Inspection_Start(object sender, System.EventArgs e)
+        /// <summary>
+        /// Handles the start of an inspection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void Handle_Inspection_Start(object sender, System.EventArgs e)
         {
-            // Handle the inspection starting
+            // cache our current report data
+            ViewModel.InsertReportData(CustomerName.Text, CustomerAddress.Text, CustomerContactName.Text);
+
+            InspectionDataCache.IsReportStarted = true; // set this to true so we can access it globally
+            // accessing this globally will allow us to know when to populate the map with pre-existing pins
+
+            await PopupNavigation.PopAsync(true);
         }
     }
 }

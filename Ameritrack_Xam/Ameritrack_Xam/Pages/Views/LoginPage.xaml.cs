@@ -35,6 +35,8 @@ namespace Ameritrack_Xam.Pages.Views
                     ViewModel.StoreCredentials(employeeID.Text);
                 }
 
+                await ViewModel.SetUserData(employeeID.Text);
+
                 await Navigation.PushModalAsync(new MainPage(), false);
                 incorrectIDWarning.IsVisible = false;
             }

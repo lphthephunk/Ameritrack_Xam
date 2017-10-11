@@ -9,6 +9,8 @@ using Ameritrack_Xam.PCL.Models;
 using Ameritrack_Xam.Pages.Views.PopUps;
 using Rg.Plugins.Popup.Extensions;
 using Rg.Plugins.Popup.Services;
+using System.Collections.Generic;
+using Ameritrack_Xam.PCL.Helpers;
 
 namespace Ameritrack_Xam
 {
@@ -30,37 +32,8 @@ namespace Ameritrack_Xam
             // hide nav-bar
             // NavigationPage.SetHasNavigationBar(this, false);
 
-            PopulateMapWithPins();
-
             MainMap.Tap += MainMap_Tap;
             MainMap.PinTap += MainMap_PinTap;
-        }
-
-        private async void PopulateMapWithPins()
-        {
-                var pins = await ViewModel.GetAllPins();
-                if (pins != null && pins.Count > 0)
-                {
-                    foreach (var pin in pins)
-                    {
-                        // construct a new pin since we can't store that object in the sqlite db
-
-                        MainMap.ListOfPins.Add(CreatePinFromCoords(pin.Latitude, pin.Longitude));
-                        MainMap.Pins.Add(CreatePinFromCoords(pin.Latitude, pin.Longitude));
-                    }
-                }
-        }
-
-        private Pin CreatePinFromCoords(double lat, double lng)
-        {
-            var pin = new Pin()
-            {
-                Label = "Placeholder",
-                Position = new Position(lat, lng),
-                Type = PinType.Place
-            };
-
-            return pin;
         }
 
         /// <summary>
@@ -72,9 +45,9 @@ namespace Ameritrack_Xam
         {
             try
             {
-                var tappedPin = await ViewModel.FindCustomPin(e.CurrentPin);
+                var faultAtThisPin = await ViewModel.FindFault(e.CurrentPin.Position.Latitude, e.CurrentPin.Position.Longitude);
 
-                var pinPopup = new PinPopupPage(tappedPin);
+                var pinPopup = new PinPopupPage(faultAtThisPin);
 
                 if (pinPopup != null)
                 {
@@ -89,26 +62,22 @@ namespace Ameritrack_Xam
 
         private async void MainMap_Tap(object sender, MapTapEventArgs e)
         {
-            // below code is just for a sample pin
-            // TODO: prompt the user to input this information
-            var customPin = new CustomPin
+            if (InspectionDataCache.IsReportStarted)
             {
-                Pin = new Pin()
+                var pin = new Pin()
                 {
                     Label = "Placeholder",
                     Position = new Position(e.Position.Latitude, e.Position.Longitude),
-                    Type = PinType.Place,
-                },
-                Latitude = e.Position.Latitude,
-                Longitude = e.Position.Longitude,
-            };
+                    Type = PinType.Place
+                };
 
-            // add the pin to the MapExtension List of pins
-            MainMap.ListOfPins.Add(customPin.Pin);
-            MainMap.Pins.Add(customPin.Pin);
+                // add the pin to the MapExtension List of pins
+                MainMap.ListOfPins.Add(pin);
+                //MainMap.Pins.Add(pin);
 
-            // insert this custom pin into the local database
-            await ViewModel.InsertPin(customPin);
+                // insert this pin coordinates into the local database for later use
+                await ViewModel.InsertFault(pin);
+            }
         }
 
         private async void GetUserLocation()
@@ -150,6 +119,29 @@ namespace Ameritrack_Xam
         private async void Handle_Start_Inspection_Clicked(object sender, System.EventArgs e)
         {
             await Navigation.PushPopupAsync(new InspectionHeaderPopupPage(), true);
+
+            if (InspectionDataCache.IsReportStarted)
+            {
+                await BuildPinsList();
+            }
+        }
+
+        /// <summary>
+        /// Populates pins in area that user is doing inspection in
+        /// </summary>
+        /// <returns></returns>
+        private async Task BuildPinsList()
+        {
+            var faults = await ViewModel.GetAllFaultsByArea();
+
+            var pinsList = await ViewModel.ConstructPinsFromFaults(faults);
+
+            MainMap.ListOfPins = new List<Pin>(pinsList);
+
+            foreach (var pin in pinsList)
+            {
+                MainMap.Pins.Add(pin);
+            }
         }
     }
 }

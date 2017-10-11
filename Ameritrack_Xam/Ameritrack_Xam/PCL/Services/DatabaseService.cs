@@ -41,13 +41,12 @@ namespace Ameritrack_Xam.PCL.Services
         {
             using (await locker.LockAsync())
             {
-               asyncConnection.CreateTableAsync<Employee>();
-               asyncConnection.CreateTableAsync<Fault>();
-               asyncConnection.CreateTableAsync<CustomPin>();
-               asyncConnection.CreateTableAsync<CommonDefects>();
+               await asyncConnection.CreateTableAsync<Employee>().ConfigureAwait(false);
+               await asyncConnection.CreateTableAsync<Fault>().ConfigureAwait(false);
+               await asyncConnection.CreateTableAsync<CommonDefects>().ConfigureAwait(false);
             }
         }
-
+        #region Fault Calls
         public async Task InsertFault(Fault _fault)
         {
             using (await locker.LockAsync())
@@ -56,34 +55,60 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
-        public Task UpdateFault(Fault _fault)
+        public async Task<List<Fault>> GetAllFaults()
         {
-            throw new NotImplementedException();
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<Fault>().ToListAsync();
+            }
         }
 
-        public Task DeleteFault(Fault _fault)
+        public async Task<List<Fault>> GetAllFaultsByEmployee(string _employeeId)
         {
-            throw new NotImplementedException();
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<Fault>().Where(x => x.Employee == _employeeId).ToListAsync();
+            }
         }
 
-        public List<Employee> GetAllEmployees()
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Fault> GetAllFaults()
+        public async Task<List<Fault>> GetAllFaultsByArea(string _area)
         {
-            throw new NotImplementedException();
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<Fault>().Where(x => x.AreaName == _area).ToListAsync();
+            }
         }
 
         public async Task<Fault> GetFault(double lat, double lng)
         {
             using (await locker.LockAsync())
             {
-                var faults = await asyncConnection.Table<Fault>().ToListAsync();
-                var pin = await GetOneCustomPin(lat, lng);
-                return faults.Where(x => x.CustomPinId == pin.PinId).FirstOrDefault();
+                return await asyncConnection.Table<Fault>().Where(x => x.Latitude == lat && x.Longitude == lng).FirstOrDefaultAsync();
             }
+        }
+
+        public async Task UpdateFault(Fault _fault)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.UpdateAsync(_fault);
+            }
+        }
+
+        public async Task DeleteFault(Fault _fault)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.DeleteAsync(_fault);
+            }
+        }
+        #endregion
+
+        #region Employee Calls
+        public List<Employee> GetAllEmployees()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<Employee> GetEmployee(string empId)
@@ -102,49 +127,17 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
-        public bool UpdateEmployee(Employee _employee)
+        public Task UpdateEmployee(Employee _employee)
         {
             throw new NotImplementedException();
         }
+        #endregion
 
         public async Task InsertCommonDefects(CommonDefects defects)
         {
             using (await locker.LockAsync())
             {
                 await asyncConnection.InsertOrReplaceAsync(defects);
-            }
-        }
-
-        public async Task<CustomPin> FindCustomPin(Pin tappedPin)
-        {
-            using (await locker.LockAsync())
-            {
-                var pin = await asyncConnection.Table<CustomPin>().Where(x => x.Latitude == tappedPin.Position.Latitude && x.Longitude == tappedPin.Position.Longitude).ToListAsync();
-                return pin.FirstOrDefault();
-            }
-        }
-
-        public async Task InsertCustomPin(CustomPin placedPin)
-        {
-            using (await locker.LockAsync())
-            {
-                await asyncConnection.InsertAsync(placedPin);
-            }
-        }
-
-        public async Task<List<CustomPin>> GetAllCustomPins()
-        {
-            using (await locker.LockAsync())
-            {
-                return await asyncConnection.Table<CustomPin>().ToListAsync();
-            }
-        }
-
-        public async Task<CustomPin> GetOneCustomPin(double lat, double lng)
-        {
-            using (await locker.LockAsync())
-            {
-                return await asyncConnection.Table<CustomPin>().Where(x => x.Latitude == lat && x.Longitude == lng).FirstOrDefaultAsync();
             }
         }
     }

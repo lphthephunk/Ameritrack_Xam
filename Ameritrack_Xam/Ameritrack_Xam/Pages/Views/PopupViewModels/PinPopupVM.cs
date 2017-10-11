@@ -18,23 +18,21 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
         public ObservableCollection<CommonDefects> ListOfDefects { get; set; }
         public ObservableCollection<Fault> FaultData { get; set; }
 
-        public PinPopupVM(CustomPin TappedPin)
+        public PinPopupVM(Fault fault)
         {
             if (CommonDefectsCache.UpdatedDefectsList != null)
             {
                 ListOfDefects = new ObservableCollection<CommonDefects>(CommonDefectsCache.UpdatedDefectsList);
             }
-
-            Task.Run(async () => { await PopulatePopup(TappedPin.Latitude, TappedPin.Longitude); });
         }
 
         public async Task PopulatePopup(double lat, double lng)
         {
             try
             {
-                var theseFaults = await DatabaseService.GetFault(lat, lng);
+                var thisFault = await DatabaseService.GetFault(lat, lng);
                 FaultData = new ObservableCollection<Fault>();
-                FaultData.Add(theseFaults);
+                FaultData.Add(thisFault);
             }
             catch(Exception ex)
             {
@@ -50,19 +48,27 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
         /// <param name="faultType"></param>
         /// <param name="isUrgent"></param>
         /// <returns></returns>
-        public async Task SubmitFaultToDb(int? associatedPin, string trackName, string faultComments, string faultType, bool isUrgent)
+        public async Task SubmitFaultToDb(string trackName, string faultComments, string faultType, bool isUrgent, double lat, double lng)
         {
             // TODO: add pictures Dictionary<string, byte[]> faultPics
             Fault fault = new Fault()
             {
                 TrackName = trackName,
+                Employee = UserDataCache.CurrentEmployeeData.EmployeeCredentials,
+                AreaAddress = InspectionDataCache.CurrentReportData.Address,
                 FaultComments = faultComments,
                 FaultType = faultType,
                 Urgent = isUrgent,
-                CustomPinId = associatedPin,
+                Latitude = lat,
+                Longitude = lng
             };
 
-            await DatabaseService.InsertFault(fault);
+            await DatabaseService.UpdateFault(fault);
+        }
+
+        public async Task DeleteFault(Fault fault)
+        {
+            await DatabaseService.DeleteFault(fault);
         }
     }
 }
