@@ -76,7 +76,7 @@ namespace Ameritrack_Xam.PCL.Services
         {
             using (await locker.LockAsync())
             {
-                return await asyncConnection.Table<Fault>().Where(x => x.AreaName == _area).ToListAsync();
+                return await asyncConnection.Table<Fault>().Where(x => x.AreaAddress == _area).ToListAsync();
             }
         }
 
