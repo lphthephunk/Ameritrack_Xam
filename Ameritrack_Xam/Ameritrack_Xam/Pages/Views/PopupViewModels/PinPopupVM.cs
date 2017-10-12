@@ -48,11 +48,12 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
         /// <param name="faultType"></param>
         /// <param name="isUrgent"></param>
         /// <returns></returns>
-        public async Task SubmitFaultToDb(string trackName, string faultComments, string faultType, bool isUrgent, double lat, double lng)
+        public async Task SubmitFaultToDb(int faultId, string trackName, string faultComments, string faultType, bool isUrgent, double lat, double lng)
         {
             // TODO: add pictures Dictionary<string, byte[]> faultPics
             Fault fault = new Fault()
             {
+                FaultId = faultId,
                 TrackName = trackName,
                 Employee = UserDataCache.CurrentEmployeeData.EmployeeCredentials,
                 AreaAddress = InspectionDataCache.CurrentReportData.Address,
@@ -64,6 +65,7 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
             };
 
             await DatabaseService.UpdateFault(fault);
+
         }
 
         public async Task DeleteFault(Fault fault)

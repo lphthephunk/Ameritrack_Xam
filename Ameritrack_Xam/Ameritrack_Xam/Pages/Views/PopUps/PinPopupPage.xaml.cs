@@ -99,7 +99,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 if (result)
                 {
                     // submit to database
-                    await ViewModel.SubmitFaultToDb(TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
+                    await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
 
                     // close popup
                     await PopupNavigation.PopAsync();
@@ -109,7 +109,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 && (!string.IsNullOrEmpty(TrackName.Text) || !string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedItem != null)
             {
                 // submit to database
-                await ViewModel.SubmitFaultToDb(TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
+                await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
 
                 // close popup
                 await PopupNavigation.PopAsync();
