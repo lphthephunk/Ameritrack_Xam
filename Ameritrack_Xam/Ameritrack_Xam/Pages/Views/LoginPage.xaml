@@ -28,12 +28,8 @@
                x:Name="incorrectIDWarning"
                IsVisible="false"
                TextColor="White" />
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center">
             <Label Text="Remember Me" Grid.Column="0"
                    HorizontalOptions="End"
                    TextColor="White"
@@ -43,9 +39,7 @@
                 Toggled="StayLoggedInSwitch_Toggled"
                     Grid.Column="1"
                     HorizontalOptions="Center"/>
-            
-        </Grid>
-
+        </StackLayout>
         <Button Text="Login"
                 VerticalOptions="CenterAndExpand"
                 Margin="50, 0"

@@ -21,8 +21,17 @@
     <!-- Content -->
     <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
       <Button x:Name="CloseBtn"
-        Text="Close"
-        HorizontalOptions="CenterAndExpand"/>
+              Text="X"
+                
+              TextColor="White"
+              FontSize="16"
+              HorizontalOptions="EndAndExpand"
+              BackgroundColor="#CC0000"
+              WidthRequest="40"
+              HeightRequest="40"
+              BorderRadius="20"
+              Margin="-15"/>
+            
       
         <Entry Placeholder="Name of track..."
                x:Name="TrackName"
@@ -54,11 +63,12 @@
                 <Label Text="Urgent"
                        HorizontalOptions="CenterAndExpand"></Label>                
             </StackLayout>
-          
-          <Button x:Name="SubmitBtn"
-                  HorizontalOptions="CenterAndExpand"
-                  Text="Submit"/>
-          
         </StackLayout>
+        <Button x:Name="SubmitBtn"
+                  HorizontalOptions="CenterAndExpand"
+                  BackgroundColor="#e8c504"
+                  TextColor="Black"
+                  Text="Submit"
+                  WidthRequest="600"/>
     </StackLayout>
 </pages:PopupPage>
