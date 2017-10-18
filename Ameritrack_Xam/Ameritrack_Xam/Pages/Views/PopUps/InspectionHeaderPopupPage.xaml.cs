@@ -35,13 +35,38 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         /// <param name="e"></param>
         async void Handle_Inspection_Start(object sender, System.EventArgs e)
         {
-            // cache our current report data
-            ViewModel.InsertReportData(CustomerName.Text, CustomerAddress.Text, CustomerContactName.Text);
+            if (string.IsNullOrEmpty(CustomerName.Text) || string.IsNullOrWhiteSpace(CustomerName.Text))
+            {
+                CustomerName.Placeholder = "*Customer Name Required";
+                CustomerName.PlaceholderColor = Color.Red;
+            }
+            if (string.IsNullOrEmpty(CustomerAddress.Text) || string.IsNullOrWhiteSpace(CustomerAddress.Text))
+            {
+                CustomerAddress.Placeholder = "*Customer Address Required";
+                CustomerAddress.PlaceholderColor = Color.Red;
+            }
+            if (string.IsNullOrEmpty(CustomerContactName.Text) || string.IsNullOrWhiteSpace(CustomerContactName.Text))
+            {
+                CustomerContactName.Placeholder = "*Customer Contact Name Required";
+                CustomerContactName.PlaceholderColor = Color.Red;
+            }
+            if (string.IsNullOrEmpty(InspectorName.Text) || string.IsNullOrWhiteSpace(InspectorName.Text))
+            {
+                InspectorName.Placeholder = "*Inspector Name Required";
+                InspectorName.PlaceholderColor = Color.Red;
+            }
+            else if ((!string.IsNullOrEmpty(CustomerName.Text) && !string.IsNullOrWhiteSpace(CustomerName.Text)) && (!string.IsNullOrEmpty(CustomerAddress.Text)
+                && !string.IsNullOrWhiteSpace(CustomerAddress.Text)) && (!string.IsNullOrEmpty(CustomerContactName.Text) && !string.IsNullOrWhiteSpace(CustomerContactName.Text))
+                && (!string.IsNullOrEmpty(InspectorName.Text) && !string.IsNullOrWhiteSpace(InspectorName.Text)))
+            {
+                // cache our current report data
+                await ViewModel.InsertReportData(CustomerName.Text, CustomerAddress.Text, CustomerContactName.Text);
 
-            InspectionDataCache.IsReportStarted = true; // set this to true so we can access it globally
-            // accessing this globally will allow us to know when to populate the map with pre-existing pins
+                InspectionDataCache.IsReportStarted = true; // set this to true so we can access it globally
+                                                            // accessing this globally will allow us to know when to populate the map with pre-existing pins
 
-            await PopupNavigation.PopAsync(true);
+                await PopupNavigation.PopAsync(true);
+            }
         }
     }
 }

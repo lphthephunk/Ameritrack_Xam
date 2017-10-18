@@ -33,7 +33,7 @@
         <Entry Placeholder="Customer name..."
            x:Name="CustomerName">
         </Entry>
-
+      
         <Entry Placeholder="Customer address..."
                x:Name="CustomerAddress">
         </Entry>

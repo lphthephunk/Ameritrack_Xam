@@ -30,7 +30,7 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
         {
             try
             {
-                var thisFault = await DatabaseService.GetFault(lat, lng);
+                var thisFault = await DatabaseService.GetFaultByCoordinates(lat, lng);
                 FaultData = new ObservableCollection<Fault>();
                 FaultData.Add(thisFault);
             }
@@ -59,9 +59,10 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
                 AreaAddress = InspectionDataCache.CurrentReportData.Address,
                 FaultComments = faultComments,
                 FaultType = faultType,
-                Urgent = isUrgent,
+                IsUrgent = isUrgent,
                 Latitude = lat,
-                Longitude = lng
+                Longitude = lng,
+                ReportId = InspectionDataCache.CurrentReportData.ReportId
             };
 
             await DatabaseService.UpdateFault(fault);

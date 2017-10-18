@@ -28,7 +28,7 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
 		Task DeleteFault(Fault _fault);
 
-        Task<Fault> GetFault(double _latitude, double _longitude);
+        Task<Fault> GetFaultByCoordinates(double _latitude, double _longitude);
 
 		Task<List<Fault>> GetAllFaults();
 
@@ -36,6 +36,12 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
         Task<List<Fault>> GetAllFaultsByArea(string _area);
 
+        Task<List<Fault>> GetAllFaultsByReport(int? _reportId);
+
         Task InsertCommonDefects(CommonDefects defects);
+
+        Task InsertReportData(Report report);
+
+        Task<Report> GetReportData(Report report);
 	}
 }

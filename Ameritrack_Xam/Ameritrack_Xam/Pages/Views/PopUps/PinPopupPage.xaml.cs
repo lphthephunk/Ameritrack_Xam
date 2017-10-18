@@ -30,8 +30,6 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 
             BindingContext = ViewModel; // BindingContext allows us to bind to objects from our ViewModel and display them on the UI
                                         // The real benefit of this is real-time updating and displaying data without having to do any extra code
-            SetupBindings();
-
             SubmitBtn.Clicked += SubmitBtn_Clicked;
 
             // temporary until Rg.Plugins finishes the tap issue
@@ -47,6 +45,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             try
             {
                 await ViewModel.PopulatePopup(FaultContext.Latitude, FaultContext.Longitude);
+                SetupBindings();
             }
             catch(Exception ex)
             {
@@ -121,9 +120,18 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         /// </summary>
         private void SetupBindings()
         {
+            // track name binding
+            TrackName.Text = ViewModel.FaultData.FirstOrDefault().TrackName;
+
             // common defects bindings
             CommonDefectsPicker.SetBinding(Picker.ItemsSourceProperty, "ListOfDefects");
             CommonDefectsPicker.ItemDisplayBinding = new Binding("DefectName");
+
+            // notes binding
+            NotesEditor.Text = ViewModel.FaultData.FirstOrDefault().FaultComments;
+
+            // urgency toggle binding
+            IsUrgentSwitch.IsToggled = ViewModel.FaultData.FirstOrDefault().IsUrgent;
         }
 
         void Handle_SelectedIndexChangedDefectPicker(object sender, System.EventArgs e)

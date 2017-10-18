@@ -122,7 +122,7 @@ namespace Ameritrack_Xam
 
             if (InspectionDataCache.IsReportStarted)
             {
-                await BuildPinsList();
+                await BuildPinsListByArea();
             }
         }
 
@@ -130,9 +130,23 @@ namespace Ameritrack_Xam
         /// Populates pins in area that user is doing inspection in
         /// </summary>
         /// <returns></returns>
-        private async Task BuildPinsList()
+        private async Task BuildPinsListByArea()
         {
             var faults = await ViewModel.GetAllFaultsByArea();
+
+            var pinsList = await ViewModel.ConstructPinsFromFaults(faults);
+
+            MainMap.ListOfPins = new List<Pin>(pinsList);
+
+            foreach (var pin in pinsList)
+            {
+                MainMap.Pins.Add(pin);
+            }
+        }
+
+        private async Task BuildPinsListByReport()
+        {
+            var faults = await ViewModel.GetAllFaultsByReport();
 
             var pinsList = await ViewModel.ConstructPinsFromFaults(faults);
 

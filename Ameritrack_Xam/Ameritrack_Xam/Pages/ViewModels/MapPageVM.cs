@@ -41,7 +41,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
         /// <returns></returns>
         public async Task<Fault> FindFault(double latitude, double longitude)
         {
-            return await DatabaseService.GetFault(latitude, longitude);
+            return await DatabaseService.GetFaultByCoordinates(latitude, longitude);
         }
 
         public async Task<List<Fault>> GetAllFaults()
@@ -58,6 +58,12 @@ namespace Ameritrack_Xam.Pages.ViewModels
         {
             var faultsByAreaList = await DatabaseService.GetAllFaultsByArea(InspectionDataCache.CurrentReportData.Address);
             return new List<Fault>(faultsByAreaList);
+        }
+
+        public async Task<List<Fault>> GetAllFaultsByReport()
+        {
+            var faultsByReportList = await DatabaseService.GetAllFaultsByReport(InspectionDataCache.CurrentReportData.ReportId);
+            return new List<Fault>(faultsByReportList);
         }
 
         public async Task<List<Pin>> ConstructPinsFromFaults(List<Fault> faults)

@@ -16,7 +16,7 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
 
         public InspectionHeaderPopupVM() { }
 
-        public void InsertReportData(string customerName, string customerAddress, string customerContactName)
+        public async Task InsertReportData(string customerName, string customerAddress, string customerContactName)
         {
             var report = new Report()
             {
@@ -28,7 +28,9 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
                 Time = DateTime.Now
             };
 
-            InspectionDataCache.CurrentReportData = report;
+            await DatabaseService.InsertReportData(report);
+
+            InspectionDataCache.CurrentReportData = await DatabaseService.GetReportData(report);
         }
     }
 }

@@ -41,9 +41,10 @@ namespace Ameritrack_Xam.PCL.Services
         {
             using (await locker.LockAsync())
             {
-               await asyncConnection.CreateTableAsync<Employee>().ConfigureAwait(false);
-               await asyncConnection.CreateTableAsync<Fault>().ConfigureAwait(false);
-               await asyncConnection.CreateTableAsync<CommonDefects>().ConfigureAwait(false);
+                await asyncConnection.CreateTableAsync<Employee>().ConfigureAwait(false);
+                await asyncConnection.CreateTableAsync<Fault>().ConfigureAwait(false);
+                await asyncConnection.CreateTableAsync<CommonDefects>().ConfigureAwait(false);
+                await asyncConnection.CreateTableAsync<Report>().ConfigureAwait(false);
             }
         }
         #region Fault Calls
@@ -80,11 +81,19 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
-        public async Task<Fault> GetFault(double lat, double lng)
+        public async Task<Fault> GetFaultByCoordinates(double lat, double lng)
         {
             using (await locker.LockAsync())
             {
                 return await asyncConnection.Table<Fault>().Where(x => x.Latitude == lat && x.Longitude == lng).FirstOrDefaultAsync();
+            }
+        }
+
+        public async Task<List<Fault>> GetAllFaultsByReport(int? _reportId)
+        {
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<Fault>().Where(x => x.ReportId == _reportId).ToListAsync();
             }
         }
 
@@ -140,5 +149,25 @@ namespace Ameritrack_Xam.PCL.Services
                 await asyncConnection.InsertOrReplaceAsync(defects);
             }
         }
+
+        #region Report Calls
+
+        public async Task InsertReportData(Report report)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.InsertAsync(report);
+            }
+        }
+
+        public async Task<Report> GetReportData(Report report)
+        {
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<Report>().Where(x => x.Date == report.Date && x.Time == report.Time).FirstOrDefaultAsync();
+            }
+        }
+
+        #endregion
     }
 }

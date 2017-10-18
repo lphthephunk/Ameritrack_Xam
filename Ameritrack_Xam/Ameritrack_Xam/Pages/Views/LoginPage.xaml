@@ -4,8 +4,8 @@
              x:Class="Ameritrack_Xam.Pages.Views.LoginPage"
              BackgroundImage="login_bg.png" 
              Appearing="ContentPage_Appearing">
-    
-	<StackLayout>
+
+    <StackLayout>
         <Label Text="Railserve Login"
                FontSize="36"
                HorizontalTextAlignment="Center" 

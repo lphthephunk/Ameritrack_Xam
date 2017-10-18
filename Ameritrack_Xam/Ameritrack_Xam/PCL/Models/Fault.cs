@@ -22,9 +22,11 @@ namespace Ameritrack_Xam.PCL.Models
         private string _faultComments { get; set; }
         private string _faultType { get; set; }
         private byte[] _faultPicture { get; set; }
-        private bool _urgent { get; set; }
+        private bool _isUrgent { get; set; }
 		private double _latitude { get; set; }
 		private double _longitude { get; set; }
+
+        public int? ReportId { get; set; }
 
         //// foreign key to associate this fault with a CustomPin (ie: a fault location)
         //[ForeignKey(typeof(CustomPin))]
@@ -140,15 +142,15 @@ namespace Ameritrack_Xam.PCL.Models
 			}
 		}
 
-		public bool Urgent
+		public bool IsUrgent
 		{
-			get { return _urgent; }
+			get { return _isUrgent; }
 			set
 			{
-				if (value != _urgent)
+				if (value != _isUrgent)
 				{
-					_urgent = value;
-					OnPropertyChanged(nameof(Urgent));
+					_isUrgent = value;
+					OnPropertyChanged(nameof(IsUrgent));
 				}
 			}
 		}
