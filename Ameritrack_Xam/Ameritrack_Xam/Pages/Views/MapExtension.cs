@@ -12,7 +12,7 @@ namespace Ameritrack_Xam.Pages.Views
 {
     public class MapExtension : Map
     {
-        public event EventHandler<MapTapEventArgs> Tap;
+        public event EventHandler<MapLongTouchEventArgs> Tap;
         public event EventHandler<PinTapEventArgs> PinTap;
 
         public List<Pin> ListOfPins = new List<Pin>();
@@ -21,12 +21,12 @@ namespace Ameritrack_Xam.Pages.Views
 
         public MapExtension(MapSpan region) : base(region) { }
 
-        public void OnTap(Position coordinate)
+        public void OnMapLongTouch(Position coordinate)
         {
-            OnTap(new MapTapEventArgs { Position = coordinate });
+            OnMapLongTouch(new MapLongTouchEventArgs { Position = coordinate });
         }
 
-        protected virtual void OnTap(MapTapEventArgs e)
+        protected virtual void OnMapLongTouch(MapLongTouchEventArgs e)
         {
             Tap?.Invoke(this, e);
         }
@@ -42,7 +42,7 @@ namespace Ameritrack_Xam.Pages.Views
         }
     }
 
-    public class MapTapEventArgs : EventArgs
+    public class MapLongTouchEventArgs : EventArgs
     {
         public Position Position { get; set; }
     }

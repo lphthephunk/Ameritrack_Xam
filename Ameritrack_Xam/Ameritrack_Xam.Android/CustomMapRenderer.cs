@@ -45,7 +45,7 @@ namespace Ameritrack_Xam.Droid
 
             if (_map != null)
             {
-                _map.MapClick += googleMap_MapClick;
+                _map.MapLongClick += googleMap_MapLongClick;
                 _map.MyLocationEnabled = _formsMap.IsShowingUser;
 
                 // marker click event to edit the faults
@@ -111,7 +111,7 @@ namespace Ameritrack_Xam.Droid
             {
                 // unsubscribe
 
-                _map.MapClick -= googleMap_MapClick;
+                _map.MapLongClick -= googleMap_MapLongClick;
             }
 
             base.OnElementChanged(e);
@@ -139,7 +139,7 @@ namespace Ameritrack_Xam.Droid
             markerIcon.SetPosition(new LatLng(customPin.Position.Latitude, customPin.Position.Longitude));
             markerIcon.SetTitle(customPin.Label);
             markerIcon.SetSnippet(customPin.Address);
-            markerIcon.Draggable(true);
+            markerIcon.Draggable(false);
 
             return markerIcon;
         }
@@ -157,9 +157,9 @@ namespace Ameritrack_Xam.Droid
             }
         }
 
-        private void googleMap_MapClick(object sender, GoogleMap.MapClickEventArgs e)
+        private void googleMap_MapLongClick(object sender, GoogleMap.MapLongClickEventArgs e)
         {
-            ((MapExtension)Element).OnTap(new Position(e.Point.Latitude, e.Point.Longitude));
+            ((MapExtension)Element).OnMapLongTouch(new Position(e.Point.Latitude, e.Point.Longitude));
 
             // display the new pin
             UpdatePins();

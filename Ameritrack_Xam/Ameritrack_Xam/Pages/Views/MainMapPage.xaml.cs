@@ -32,7 +32,7 @@ namespace Ameritrack_Xam
             // hide nav-bar
             // NavigationPage.SetHasNavigationBar(this, false);
 
-            MainMap.Tap += MainMap_Tap;
+            MainMap.Tap += MainMap_LongTouch;
             MainMap.PinTap += MainMap_PinTap;
         }
 
@@ -60,7 +60,7 @@ namespace Ameritrack_Xam
             }
         }
 
-        private async void MainMap_Tap(object sender, MapTapEventArgs e)
+        private async void MainMap_LongTouch(object sender, MapLongTouchEventArgs e)
         {
             if (InspectionDataCache.IsReportStarted)
             {

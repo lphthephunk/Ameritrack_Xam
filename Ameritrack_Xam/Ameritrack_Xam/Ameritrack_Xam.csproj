@@ -44,7 +44,6 @@
       <DependentUpon>MainMapPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Views\MainPage.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Views\PopUps\PinPopupPage.xaml.cs">
       <DependentUpon>PinPopupPage.xaml</DependentUpon>
