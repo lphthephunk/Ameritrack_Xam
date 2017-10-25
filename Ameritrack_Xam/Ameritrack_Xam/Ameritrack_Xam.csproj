@@ -49,8 +49,6 @@
     <Compile Include="Pages\Views\PopUps\PinPopupPage.xaml.cs">
       <DependentUpon>PinPopupPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Views\PopupViewModels\InspectionHeaderPopupVM.cs" />
-    <Compile Include="Pages\Views\PopupViewModels\PinPopupVM.cs" />
     <Compile Include="PCL\Helpers\AsyncSemaphore.cs" />
     <Compile Include="PCL\Helpers\CommonDefectsCache.cs" />
     <Compile Include="PCL\Helpers\InspectionDataCache.cs" />
@@ -78,6 +76,8 @@
     <Compile Include="Pages\Views\PopUps\InspectionHeaderPopupPage.xaml.cs">
       <DependentUpon>InspectionHeaderPopupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ViewModels\PopupViewModels\InspectionHeaderPopupVM.cs" />
+    <Compile Include="Pages\ViewModels\PopupViewModels\PinPopupVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -168,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PCL\Utilities\" />
+    <Folder Include="Pages\ViewModels\PopupViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Views\MainPage.xaml">
