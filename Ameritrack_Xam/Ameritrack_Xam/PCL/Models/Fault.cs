@@ -21,7 +21,6 @@ namespace Ameritrack_Xam.PCL.Models
         private string _areaAddress { get; set; }
         private string _faultComments { get; set; }
         private string _faultType { get; set; }
-        private byte[] _faultPicture { get; set; }
         private bool _isUrgent { get; set; }
 		private double _latitude { get; set; }
 		private double _longitude { get; set; }
@@ -99,19 +98,6 @@ namespace Ameritrack_Xam.PCL.Models
                 {
                     _faultType = value;
                     OnPropertyChanged(nameof(FaultType));
-                }
-            }
-        }
-
-        public byte[] FaultPicture
-        {
-            get { return _faultPicture; }
-            set
-            {
-                if (value != _faultPicture)
-                {
-                    _faultPicture = value;
-                    OnPropertyChanged(nameof(FaultPicture));
                 }
             }
         }

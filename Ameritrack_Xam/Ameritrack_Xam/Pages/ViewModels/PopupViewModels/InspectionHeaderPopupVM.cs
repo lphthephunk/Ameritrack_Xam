@@ -28,9 +28,9 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
                 Time = DateTime.Now
             };
 
-            await DatabaseService.InsertReportData(report);
+            InspectionDataCache.CurrentReportData = report;
 
-            InspectionDataCache.CurrentReportData = await DatabaseService.GetReportData(report);
+            await DatabaseService.InsertReportData(report);
         }
     }
 }
