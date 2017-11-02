@@ -1,6 +1,7 @@
 ﻿using Ameritrack_Xam.PCL.Helpers;
 using Ameritrack_Xam.PCL.Interfaces;
 using Ameritrack_Xam.PCL.Models;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -67,6 +68,20 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
 
             await DatabaseService.UpdateFault(fault);
 
+        }
+
+        public async Task TakePicture()
+        {
+            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
+            {
+                var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                {
+                    Directory = "FaultPictures",
+                    Name = $"{DateTime.UtcNow}.jpg"
+                };
+
+                var file = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
+            }
         }
 
         public async Task DeleteFault(Fault fault)

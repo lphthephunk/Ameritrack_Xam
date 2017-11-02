@@ -30,8 +30,11 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 
             BindingContext = ViewModel; // BindingContext allows us to bind to objects from our ViewModel and display them on the UI
                                         // The real benefit of this is real-time updating and displaying data without having to do any extra code
-            SubmitBtn.Clicked += SubmitBtn_Clicked;
 
+            CameraBtn.Clicked += CameraBtn_Clicked;
+
+            SubmitBtn.Clicked += SubmitBtn_Clicked;
+            
             // temporary until Rg.Plugins finishes the tap issue
             CloseBtn.Clicked += CloseBtn_Clicked;
 
@@ -53,6 +56,11 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             }
 
             base.OnAppearing();
+        }
+
+        private async void CameraBtn_Clicked(object sender, EventArgs e)
+        {
+            await ViewModel.TakePicture();
         }
 
         /// <summary>
@@ -98,7 +106,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 if (result)
                 {
                     // submit to database
-                    await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
+                    await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.Items[CommonDefectsPicker.SelectedIndex], IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
 
                     // close popup
                     await PopupNavigation.PopAsync();
@@ -108,7 +116,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 && (!string.IsNullOrEmpty(TrackName.Text) || !string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedItem != null)
             {
                 // submit to database
-                await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.SelectedItem.ToString(), IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
+                await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.Items[CommonDefectsPicker.SelectedIndex], IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
 
                 // close popup
                 await PopupNavigation.PopAsync();
@@ -127,6 +135,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             CommonDefectsPicker.SetBinding(Picker.ItemsSourceProperty, "ListOfDefects");
             CommonDefectsPicker.ItemDisplayBinding = new Binding("DefectName");
 
+            CommonDefectsPicker.Title = ViewModel.FaultData.FirstOrDefault().FaultType;
             // notes binding
             NotesEditor.Text = ViewModel.FaultData.FirstOrDefault().FaultComments;
 
