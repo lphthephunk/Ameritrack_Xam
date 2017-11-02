@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ameritrack_Xam.Pages.Views.MainPage"
                   xmlns:views="clr-namespace:Ameritrack_Xam.Pages.Views"
-                  xmlns:main="clr-namespace:Ameritrack_Xam">
+                  xmlns:main="clr-namespace:Ameritrack_Xam.Pages.Views">
     <MasterDetailPage.Master>
         
     </MasterDetailPage.Master>

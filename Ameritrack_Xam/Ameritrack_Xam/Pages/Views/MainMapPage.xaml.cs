@@ -1,5 +1,4 @@
 ﻿using Ameritrack_Xam.Pages.ViewModels;
-using Ameritrack_Xam.Pages.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
@@ -12,8 +11,7 @@ using Rg.Plugins.Popup.Services;
 using System.Collections.Generic;
 using Ameritrack_Xam.PCL.Helpers;
 
-// comment for re-re-pull
-namespace Ameritrack_Xam
+namespace Ameritrack_Xam.Pages.Views
 {
     public partial class MainMapPage : ContentPage
     {
@@ -121,6 +119,7 @@ namespace Ameritrack_Xam
         {
             await Navigation.PushPopupAsync(new InspectionHeaderPopupPage(), true);
 
+            // TODO: need to wait on the return of the inspection header popup before attempting to hit this if statement
             if (InspectionDataCache.IsReportStarted)
             {
                 await BuildPinsListByArea();

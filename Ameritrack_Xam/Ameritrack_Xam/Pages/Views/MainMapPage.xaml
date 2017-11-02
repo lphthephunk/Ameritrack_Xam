@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Ameritrack_Xam.Pages.Views"
+             xmlns:local="clr-namespace:Ameritrack_Xam.Pages"
              xmlns:map="clr-namespace:Ameritrack_Xam.Pages.Views"
-             x:Class="Ameritrack_Xam.MainMapPage"
+             x:Class="Ameritrack_Xam.Pages.Views.MainMapPage"
              xmlns:utilites="clr-namespace:Ameritrack_Xam.PCL.Utilities">
 
     
