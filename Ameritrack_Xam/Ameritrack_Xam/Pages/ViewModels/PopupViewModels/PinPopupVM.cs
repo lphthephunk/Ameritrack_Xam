@@ -70,20 +70,6 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
 
         }
 
-        public async Task TakePicture()
-        {
-            if (CrossMedia.Current.IsCameraAvailable && CrossMedia.Current.IsTakePhotoSupported)
-            {
-                var mediaOptions = new Plugin.Media.Abstractions.StoreCameraMediaOptions
-                {
-                    Directory = "FaultPictures",
-                    Name = $"{DateTime.UtcNow}.jpg"
-                };
-
-                var file = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
-            }
-        }
-
         public async Task DeleteFault(Fault fault)
         {
             await DatabaseService.DeleteFault(fault);

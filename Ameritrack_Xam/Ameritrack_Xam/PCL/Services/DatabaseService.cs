@@ -45,8 +45,18 @@ namespace Ameritrack_Xam.PCL.Services
                 await asyncConnection.CreateTableAsync<Fault>().ConfigureAwait(false);
                 await asyncConnection.CreateTableAsync<CommonDefects>().ConfigureAwait(false);
                 await asyncConnection.CreateTableAsync<Report>().ConfigureAwait(false);
+                await asyncConnection.CreateTableAsync<FaultPicture>().ConfigureAwait(false);
             }
         }
+
+        public async Task InsertCommonDefects(CommonDefects defects)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.InsertOrReplaceAsync(defects);
+            }
+        }
+
         #region Fault Calls
         public async Task InsertFault(Fault _fault)
         {
@@ -142,14 +152,6 @@ namespace Ameritrack_Xam.PCL.Services
         }
         #endregion
 
-        public async Task InsertCommonDefects(CommonDefects defects)
-        {
-            using (await locker.LockAsync())
-            {
-                await asyncConnection.InsertOrReplaceAsync(defects);
-            }
-        }
-
         #region Report Calls
 
         public async Task InsertReportData(Report report)
@@ -165,6 +167,26 @@ namespace Ameritrack_Xam.PCL.Services
             using (await locker.LockAsync())
             {
                 return await asyncConnection.Table<Report>().Where(x => x.Date == report.Date && x.Time == report.Time).FirstOrDefaultAsync();
+            }
+        }
+
+        #endregion
+
+        #region FaultPictures
+
+        public async Task InsertFaultPicture(FaultPicture faultPicture)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.InsertAsync(faultPicture);
+            }
+        }
+
+        public async Task<List<FaultPicture>> GetFaultPictures(int? faultId)
+        {
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<FaultPicture>().Where(x => x.FaultId == faultId).ToListAsync();
             }
         }
 

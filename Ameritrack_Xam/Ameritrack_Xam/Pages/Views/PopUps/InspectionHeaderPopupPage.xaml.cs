@@ -65,6 +65,8 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 InspectionDataCache.IsReportStarted = true; // set this to true so we can access it globally
                                                             // accessing this globally will allow us to know when to populate the map with pre-existing pins
 
+                MessagingCenter.Send<InspectionHeaderPopupPage>(this, "started");
+
                 await PopupNavigation.PopAsync(true);
             }
         }

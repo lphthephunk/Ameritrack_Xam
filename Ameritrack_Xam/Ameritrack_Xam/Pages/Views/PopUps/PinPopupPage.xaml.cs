@@ -60,7 +60,15 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 
         private async void CameraBtn_Clicked(object sender, EventArgs e)
         {
-            await ViewModel.TakePicture();
+            try
+            {
+                await Navigation.PushModalAsync(new GalleryPage(FaultContext));
+                await PopupNavigation.PopAsync();
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
         }
 
         /// <summary>

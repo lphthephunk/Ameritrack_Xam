@@ -117,13 +117,12 @@ namespace Ameritrack_Xam.Pages.Views
 
         private async void Handle_Start_Inspection_Clicked(object sender, System.EventArgs e)
         {
-            await Navigation.PushPopupAsync(new InspectionHeaderPopupPage(), true);
+            await Navigation.PushPopupAsync(new InspectionHeaderPopupPage());
 
-            // TODO: need to wait on the return of the inspection header popup before attempting to hit this if statement
-            if (InspectionDataCache.IsReportStarted)
+            MessagingCenter.Subscribe<InspectionHeaderPopupPage>(this, "started", async(messageSender) =>
             {
                 await BuildPinsListByArea();
-            }
+            });
         }
 
         /// <summary>

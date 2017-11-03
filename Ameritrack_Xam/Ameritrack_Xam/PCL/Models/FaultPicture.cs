@@ -9,20 +9,20 @@ namespace Ameritrack_Xam.PCL.Models
         [PrimaryKey, AutoIncrement]
         public int? FaultPictureId { get; set; }
 
-        private byte[] _faultPicture { get; set; }
+        private byte[] _picture { get; set; }
 
         public int? FaultId { get; set; }
 
-        public byte[] FaultPictures
+        public byte[] Picture
         {
-            get { return _faultPicture; }
+            get { return _picture; }
 
             set 
             {
-                if (value != _faultPicture)
+                if (value != _picture)
                 {
-                    _faultPicture = value;
-                    OnPropertyChanged(nameof(FaultPictures));
+                    _picture = value;
+                    OnPropertyChanged(nameof(Picture));
                 }
             }
         }
