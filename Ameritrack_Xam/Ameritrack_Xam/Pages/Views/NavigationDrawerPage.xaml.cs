@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
+
+using Ameritrack_Xam.Pages.ViewModels;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Ameritrack_Xam.Pages.Views
 {
@@ -19,9 +22,9 @@ namespace Ameritrack_Xam.Pages.Views
             await App.MasterDetail.Detail.Navigation.PushAsync(new MyInspectionsPage());
 		}
 
-        void Handle_Logout_Clicked(object sender, System.EventArgs e)
+        async void Handle_Logout_Clicked(object sender, System.EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Logout pressed");
-        }
+            await Navigation.PopModalAsync();
+;       }
     }
 }
