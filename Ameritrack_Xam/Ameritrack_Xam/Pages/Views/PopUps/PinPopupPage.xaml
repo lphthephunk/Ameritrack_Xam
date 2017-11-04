@@ -17,21 +17,21 @@
       EasingOut="SinIn"
       HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
-  
+
+
+
     <!-- Content -->
-    <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-      <Button x:Name="CloseBtn"
-              Text="X"
-              TextColor="White"
-              FontSize="16"
-              HorizontalOptions="EndAndExpand"
-              BackgroundColor="#CC0000"
-              WidthRequest="40"
-              HeightRequest="40"
-              BorderRadius="20"
-              Margin="-15"/>
-            
-      
+    <StackLayout BackgroundColor="White" Padding="20, 20, 20, 20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">      
+        <StackLayout>
+            <Label Text="Enter some information about the defect" 
+                   HorizontalTextAlignment="Center" 
+                   FontSize="18" />
+            <!-- Separator -->
+                <BoxView Grid.Row="2"
+                     Color="#5b5d68"
+                     HeightRequest="0.5" />
+        </StackLayout>
+
         <Entry Placeholder="Name of track..."
                x:Name="TrackName">
         </Entry>
@@ -50,10 +50,13 @@
         <StackLayout Orientation="Horizontal"
                      HorizontalOptions="FillAndExpand">
             <Button x:Name="CameraBtn"
-                    Text="Camera"
+                    Text="Pictures"
+                    BackgroundColor="Transparent"
                     HorizontalOptions="FillAndExpand"></Button>
             <Button x:Name="DeleteBtn"
-                    Text="Delete"
+                    Text="Delete Pin"
+                    BackgroundColor="Transparent"
+                    TextColor="#FF3232"
                     HorizontalOptions="FillAndExpand"></Button>
             
             <StackLayout HorizontalOptions="FillAndExpand">
@@ -64,9 +67,10 @@
         </StackLayout>
         <Button x:Name="SubmitBtn"
                   HorizontalOptions="CenterAndExpand"
-                  BackgroundColor="#e8c504"
-                  TextColor="Black"
-                  Text="Submit"
+                  BackgroundColor="Transparent"
+                  TextColor="#007aff"
+                  Text="Submit Defect"
+                  HeightRequest="64"
                   WidthRequest="600"/>
     </StackLayout>
 </pages:PopupPage>

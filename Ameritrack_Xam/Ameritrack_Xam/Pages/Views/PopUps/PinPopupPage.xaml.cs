@@ -36,7 +36,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             SubmitBtn.Clicked += SubmitBtn_Clicked;
             
             // temporary until Rg.Plugins finishes the tap issue
-            CloseBtn.Clicked += CloseBtn_Clicked;
+            // CloseBtn.Clicked += CloseBtn_Clicked;
 
             DeleteBtn.Clicked += DeleteBtn_Clicked;
 
@@ -144,7 +144,8 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             CommonDefectsPicker.SetBinding(Picker.ItemsSourceProperty, "ListOfDefects");
             CommonDefectsPicker.ItemDisplayBinding = new Binding("DefectName");
 
-            CommonDefectsPicker.Title = ViewModel.FaultData.FirstOrDefault().FaultType;
+            var faultType = ViewModel.FaultData.FirstOrDefault().FaultType;
+            CommonDefectsPicker.Title = faultType == null ? "Select a Common Defect" : faultType;
             // notes binding
             NotesEditor.Text = ViewModel.FaultData.FirstOrDefault().FaultComments;
 
