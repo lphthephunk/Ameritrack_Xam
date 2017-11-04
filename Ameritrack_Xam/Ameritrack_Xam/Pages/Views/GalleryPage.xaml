@@ -4,7 +4,7 @@
              x:Class="Ameritrack_Xam.Pages.Views.GalleryPage"
              Title="Pictures">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10">
             <Button x:Name="CameraBtn"
                     Text="Camera"
                     Grid.Column="0"
