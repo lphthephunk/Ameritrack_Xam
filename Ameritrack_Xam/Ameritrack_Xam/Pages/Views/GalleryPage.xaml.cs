@@ -37,19 +37,12 @@ namespace Ameritrack_Xam.Pages.Views
 
         private async Task PopulateGallery()
         {
-
-
-
             var pictures = await ViewModel.GetAllPictures(FaultContext.FaultId);
 
             int rowNum = 0;
             int colNum = 0;
             try
             {
-                for (int i = 0; i < pictures.Count(); i++) {
-                    // Gallery.Children.RemoveAt(i);
-                }
-
                 System.Diagnostics.Debug.WriteLine("PICTURES.COUNT: " + pictures.Count());
                 for (int i = 0; i < pictures.Count; i++)
                 {
