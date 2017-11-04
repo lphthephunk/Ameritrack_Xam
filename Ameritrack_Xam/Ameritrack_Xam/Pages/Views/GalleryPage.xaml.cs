@@ -43,10 +43,8 @@ namespace Ameritrack_Xam.Pages.Views
             int colNum = 0;
             try
             {
-                System.Diagnostics.Debug.WriteLine("PICTURES.COUNT: " + pictures.Count());
                 for (int i = 0; i < pictures.Count; i++)
                 {
-                    System.Diagnostics.Debug.WriteLine("row.def.count: " + Gallery.RowDefinitions.Count());
                     var image = new Image
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -57,10 +55,6 @@ namespace Ameritrack_Xam.Pages.Views
                         Aspect = Aspect.AspectFill
                                                    
                     };
-
-                    System.Diagnostics.Debug.WriteLine("--i is " + i);
-                    System.Diagnostics.Debug.WriteLine("--row is " + rowNum);
-                    System.Diagnostics.Debug.WriteLine("--col is " + colNum);
 
                     Gallery.Children.Add(image, colNum, rowNum);
                     colNum++;
