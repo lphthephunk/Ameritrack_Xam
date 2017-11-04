@@ -62,8 +62,9 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         {
             try
             {
-                await Navigation.PushModalAsync(new GalleryPage(FaultContext));
+                //await Navigation.PushModalAsync(new GalleryPage(FaultContext));
                 await PopupNavigation.PopAsync();
+                await App.MasterDetail.Detail.Navigation.PushAsync(new GalleryPage(FaultContext));
             }
             catch(Exception ex)
             {
