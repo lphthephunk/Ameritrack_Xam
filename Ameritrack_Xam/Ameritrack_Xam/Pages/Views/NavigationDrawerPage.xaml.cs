@@ -2,10 +2,6 @@
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-using Ameritrack_Xam.Pages.ViewModels;
-using System.Diagnostics;
-using System.Threading.Tasks;
-
 namespace Ameritrack_Xam.Pages.Views
 {
     public partial class NavigationDrawerPage : ContentPage
