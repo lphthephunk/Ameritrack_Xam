@@ -37,31 +37,46 @@ namespace Ameritrack_Xam.Pages.Views
 
         private async Task PopulateGallery()
         {
+
+
+
             var pictures = await ViewModel.GetAllPictures(FaultContext.FaultId);
 
             int rowNum = 0;
             int colNum = 0;
             try
             {
-                for (int i = 1; i <= pictures.Count; i++)
+                for (int i = 0; i < pictures.Count(); i++) {
+                    // Gallery.Children.RemoveAt(i);
+                }
+
+                System.Diagnostics.Debug.WriteLine("PICTURES.COUNT: " + pictures.Count());
+                for (int i = 0; i < pictures.Count; i++)
                 {
+                    System.Diagnostics.Debug.WriteLine("row.def.count: " + Gallery.RowDefinitions.Count());
                     var image = new Image
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
-                        Source = pictures[i - 1],
-                        WidthRequest = 250,
-                        HeightRequest = 250
+                        Source = pictures[i],
+                        WidthRequest = Application.Current.MainPage.Width / 3,
+                        HeightRequest = Application.Current.MainPage.Width / 3,
+                        Aspect = Aspect.AspectFill
+                                                   
                     };
+
+                    System.Diagnostics.Debug.WriteLine("--i is " + i);
+                    System.Diagnostics.Debug.WriteLine("--row is " + rowNum);
+                    System.Diagnostics.Debug.WriteLine("--col is " + colNum);
 
                     Gallery.Children.Add(image, colNum, rowNum);
                     colNum++;
 
-                    if (i % 3 == 0 && i != 0)
+                    if (colNum == 3)
                     {
                         Gallery.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-                        rowNum++;
 
+                        ++rowNum;
                         colNum = 0;
                     }
                 }
