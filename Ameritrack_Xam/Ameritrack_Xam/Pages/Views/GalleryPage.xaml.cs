@@ -16,6 +16,8 @@ namespace Ameritrack_Xam.Pages.Views
     {
         GalleryVM ViewModel;
         Fault FaultContext;
+        bool firstLoad = true;
+
 
         public GalleryPage(Fault fault)
         {
@@ -30,7 +32,12 @@ namespace Ameritrack_Xam.Pages.Views
 
         protected async override void OnAppearing()
         {
-            await PopulateGallery();
+            if (firstLoad)
+            {
+                System.Diagnostics.Debug.WriteLine("FIRST LOAD--");
+                await PopulateGallery();
+                firstLoad = false;
+            }
 
             base.OnAppearing();
         }
@@ -39,8 +46,32 @@ namespace Ameritrack_Xam.Pages.Views
         {
             var pictures = await ViewModel.GetAllPictures(FaultContext.FaultId);
 
+            var noPicturesImage = new Image
+            {
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Source = ImageSource.FromFile("no_images.png"),
+                WidthRequest = (Application.Current.MainPage.Width * 0.6),
+                HeightRequest = Application.Current.MainPage.Height,
+                Aspect = Aspect.AspectFit,
+                StyleId = "noPictureImage"
+            };
+
+            if (pictures.Count() == 0 && Gallery.Children.Count() < 1)
+            {
+                Gallery.ColumnDefinitions[1].Width = new GridLength(6, GridUnitType.Star);
+                Gallery.Children.Add(noPicturesImage, 1, 0);
+                return;
+            }
+            else if (Gallery.Children.Count() > 0 && Gallery.Children.First().StyleId == "noPictureImage")
+            {
+                Gallery.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+                Gallery.Children.RemoveAt(0);
+            }
+
             int rowNum = 0;
             int colNum = 0;
+
             try
             {
                 for (int i = 0; i < pictures.Count; i++)
@@ -53,7 +84,6 @@ namespace Ameritrack_Xam.Pages.Views
                         WidthRequest = Application.Current.MainPage.Width / 3,
                         HeightRequest = Application.Current.MainPage.Width / 3,
                         Aspect = Aspect.AspectFill
-                                                   
                     };
 
                     Gallery.Children.Add(image, colNum, rowNum);

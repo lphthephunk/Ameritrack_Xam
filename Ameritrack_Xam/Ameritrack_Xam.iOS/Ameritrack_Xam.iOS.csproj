@@ -123,6 +123,7 @@
     <BundleResource Include="Resources\login_bg.png" />
     <BundleResource Include="Resources\gradient.png" />
     <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\no_images.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Media, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
