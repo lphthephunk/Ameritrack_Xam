@@ -1,4 +1,5 @@
 ﻿using Ameritrack_Xam.Pages.Views.PopupViewModels;
+using Ameritrack_Xam.PCL.Helpers;
 using Rg.Plugins.Popup.Pages;
 using System;
 using System.Collections.Generic;
@@ -146,6 +147,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 
             var faultType = ViewModel.FaultData.FirstOrDefault().FaultType;
             CommonDefectsPicker.Title = faultType == null ? "Select a Common Defect" : faultType;
+            CommonDefectsPicker.SelectedIndex = CommonDefectsCache.UpdatedDefectsList.FindIndex(defect => defect.DefectName == faultType);
             // notes binding
             NotesEditor.Text = ViewModel.FaultData.FirstOrDefault().FaultComments;
 
