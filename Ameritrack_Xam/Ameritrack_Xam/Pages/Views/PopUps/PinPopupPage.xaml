@@ -38,8 +38,7 @@
       
         <Picker Title="Select a Common Defect"
                 x:Name="CommonDefectsPicker"
-                SelectedIndexChanged="Handle_SelectedIndexChangedDefectPicker"
-                Unfocused="Handle_UnfocusedDefectPicker">
+                SelectedItem="Bad Ties">
         </Picker>
 
         <StackLayout>

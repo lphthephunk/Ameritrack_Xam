@@ -154,18 +154,5 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             // urgency toggle binding
             IsUrgentSwitch.IsToggled = ViewModel.FaultData.FirstOrDefault().IsUrgent;
         }
-
-        void Handle_SelectedIndexChangedDefectPicker(object sender, System.EventArgs e)
-        {
-            // Called when the user selects a common defect different from the one currently selected
-            var picker = (Picker)sender;
-            Debug.WriteLine("The item is " + picker.Items[picker.SelectedIndex]);
-        }
-
-        void Handle_UnfocusedDefectPicker(object sender, Xamarin.Forms.FocusEventArgs e)
-        {
-            // This is called if the user opens the picker, but does not pick anything and rather taps outside of it to dismiss it.
-            Debug.WriteLine("In unfocused");
-        }
     }
 }
