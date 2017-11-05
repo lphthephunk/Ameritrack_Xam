@@ -59,13 +59,14 @@ namespace Ameritrack_Xam.Pages.Views
 
             if (pictures.Count() == 0 && Gallery.Children.Count() < 1)
             {
+                Gallery.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                 Gallery.ColumnDefinitions[1].Width = new GridLength(6, GridUnitType.Star);
                 Gallery.Children.Add(noPicturesImage, 1, 0);
                 return;
             }
             else if (Gallery.Children.Count() > 0 && Gallery.Children.First().StyleId == "noPictureImage")
             {
-                Gallery.ColumnDefinitions[1].Width = new GridLength(1, GridUnitType.Star);
+                Gallery.ColumnDefinitions.RemoveAt(1);
                 Gallery.Children.RemoveAt(0);
             }
 
@@ -81,15 +82,15 @@ namespace Ameritrack_Xam.Pages.Views
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                         Source = pictures[i],
-                        WidthRequest = Application.Current.MainPage.Width / 3,
-                        HeightRequest = Application.Current.MainPage.Width / 3,
+                        WidthRequest = Application.Current.MainPage.Width / 2,
+                        HeightRequest = Application.Current.MainPage.Width / 2,
                         Aspect = Aspect.AspectFill
                     };
 
                     Gallery.Children.Add(image, colNum, rowNum);
                     colNum++;
 
-                    if (colNum == 3)
+                    if (colNum == 2)
                     {
                         Gallery.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
 
