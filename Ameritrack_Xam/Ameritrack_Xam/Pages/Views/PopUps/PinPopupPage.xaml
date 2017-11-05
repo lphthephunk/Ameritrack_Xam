@@ -37,8 +37,7 @@
         </Entry>
       
         <Picker Title="Select a Common Defect"
-                x:Name="CommonDefectsPicker"
-                SelectedItem="Bad Ties">
+                x:Name="CommonDefectsPicker">
         </Picker>
 
         <StackLayout>

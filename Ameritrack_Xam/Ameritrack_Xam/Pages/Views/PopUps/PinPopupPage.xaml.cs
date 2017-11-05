@@ -63,9 +63,9 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         {
             try
             {
-                //await Navigation.PushModalAsync(new GalleryPage(FaultContext));
-                await PopupNavigation.PopAsync();
-                await App.MasterDetail.Detail.Navigation.PushAsync(new GalleryPage(FaultContext));
+                bool success = await saveData();
+                if (success)
+                    await App.MasterDetail.Detail.Navigation.PushAsync(new GalleryPage(FaultContext));
             }
             catch(Exception ex)
             {
@@ -100,36 +100,41 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         /// <param name="e"></param>
         private async void SubmitBtn_Clicked(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TrackName.Text) || string.IsNullOrWhiteSpace(TrackName.Text))
-            {
-                TrackName.Placeholder = "*Required";
+            await saveData();
+        }
+
+        private async Task<bool> saveData() {
+            if ((string.IsNullOrEmpty(TrackName.Text) || string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedIndex == -1) {
+                TrackName.Placeholder = "*Name of track...";
                 TrackName.PlaceholderColor = Color.Red;
-            }
-            if (CommonDefectsPicker.SelectedItem == null)
-            {
-                CommonDefectsPicker.BackgroundColor = Color.Red;
-            }
-            else if ((string.IsNullOrEmpty(NotesEditor.Text) || string.IsNullOrWhiteSpace(NotesEditor.Text))
-                && (!string.IsNullOrEmpty(TrackName.Text) || !string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedItem != null)
-            {
-                var result = await DisplayAlert("", "Are you sure you don't want to add any notes?", "Yes", "No");
-                if (result)
-                {
-                    // submit to database
-                    await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.Items[CommonDefectsPicker.SelectedIndex], IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
+                CommonDefectsPicker.BackgroundColor = Color.MistyRose;
 
-                    // close popup
-                    await PopupNavigation.PopAsync();
-                }
+                return false;
             }
-            else if ((!string.IsNullOrEmpty(NotesEditor.Text) || !string.IsNullOrWhiteSpace(NotesEditor.Text))
-                && (!string.IsNullOrEmpty(TrackName.Text) || !string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedItem != null)
+            else if ((string.IsNullOrEmpty(TrackName.Text) || string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedIndex != -1)
             {
+                TrackName.Placeholder = "*Name of track...";
+                TrackName.PlaceholderColor = Color.Red;
+                CommonDefectsPicker.BackgroundColor = Color.Transparent;
+
+                return false;
+            }
+            else if (CommonDefectsPicker.SelectedIndex == -1)
+            {
+                CommonDefectsPicker.BackgroundColor = Color.MistyRose;
+
+                return false;
+            }
+            else {
+                CommonDefectsPicker.BackgroundColor = Color.Transparent;
+
                 // submit to database
-                await ViewModel.SubmitFaultToDb((int) FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.Items[CommonDefectsPicker.SelectedIndex], IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
-
+                await ViewModel.SubmitFaultToDb((int)FaultContext.FaultId, TrackName.Text, NotesEditor.Text, CommonDefectsPicker.Items[CommonDefectsPicker.SelectedIndex], IsUrgentSwitch.IsToggled, FaultContext.Latitude, FaultContext.Longitude);
+            
                 // close popup
                 await PopupNavigation.PopAsync();
+
+                return true;
             }
         }
 

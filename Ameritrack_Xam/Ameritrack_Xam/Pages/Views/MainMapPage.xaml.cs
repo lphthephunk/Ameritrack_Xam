@@ -50,9 +50,7 @@ namespace Ameritrack_Xam.Pages.Views
 
                 if (pinPopup != null)
                 {
-                    if (faultAtThisPin.TrackName != null) {
-                        await Navigation.PushAsync(pinPopup); //Navigation.PushPopupAsync(pinPopup, true);
-                    }
+                    await Navigation.PushPopupAsync(pinPopup, true);
                 }
             }
             catch(Exception ex)
