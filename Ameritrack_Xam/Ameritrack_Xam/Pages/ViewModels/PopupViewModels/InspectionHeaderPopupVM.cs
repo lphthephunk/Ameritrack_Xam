@@ -16,12 +16,13 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
 
         public InspectionHeaderPopupVM() { }
 
-        public async Task InsertReportData(string customerName, string customerAddress, string customerContactName)
+        public async Task InsertReportData(string clientContact, string clientAddress, string clientContactName)
         {
             var report = new Report()
             {
-                Address = customerAddress,
-                ClientName = customerName,
+                Address = clientAddress,
+                ClientName = clientContact,
+                ClientContact = clientContactName,
                 InspectorFirstName = UserDataCache.CurrentEmployeeData.EmployeeFirstName,
                 InspectorLastName = UserDataCache.CurrentEmployeeData.EmployeeLastName,
                 Date = DateTime.Today.Date,
