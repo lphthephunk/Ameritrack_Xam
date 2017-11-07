@@ -30,20 +30,16 @@
                      HeightRequest="0.5" />
         </StackLayout>
 
-        <Entry Placeholder="Customer name..."
-           x:Name="CustomerName">
+        <Entry Placeholder="Client Name"
+               x:Name="ClientName">
         </Entry>
       
-        <Entry Placeholder="Customer address..."
-               x:Name="CustomerAddress">
+        <Entry Placeholder="Client Address"
+               x:Name="ClientAddress">
         </Entry>
 
-        <Entry Placeholder="Customer contact name..."
-               x:Name="CustomerContactName">
-        </Entry>
-
-        <Entry Placeholder="Inspector name..."
-               x:Name="InspectorName">
+        <Entry Placeholder="Client Contact Name"
+               x:Name="ClientContactName">
         </Entry>
 
         <Button x:Name="StartInspectionBtn"
