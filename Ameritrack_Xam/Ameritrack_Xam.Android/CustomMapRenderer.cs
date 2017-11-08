@@ -162,7 +162,7 @@ namespace Ameritrack_Xam.Droid
             ((MapExtension)Element).OnMapLongTouch(new Position(e.Point.Latitude, e.Point.Longitude));
 
             // display the new pin
-            UpdatePins();
+            //UpdatePins();
         }
     }
 }

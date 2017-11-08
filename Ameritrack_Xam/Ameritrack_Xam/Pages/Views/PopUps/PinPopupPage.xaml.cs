@@ -21,11 +21,16 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 		PinPopupVM ViewModel;
         Fault FaultContext;
 
-        public PinPopupPage(Fault fault)
+        MapExtension MapContext;
+        List<Pin> ListOfPins;
+
+        public PinPopupPage(Fault fault, MapExtension map)
         {
             InitializeComponent();
 
             FaultContext = fault;
+            MapContext = map;
+            ListOfPins = map.ListOfPins;
 
             ViewModel = new PinPopupVM(fault);
 
@@ -81,7 +86,19 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         /// <param name="e"></param>
         private async void DeleteBtn_Clicked(object sender, EventArgs e)
         {
-            await ViewModel.DeleteFault(FaultContext);
+            var displayTitle = "Remove Pin";
+            var displayMessage = "Remove this defect from the report?";
+            var result = await DisplayAlert(displayTitle, displayMessage, "Delete", "Cancel");
+            if (result)
+            {
+                await ViewModel.DeleteFault(FaultContext);
+
+                ListOfPins.Remove(ListOfPins.FirstOrDefault((Pin arg) => arg.Position.Latitude == FaultContext.Latitude && arg.Position.Longitude == FaultContext.Longitude));
+
+                UpdatePins();
+
+                await PopupNavigation.PopAsync();
+            }
         }
 
         /// <summary>
@@ -159,6 +176,16 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
 
             // urgency toggle binding
             IsUrgentSwitch.IsToggled = ViewModel.FaultData.FirstOrDefault().IsUrgent;
+        }
+
+        private void UpdatePins()
+        {
+            MapContext.Pins.Clear();
+
+            foreach (var pin in ListOfPins)
+            {
+                MapContext.Pins.Add(pin);
+            }
         }
     }
 }

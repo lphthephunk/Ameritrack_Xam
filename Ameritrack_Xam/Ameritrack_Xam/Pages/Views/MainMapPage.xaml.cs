@@ -50,7 +50,7 @@ namespace Ameritrack_Xam.Pages.Views
 
                 var faultAtThisPin = await ViewModel.FindFault(e.CurrentPin.Position.Latitude, e.CurrentPin.Position.Longitude);
 
-                selectedPin = new PinPopupPage(faultAtThisPin);
+                selectedPin = new PinPopupPage(faultAtThisPin, MainMap);
 
                 if (selectedPin != null)
                 {
@@ -76,7 +76,7 @@ namespace Ameritrack_Xam.Pages.Views
 
                 // add the pin to the MapExtension List of pins
                 MainMap.ListOfPins.Add(pin);
-                //MainMap.Pins.Add(pin);
+                MainMap.Pins.Add(pin);
 
                 // insert this pin coordinates into the local database for later use
                 await ViewModel.InsertFault(pin);
