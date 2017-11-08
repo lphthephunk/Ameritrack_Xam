@@ -63,9 +63,10 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         {
             try
             {
-                bool success = await saveData();
-                if (success)
-                    await App.MasterDetail.Detail.Navigation.PushAsync(new GalleryPage(FaultContext));
+                //bool success = await SaveData();
+                // if (success)
+                this.IsVisible = false;
+                await App.MasterDetail.Detail.Navigation.PushAsync(new GalleryPage(FaultContext));
             }
             catch(Exception ex)
             {
@@ -100,10 +101,10 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         /// <param name="e"></param>
         private async void SubmitBtn_Clicked(object sender, EventArgs e)
         {
-            await saveData();
+            await SaveData();
         }
 
-        private async Task<bool> saveData() {
+        private async Task<bool> SaveData() {
             if ((string.IsNullOrEmpty(TrackName.Text) || string.IsNullOrWhiteSpace(TrackName.Text)) && CommonDefectsPicker.SelectedIndex == -1) {
                 TrackName.Placeholder = "*Name of track...";
                 TrackName.PlaceholderColor = Color.Red;
@@ -151,7 +152,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             CommonDefectsPicker.ItemDisplayBinding = new Binding("DefectName");
 
             var faultType = ViewModel.FaultData.FirstOrDefault().FaultType;
-            CommonDefectsPicker.Title = faultType == null ? "Select a Common Defect" : faultType;
+            CommonDefectsPicker.Title = faultType ?? "Select a Common Defect";
             CommonDefectsPicker.SelectedIndex = CommonDefectsCache.UpdatedDefectsList.FindIndex(defect => defect.DefectName == faultType);
             // notes binding
             NotesEditor.Text = ViewModel.FaultData.FirstOrDefault().FaultComments;

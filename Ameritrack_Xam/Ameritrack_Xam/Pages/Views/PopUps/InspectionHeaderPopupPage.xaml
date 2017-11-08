@@ -14,7 +14,7 @@
       DurationIn="400"
       DurationOut="300"
       EasingIn="SinOut"
-      EasingOut="SinIn"
+      EasingOut="SinIn" 
       HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
   
