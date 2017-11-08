@@ -17,7 +17,7 @@ namespace Ameritrack_Xam.Pages.Views
     {
         private MapPageVM ViewModel;
         private bool isPinSelected = false;
-
+        private bool hasStartedInspection = false;
         PinPopupPage selectedPin;
 
         public MainMapPage()
@@ -121,12 +121,29 @@ namespace Ameritrack_Xam.Pages.Views
 
         private async void Handle_Start_Inspection_Clicked(object sender, System.EventArgs e)
         {
-            await Navigation.PushPopupAsync(new InspectionHeaderPopupPage());
+            if (!hasStartedInspection) {
+                await Navigation.PushPopupAsync(new InspectionHeaderPopupPage());
 
-            MessagingCenter.Subscribe<InspectionHeaderPopupPage>(this, "started", async(messageSender) =>
-            {
-                await BuildPinsListByArea();
-            });
+                MessagingCenter.Subscribe<InspectionHeaderPopupPage>(this, "started", async (messageSender) =>
+                {
+                    InspectionStatusButton.Text = "COMPLETE INSPECTION";
+                    hasStartedInspection = true;
+                    await BuildPinsListByArea();
+                });
+            } else {
+                // User is attempting to complete an inspection
+                var title = "Complete Inspection";
+                var message = "Have you completed the inspection?";
+                var result = await DisplayAlert(title, message, "Yes", "No");
+
+                if (result)
+                {
+                    MainMap.Pins.Clear();
+                    InspectionStatusButton.Text = "START INSPECTION";
+                    hasStartedInspection = false;
+                }
+            }
+
         }
 
         /// <summary>

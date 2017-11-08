@@ -25,6 +25,7 @@
         <!-- Row 1 -->
         <BoxView Grid.Row="1" Color="#007aff" />
         <Label Grid.Row="1" 
+               x:Name="InspectionStatusButton"
                Text="START INSPECTION"
                TextColor="White"
                VerticalTextAlignment="Center"
