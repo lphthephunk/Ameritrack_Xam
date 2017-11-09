@@ -65,5 +65,10 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 await PopupNavigation.PopAsync(true);
             }
         }
+
+        private async void OnCloseButtonTapped(object sender, EventArgs e)
+        {
+            await PopupNavigation.PopAsync();
+        }
     }
 }

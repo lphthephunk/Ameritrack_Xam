@@ -237,6 +237,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\gradient.png" />
     <AndroidResource Include="Resources\drawable\add.png" />
     <AndroidResource Include="Resources\drawable\no_images.png" />
+    <AndroidResource Include="Resources\drawable\close_button.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

@@ -22,6 +22,20 @@
 
     <!-- Content -->
     <StackLayout BackgroundColor="White" Padding="20, 20, 20, 20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">      
+        <!-- Close button -->
+        <ContentView
+              Margin="0,-20,-20,0"
+              HorizontalOptions="End">
+            <ContentView.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnCloseButtonTapped" />
+            </ContentView.GestureRecognizers>
+            <Image
+              x:Name="CloseImage"
+              HeightRequest="40"
+              WidthRequest="40"
+              Source="close_button.png">
+            </Image>
+        </ContentView>
         <StackLayout>
             <Label Text="Enter some information about the defect" 
                    HorizontalTextAlignment="Center" 

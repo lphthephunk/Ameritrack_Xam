@@ -187,5 +187,10 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                 MapContext.Pins.Add(pin);
             }
         }
+
+        private async void OnCloseButtonTapped(object sender, EventArgs e)
+        {
+            await PopupNavigation.PopAsync();
+        }
     }
 }
