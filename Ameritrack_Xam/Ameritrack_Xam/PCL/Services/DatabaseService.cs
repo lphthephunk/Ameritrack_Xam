@@ -190,6 +190,11 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
+        public Task<List<CommonDefects>> GetAllCommonDefects()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }

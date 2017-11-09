@@ -20,12 +20,7 @@ namespace Ameritrack_Xam.PCL.Helpers
         public static void GetDefectsFromServer()
         {
             // TODO: call the server for updated defects list
-            //UpdatedDefectsList = new List<CommonDefects>();
-
             TempDefectCreator();
-
-            // cache the defects
-            //await CacheCommonDefects();
         }
 
         /// <summary>
@@ -48,12 +43,6 @@ namespace Ameritrack_Xam.PCL.Helpers
                     DefectName = "Temp defect 3"
                 }
             };
-        }
-
-        private static async Task CacheCommonDefects(CommonDefects defects)
-        {
-            DatabaseService db = new DatabaseService(false);
-            await db.InsertCommonDefects(defects);
         }
     }
 }

@@ -55,13 +55,19 @@
     <Compile Include="PCL\Helpers\AsyncSemaphore.cs" />
     <Compile Include="PCL\Helpers\CommonDefectsCache.cs" />
     <Compile Include="PCL\Helpers\InspectionDataCache.cs" />
+    <Compile Include="PCL\Helpers\JsonObjectConverter.cs" />
     <Compile Include="PCL\Helpers\UserDataCache.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
+    <Compile Include="PCL\Interfaces\IServerCalls.cs" />
     <Compile Include="PCL\Interfaces\ISQLite.cs" />
     <Compile Include="PCL\Models\CommonDefects.cs" />
     <Compile Include="PCL\Models\Employee.cs" />
     <Compile Include="PCL\Models\Fault.cs" />
     <Compile Include="PCL\Services\DatabaseService.cs" />
+    <Compile Include="PCL\Services\RailsServeDbModels\RailCommonDefects.cs" />
+    <Compile Include="PCL\Services\RailsServeDbModels\RailEmployee.cs" />
+    <Compile Include="PCL\Services\RailsServeDbModels\RailFault.cs" />
+    <Compile Include="PCL\Services\ServerDatabaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -171,6 +177,9 @@
     </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.8\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v1.0\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="Validation, Version=2.4.0.0, Culture=neutral, PublicKeyToken=2fc06f0d701809a7, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Validation.2.4.18\lib\portable-net45+win8+wp8+wpa81\Validation.dll</HintPath>
