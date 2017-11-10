@@ -6,8 +6,10 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem Name="Menu1" Clicked="CameraBtn_Clicked" Icon="add.png" />
     </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <StackLayout Margin="10">
+    <RelativeLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Margin="5">
+        <StackLayout>
             <Grid x:Name="Gallery">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -18,5 +20,12 @@
                 </Grid.RowDefinitions>
             </Grid>
         </StackLayout>
-    </ContentPage.Content>
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               Color="#007aff"
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="CenterAndExpand"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.33}"
+                               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.50}" />
+    </RelativeLayout>
 </ContentPage>

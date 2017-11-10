@@ -34,7 +34,6 @@ namespace Ameritrack_Xam.Pages.Views
         {
             if (firstLoad)
             {
-                System.Diagnostics.Debug.WriteLine("FIRST LOAD--");
                 await PopulateGallery();
                 firstLoad = false;
             }
@@ -82,8 +81,8 @@ namespace Ameritrack_Xam.Pages.Views
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
                         Source = pictures[i],
-                        WidthRequest = Application.Current.MainPage.Width / 2,
-                        HeightRequest = Application.Current.MainPage.Width / 2,
+                        WidthRequest = Application.Current.MainPage.Width / 2.05,
+                        HeightRequest = Application.Current.MainPage.Width / 2.05,
                         Aspect = Aspect.AspectFill
                     };
 

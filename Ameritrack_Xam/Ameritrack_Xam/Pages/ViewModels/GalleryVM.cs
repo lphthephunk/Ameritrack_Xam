@@ -8,14 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.ComponentModel;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
-    public class GalleryVM
+    public class GalleryVM : INotifyPropertyChanged
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
 
         Fault faultContext;
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged("IsBusy");
+            }
+        }
+    
 
         public GalleryVM(Fault fault)
         {
@@ -40,12 +53,22 @@ namespace Ameritrack_Xam.Pages.ViewModels
 
         public async Task<List<ImageSource>> GetAllPictures(int? faultId)
         {
-            var pictures = await DatabaseService.GetFaultPictures(faultId);
             List<ImageSource> imageSourceList = new List<ImageSource>();
 
-            foreach(var source in pictures)
+            try
             {
-                imageSourceList.Add(ImageSource.FromStream(() => new MemoryStream(source.Picture)));
+                IsBusy = true;
+                var pictures = await DatabaseService.GetFaultPictures(faultId);
+
+                foreach (var source in pictures)
+                {
+                    imageSourceList.Add(ImageSource.FromStream(() => new MemoryStream(source.Picture)));
+                }
+            }
+            finally
+            {
+                await Task.Delay(TimeSpan.FromSeconds(2));
+                IsBusy = false;
             }
 
             return imageSourceList;
@@ -70,5 +93,21 @@ namespace Ameritrack_Xam.Pages.ViewModels
 
             await DatabaseService.InsertFaultPicture(dbPicture);
         }
+
+        #region INotifyPropertyChanged implementation
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed(this, new PropertyChangedEventArgs(name));
+
+        }
+
+        #endregion
     }
 }
