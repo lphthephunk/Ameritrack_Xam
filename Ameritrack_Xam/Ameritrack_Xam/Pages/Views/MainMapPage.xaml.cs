@@ -16,9 +16,8 @@ namespace Ameritrack_Xam.Pages.Views
     public partial class MainMapPage : ContentPage
     {
         private MapPageVM ViewModel;
-        private bool isPinSelected = false;
         private bool hasStartedInspection = false;
-        PinPopupPage selectedPin;
+        PinPopupPage selectedPinPopup;
 
         public MainMapPage()
         {
@@ -46,15 +45,13 @@ namespace Ameritrack_Xam.Pages.Views
         {
             try
             {
-                isPinSelected = true;
-
                 var faultAtThisPin = await ViewModel.FindFault(e.CurrentPin.Position.Latitude, e.CurrentPin.Position.Longitude);
 
-                selectedPin = new PinPopupPage(faultAtThisPin, MainMap);
+                selectedPinPopup = new PinPopupPage(faultAtThisPin, MainMap);
 
-                if (selectedPin != null)
+                if (selectedPinPopup != null)
                 {
-                    await Navigation.PushPopupAsync(selectedPin, true);
+                    await Navigation.PushPopupAsync(selectedPinPopup, true);
                 }
             }
             catch(Exception ex)
@@ -178,13 +175,13 @@ namespace Ameritrack_Xam.Pages.Views
             }
         }
 
+        public PinPopupPage GetSelectedPinPopup()
+        {
+            return selectedPinPopup;
+        }
+
         protected override void OnAppearing()
         {
-            if (isPinSelected)
-            {
-                selectedPin.IsVisible = true;
-                isPinSelected = false;
-            }
             base.OnAppearing();
         }
     }
