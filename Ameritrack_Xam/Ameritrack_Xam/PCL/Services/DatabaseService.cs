@@ -170,6 +170,14 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
+        public async Task<List<Report>> GetReportsByEmployee(Employee employee)
+        {
+            using (await locker.LockAsync())
+            {
+                return await asyncConnection.Table<Report>().Where(x => x.InspectorFirstName == employee.EmployeeFirstName && x.InspectorLastName == employee.EmployeeLastName).ToListAsync();
+            }
+        }
+
         #endregion
 
         #region FaultPictures
