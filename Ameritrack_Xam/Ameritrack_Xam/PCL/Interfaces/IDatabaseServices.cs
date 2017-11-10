@@ -46,6 +46,8 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
         Task<Report> GetReportData(Report report);
 
+        Task<List<Report>> GetReportsByEmployee(Employee employee);
+
         Task InsertFaultPicture(FaultPicture faultPicture);
 
         Task<List<FaultPicture>> GetFaultPictures(int? faultId);

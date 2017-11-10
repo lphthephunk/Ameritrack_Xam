@@ -181,6 +181,11 @@ namespace Ameritrack_Xam.PCL.Services
         {
             throw new NotImplementedException();
         }
+
+        public Task<List<Report>> GetReportsByEmployee(Employee employee)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
 
