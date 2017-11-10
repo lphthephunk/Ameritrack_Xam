@@ -40,6 +40,8 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
         Task InsertCommonDefects(CommonDefects defects);
 
+        Task<List<CommonDefects>> GetAllCommonDefects();
+
         Task InsertReportData(Report report);
 
         Task<Report> GetReportData(Report report);
