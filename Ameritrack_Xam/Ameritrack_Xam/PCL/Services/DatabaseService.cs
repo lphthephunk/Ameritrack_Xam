@@ -166,7 +166,7 @@ namespace Ameritrack_Xam.PCL.Services
         {
             using (await locker.LockAsync())
             {
-                return await asyncConnection.Table<Report>().Where(x => x.Date == report.Date && x.Time == report.Time).FirstOrDefaultAsync();
+                return await asyncConnection.Table<Report>().Where(x => x.DateTime == report.DateTime && x.DateTime == report.DateTime).FirstOrDefaultAsync();
             }
         }
 
