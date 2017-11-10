@@ -3,9 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Ameritrack_Xam.Pages.Views.MyInspectionsPage"
              Title="MyInspections">
-	<ContentPage.Content>
-        <Label Text="My Inspections"
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center" />
+    <ContentPage.Content>
+        <ListView x:Name="listView" RowHeight="80">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Grid HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="0" Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Margin="10,10,0,10">
+                                    <Label Text="{Binding ClientName}" FontSize="24" />
+                                    <Label Text="{Binding Address}" FontSize="14" />
+                                </StackLayout>
+                                <Label Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" FontSize="24" Text="{Binding ClientContact}" Margin="0,10,10,10" />
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
