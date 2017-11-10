@@ -49,6 +49,15 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             CloseWhenBackgroundIsClicked = true;
         }
 
+        /// <summary>
+        /// Stops the popup from being closed by the hardware back button
+        /// </summary>
+        /// <returns></returns>
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
         protected override async void OnAppearing()
         {
             try
