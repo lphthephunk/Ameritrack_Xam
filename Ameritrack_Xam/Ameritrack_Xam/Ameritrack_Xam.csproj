@@ -89,6 +89,7 @@
     <Compile Include="Pages\ViewModels\PopupViewModels\PinPopupVM.cs" />
     <Compile Include="PCL\Models\FaultPicture.cs" />
     <Compile Include="Pages\ViewModels\MyInspectionsVM.cs" />
+    <Compile Include="PCL\Helpers\TrackNameDataCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">

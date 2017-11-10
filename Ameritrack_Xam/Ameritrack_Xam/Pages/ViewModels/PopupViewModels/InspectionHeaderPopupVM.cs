@@ -25,8 +25,7 @@ namespace Ameritrack_Xam.Pages.Views.PopupViewModels
                 ClientContact = clientContactName,
                 InspectorFirstName = UserDataCache.CurrentEmployeeData.EmployeeFirstName,
                 InspectorLastName = UserDataCache.CurrentEmployeeData.EmployeeLastName,
-                Date = DateTime.Today.Date,
-                Time = DateTime.Now
+                DateTime = DateTime.Now // comment for a push
             };
 
             InspectionDataCache.CurrentReportData = report;

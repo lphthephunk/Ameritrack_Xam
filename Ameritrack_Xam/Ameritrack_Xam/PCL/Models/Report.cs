@@ -21,8 +21,7 @@ namespace Ameritrack_Xam.PCL.Models
 		private string _inspectorFirstName { get; set; }
 		private string _inspectorLastName { get; set; }
 		private string _address { get; set; }
-		private DateTime _date { get; set; }
-		private DateTime _time { get; set; }
+		private DateTime _dateTime { get; set; }    //comment for a push
 
 		// One Report to many CustomPins
 		// CascadeOperation is set to All so that if we delete this Report...
@@ -95,28 +94,15 @@ namespace Ameritrack_Xam.PCL.Models
 			}
 		}
 
-		public DateTime Date
+		public DateTime DateTime
 		{
-			get { return _date; }
+            get { return _dateTime; }
 			set
 			{
-				if (value != _date)
+                if (value != _dateTime)
 				{
-					_date = value;
-					OnPropertyChanged(nameof(Date));
-				}
-			}
-		}
-
-		public DateTime Time
-		{
-			get { return _time; }
-			set
-			{
-				if (value != _time)
-				{
-					_time = value;
-					OnPropertyChanged(nameof(Time));
+                    _dateTime = value;
+                    OnPropertyChanged(nameof(DateTime));
 				}
 			}
 		}
