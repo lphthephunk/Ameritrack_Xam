@@ -42,7 +42,6 @@ namespace Ameritrack_Xam.Pages.Views
         {
             ViewModel.IsBusy = true;
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
-                Random random = new Random();
                 spinner.Color = RandomColor();
 
                 return ViewModel.IsBusy;
