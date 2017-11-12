@@ -17,7 +17,6 @@ namespace Ameritrack_Xam.Pages.Views
     {
         GalleryVM ViewModel;
         Fault FaultContext;
-        bool firstLoad = true;
 
 
         public GalleryPage(Fault fault)
@@ -33,11 +32,9 @@ namespace Ameritrack_Xam.Pages.Views
 
         protected async override void OnAppearing()
         {
-            if (firstLoad)
-            {
-                await PopulateGallery();
-                firstLoad = false;
-            }
+            await PopulateGallery();
+            spinner.Color = RandomColor();
+
             base.OnAppearing();
         }
 
@@ -46,10 +43,15 @@ namespace Ameritrack_Xam.Pages.Views
             ViewModel.IsBusy = true;
             Device.StartTimer(TimeSpan.FromSeconds(1), () => {
                 Random random = new Random();
-                spinner.Color = Color.FromRgb((random.Next(0, 255)), (random.Next(0, 255)), (random.Next(0, 255)));
+                spinner.Color = RandomColor();
 
                 return ViewModel.IsBusy;
             });
+        }
+
+        private Color RandomColor() {
+            Random random = new Random();
+            return Color.FromRgb((random.Next(0, 255)), (random.Next(0, 255)), (random.Next(0, 255)));
         }
 
         private async Task PopulateGallery()

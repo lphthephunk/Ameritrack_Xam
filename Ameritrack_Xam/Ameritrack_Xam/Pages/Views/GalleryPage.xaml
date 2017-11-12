@@ -27,7 +27,6 @@
             <ActivityIndicator x:Name="spinner"
                                IsVisible="{Binding IsBusy}"
                                IsRunning="{Binding IsBusy}"
-                               Color="#007aff"
                                VerticalOptions="CenterAndExpand"
                                HorizontalOptions="CenterAndExpand"
                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.50}"
