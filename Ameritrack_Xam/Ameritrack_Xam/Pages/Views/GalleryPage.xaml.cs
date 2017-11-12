@@ -63,8 +63,8 @@ namespace Ameritrack_Xam.Pages.Views
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 Source = ImageSource.FromFile("no_images.png"),
-                WidthRequest = (Application.Current.MainPage.Width * 0.6),
-                HeightRequest = Application.Current.MainPage.Height,
+                WidthRequest = Application.Current.MainPage.Width * 0.6,
+                HeightRequest = Application.Current.MainPage.Height * 0.94,
                 Aspect = Aspect.AspectFit,
                 StyleId = "noPictureImage"
             };
@@ -116,6 +116,8 @@ namespace Ameritrack_Xam.Pages.Views
                 // set the spinner to finish when the last image finishes loading
                 spinner.SetBinding(ActivityIndicator.IsRunningProperty, "IsLoading");
                 spinner.BindingContext = image;
+                spinnerLabel.SetBinding(IsVisibleProperty, "IsLoading");
+                spinnerLabel.BindingContext = image;
                 ViewModel.IsBusy = false;
             }
             catch (Exception ex)
@@ -128,6 +130,8 @@ namespace Ameritrack_Xam.Pages.Views
         {
             spinner.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
             spinner.BindingContext = ViewModel;
+            spinnerLabel.SetBinding(IsVisibleProperty, "IsBusy");
+            spinnerLabel.BindingContext = ViewModel;
 
             await ViewModel.TakePicture();
 
