@@ -41,8 +41,21 @@ namespace Ameritrack_Xam.Pages.Views
             base.OnAppearing();
         }
 
+        private void RandomizeIndicatorColor()
+        {
+            ViewModel.IsBusy = true;
+            Device.StartTimer(TimeSpan.FromSeconds(1), () => {
+                Random random = new Random();
+                spinner.Color = Color.FromRgb((random.Next(0, 255)), (random.Next(0, 255)), (random.Next(0, 255)));
+
+                return ViewModel.IsBusy;
+            });
+        }
+
         private async Task PopulateGallery()
         {
+            RandomizeIndicatorColor();
+
             var pictures = await ViewModel.GetAllPictures(FaultContext.FaultId);
 
             var noPicturesImage = new Image

@@ -20,13 +20,24 @@
                 </Grid.RowDefinitions>
             </Grid>
         </StackLayout>
-        <ActivityIndicator x:Name="spinner"
-            IsVisible="{Binding IsBusy}"
+
+        <StackLayout Orientation="Vertical"
+                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.27}"
+                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.45}">
+            <ActivityIndicator x:Name="spinner"
+                               IsVisible="{Binding IsBusy}"
                                IsRunning="{Binding IsBusy}"
                                Color="#007aff"
                                VerticalOptions="CenterAndExpand"
                                HorizontalOptions="CenterAndExpand"
-                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.33}"
+                               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.50}"
                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=0.50}" />
+            <Label Text="Loading images..."
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"
+               IsVisible="{Binding IsBusy}"
+               FontSize="18" 
+               Margin="0,10,0,0" />
+        </StackLayout>
     </RelativeLayout>
 </ContentPage>
