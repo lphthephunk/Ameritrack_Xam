@@ -35,7 +35,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
                 return new Command(async () => 
                 {
                     IsBusy = true;
-                    await GetReports();
+                    await GetUpdatedReports();
                     IsBusy = false;
                 });
             }
@@ -46,34 +46,56 @@ namespace Ameritrack_Xam.Pages.ViewModels
             ReportList = new ObservableCollection<Report>();
         }
 
-        private async Task<ObservableCollection<Report>> GetReportsByEmployee(Employee employee)
+        private async Task<List<Report>> GetReportsByEmployee(Employee employee)
         {
-            var reports = new ObservableCollection<Report>();
-
+            List<Report> list = new List<Report>();
             try 
             {
-                
-                List<Report> list = await DatabaseService.GetReportsByEmployee(employee);
-                foreach (var report in list)
-                    reports.Add(report);
+                list = await DatabaseService.GetReportsByEmployee(employee);
             }
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Couldn't retrieve reports for employee " + ex.Message);
             }
 
-            return reports;
+            return list;
         }
 
         public async Task GetReports()
         {
             ReportList.Clear();
+
+            // check if the inspection list has already been fetched before in this session
+            if (!InspectionDataCache.IsReportListFetched)
+            {
+                InspectionDataCache.CachedReportsList = await GetReportsByEmployee(UserDataCache.CurrentEmployeeData);
+                InspectionDataCache.IsReportListFetched = true;
+            }
+
+            foreach (var cachedReport in InspectionDataCache.CachedReportsList)
+            {
+                ReportList.Add(cachedReport);
+            }
+        }
+
+        /// <summary>
+        /// Triggered when user refreshes the page
+        /// </summary>
+        /// <returns></returns>
+        public async Task GetUpdatedReports()
+        {
+            ReportList.Clear();
+
+            // get a brand new list of reports since user chose to refresh the page
             var reports = await GetReportsByEmployee(UserDataCache.CurrentEmployeeData);
 
             foreach (var report in reports)
             {
                 ReportList.Add(report);
             }
+
+            // update the cached list
+            InspectionDataCache.CachedReportsList = reports;
         }
 
         #region INotifyPropertyChanged implementation

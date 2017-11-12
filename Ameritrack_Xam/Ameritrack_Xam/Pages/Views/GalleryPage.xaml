@@ -20,7 +20,8 @@
                 </Grid.RowDefinitions>
             </Grid>
         </StackLayout>
-        <ActivityIndicator IsVisible="{Binding IsBusy}"
+        <ActivityIndicator x:Name="spinner"
+            IsVisible="{Binding IsBusy}"
                                IsRunning="{Binding IsBusy}"
                                Color="#007aff"
                                VerticalOptions="CenterAndExpand"

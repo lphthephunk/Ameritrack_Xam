@@ -25,7 +25,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
             set
             {
                 _isBusy = value;
-                OnPropertyChanged("IsBusy");
+                OnPropertyChanged(nameof(IsBusy));
             }
         }
     
@@ -45,9 +45,19 @@ namespace Ameritrack_Xam.Pages.ViewModels
                     Name = $"{DateTime.UtcNow}.jpg"
                 };
 
-                var file = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
-
-                await InsertFaultPicture(file);
+                try
+                {
+                    var file = await CrossMedia.Current.TakePhotoAsync(mediaOptions);
+                    await InsertFaultPicture(file);
+                }
+                catch (TaskCanceledException)
+                {
+                    IsBusy = false;
+                }
+                catch (AggregateException)
+                {
+                    IsBusy = false;
+                }
             }
         }
 
@@ -67,8 +77,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
             }
             finally
             {
-                await Task.Delay(TimeSpan.FromSeconds(2));
-                IsBusy = false;
+                //IsBusy = false;
             }
 
             return imageSourceList;

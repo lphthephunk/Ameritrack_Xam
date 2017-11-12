@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -37,7 +38,6 @@ namespace Ameritrack_Xam.Pages.Views
                 await PopulateGallery();
                 firstLoad = false;
             }
-
             base.OnAppearing();
         }
 
@@ -61,6 +61,8 @@ namespace Ameritrack_Xam.Pages.Views
                 Gallery.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                 Gallery.ColumnDefinitions[1].Width = new GridLength(6, GridUnitType.Star);
                 Gallery.Children.Add(noPicturesImage, 1, 0);
+
+                ViewModel.IsBusy = false;
                 return;
             }
             else if (Gallery.Children.Count() > 0 && Gallery.Children.First().StyleId == "noPictureImage")
@@ -74,9 +76,10 @@ namespace Ameritrack_Xam.Pages.Views
 
             try
             {
+                Image image = null;
                 for (int i = 0; i < pictures.Count; i++)
                 {
-                    var image = new Image
+                    image = new Image
                     {
                         HorizontalOptions = LayoutOptions.CenterAndExpand,
                         VerticalOptions = LayoutOptions.CenterAndExpand,
@@ -97,6 +100,10 @@ namespace Ameritrack_Xam.Pages.Views
                         colNum = 0;
                     }
                 }
+                // set the spinner to finish when the last image finishes loading
+                spinner.SetBinding(ActivityIndicator.IsRunningProperty, "IsLoading");
+                spinner.BindingContext = image;
+                ViewModel.IsBusy = false;
             }
             catch (Exception ex)
             {
@@ -106,6 +113,9 @@ namespace Ameritrack_Xam.Pages.Views
 
         private async Task CameraBtn_Clicked(object sender, EventArgs e)
         {
+            spinner.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
+            spinner.BindingContext = ViewModel;
+
             await ViewModel.TakePicture();
 
             await PopulateGallery();

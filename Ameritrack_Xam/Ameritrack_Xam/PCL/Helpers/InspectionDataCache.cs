@@ -12,5 +12,9 @@ namespace Ameritrack_Xam.PCL.Helpers
         public static Report CurrentReportData { get; set; }
 
         public static bool IsReportStarted { get; set; }
+
+        public static bool IsReportListFetched { get; set; }
+
+        public static List<Report> CachedReportsList { get; set; }
     }
 }
