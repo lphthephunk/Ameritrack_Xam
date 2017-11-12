@@ -4,7 +4,12 @@
              x:Class="Ameritrack_Xam.Pages.Views.MyInspectionsPage"
              Title="MyInspections">
     <ContentPage.Content>
-        <ListView x:Name="listView" RowHeight="80">
+        <ListView x:Name="listView" 
+                  RowHeight="80"
+                  ItemsSource="{Binding ReportList}"
+                  IsPullToRefreshEnabled="true"
+                  RefreshCommand="{Binding Refresh}"
+                  IsRefreshing="{Binding IsBusy}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -21,7 +26,7 @@
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" Margin="0,10,25,10">
                                     <Label Text="{Binding ClientContact}" HorizontalOptions="EndAndExpand" FontSize="20" />
-                                    <Label Text="{Binding DateTime, StringFormat='{}{0:MMMM dd, yyyy  h:MM tt}'}" HorizontalOptions="EndAndExpand" FontSize="16" />
+                                    <Label Text="{Binding DateTime, StringFormat='{}{0:MMMM dd, yyyy  h:mm tt}'}" HorizontalOptions="EndAndExpand" FontSize="16" />
                                 </StackLayout>
                             </Grid>
                         </StackLayout>
