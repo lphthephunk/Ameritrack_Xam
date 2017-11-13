@@ -16,7 +16,6 @@ namespace Ameritrack_Xam.Pages.Views
     public partial class MainMapPage : ContentPage
     {
         private MapPageVM ViewModel;
-        private bool hasStartedInspection = false;
         PinPopupPage selectedPinPopup;
 
         public MainMapPage()
@@ -64,19 +63,27 @@ namespace Ameritrack_Xam.Pages.Views
         {
             if (InspectionDataCache.IsReportStarted)
             {
-                var pin = new Pin()
+                //var pin = new Pin()
+                //{
+                //    Label = "Placeholder",
+                //    Position = new Position(e.Position.Latitude, e.Position.Longitude),
+                //    Type = PinType.Place
+                //};
+
+                //// add the pin to the MapExtension List of pins
+                //MainMap.ListOfPins.Add(pin);
+                //MainMap.Pins.Add(pin);
+
+                //// insert this pin coordinates into the local database for later use
+                //await ViewModel.InsertFault(pin);
+
+                var fault = new Fault()
                 {
-                    Label = "Placeholder",
-                    Position = new Position(e.Position.Latitude, e.Position.Longitude),
-                    Type = PinType.Place
+                    Latitude = e.Position.Latitude,
+                    Longitude = e.Position.Longitude
                 };
 
-                // add the pin to the MapExtension List of pins
-                MainMap.ListOfPins.Add(pin);
-                MainMap.Pins.Add(pin);
-
-                // insert this pin coordinates into the local database for later use
-                await ViewModel.InsertFault(pin);
+                await PopupNavigation.PushAsync(new PinPopupPage(fault, MainMap));
             }
         }
 
@@ -118,13 +125,12 @@ namespace Ameritrack_Xam.Pages.Views
 
         private async void Handle_Start_Inspection_Clicked(object sender, System.EventArgs e)
         {
-            if (!hasStartedInspection) {
+            if (!InspectionDataCache.IsReportStarted) {
                 await Navigation.PushPopupAsync(new InspectionHeaderPopupPage());
 
                 MessagingCenter.Subscribe<InspectionHeaderPopupPage>(this, "started", async (messageSender) =>
                 {
                     InspectionStatusButton.Text = "COMPLETE INSPECTION";
-                    hasStartedInspection = true;
                     await BuildPinsListByArea();
                 });
             } else {
@@ -137,7 +143,9 @@ namespace Ameritrack_Xam.Pages.Views
                 {
                     MainMap.Pins.Clear();
                     InspectionStatusButton.Text = "START INSPECTION";
-                    hasStartedInspection = false;
+                    InspectionDataCache.CurrentReportData = null;
+                    InspectionDataCache.IsReportStarted = false;
+                    TrackNameDataCache.CurrentTrackName = "";
                 }
             }
 

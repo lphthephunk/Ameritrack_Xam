@@ -46,7 +46,7 @@
                      HeightRequest="0.5" />
         </StackLayout>
 
-        <Entry Placeholder="Name of track..."
+        <Entry Placeholder="Track Name"
                x:Name="TrackName">
         </Entry>
       
