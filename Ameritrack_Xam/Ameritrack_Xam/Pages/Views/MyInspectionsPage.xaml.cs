@@ -3,7 +3,7 @@
             base.OnAppearing();
         }
 
-        private async Task Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
-        {             var list = (ListView)sender;             var report = (Report)list.SelectedItem;
-            await DisplayAlert("Captured Report", report.ClientName, "OK");              await App.MasterDetail.Detail.Navigation.PushAsync(new ReportPage(report));
+        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {             var list = (ListView)sender;
+            var report = (Report)list.SelectedItem;              await App.MasterDetail.Detail.Navigation.PushAsync(new ReportPage(report));
         }     } }
