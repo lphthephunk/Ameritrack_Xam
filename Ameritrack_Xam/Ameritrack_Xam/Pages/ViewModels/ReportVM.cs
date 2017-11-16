@@ -21,6 +21,9 @@ namespace Ameritrack_Xam.Pages.ViewModels
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
         private ObservableCollection<FaultList> _listOfFaults { get; set; }
+        private Dictionary<String, ObservableCollection<Fault>> urgentDictionary = new Dictionary<String, ObservableCollection<Fault>>();
+        private Dictionary<String, ObservableCollection<Fault>> nonUrgentDictionary = new Dictionary<String, ObservableCollection<Fault>>();
+
 
         public ObservableCollection<FaultList> ListOfFaults 
         { 
@@ -61,28 +64,50 @@ namespace Ameritrack_Xam.Pages.ViewModels
         {
             List<Fault> faultList = await GetFaultList(ReportContext);
 
-            var urgentFaults = new FaultList();
-            var nonUrgentFaults = new FaultList();
+            var urgentTrackList = new FaultList();
+            var nonUrgentTrackList = new FaultList();
 
             foreach (var fault in faultList)
             {
+                String trackName = fault.TrackName;
+
                 if (fault.IsUrgent)
                 {
-                    urgentFaults.Add(fault);
+                    if (urgentDictionary.ContainsKey(trackName))
+                    {
+                        urgentDictionary[trackName].Add(fault);
+                    }
+                    else
+                    {
+                        urgentDictionary.Add(trackName, new ObservableCollection<Fault>());
+                        urgentDictionary[trackName].Add(fault);
+                        urgentTrackList.Add(fault);
+                    }
                 }
                 else
                 {
-                    nonUrgentFaults.Add(fault);
+                    if (nonUrgentDictionary.ContainsKey(trackName))
+                    {
+                        // add to list 
+                        nonUrgentDictionary[trackName].Add(fault);
+                    }
+                    else
+                    {
+                        // create list
+                        nonUrgentDictionary.Add(trackName, new ObservableCollection<Fault>());
+                        nonUrgentDictionary[trackName].Add(fault);
+                        nonUrgentTrackList.Add(fault);
+                    }
                 }
             }
 
-            urgentFaults.Heading = "Urgent";
-            nonUrgentFaults.Heading = "Non-Urgent";
+            urgentTrackList.Heading = "Urgent";
+            nonUrgentTrackList.Heading = "Non-Urgent";
 
             ListOfFaults = new ObservableCollection<FaultList>()
             {
-                urgentFaults,
-                nonUrgentFaults
+                urgentTrackList,
+                nonUrgentTrackList
             };
         }
 
