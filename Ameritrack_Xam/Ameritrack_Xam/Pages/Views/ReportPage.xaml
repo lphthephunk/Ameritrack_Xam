@@ -1,5 +1,19 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Ameritrack_Xam.Pages.Views.ReportPage">
 	<ContentPage.Content>
+        <ListView x:Name="listView" 
+                  RowHeight="80"
+                  ItemsSource="{Binding ListOfFaults}"
+                  ItemSelected="Handle_ItemSelected"
+                  IsGroupingEnabled="true"
+                  GroupHeaderTemplate="{Binding Heading}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding TrackName}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 	</ContentPage.Content>
 </ContentPage>
