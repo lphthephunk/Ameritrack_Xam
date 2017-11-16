@@ -6,13 +6,44 @@ using Xamarin.Forms;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
-    public class ReportVM
+    public class FaultList : ObservableCollection<Fault> {
+        public string Heading { get; set; }
+        public ObservableCollection<Fault> Faults;
+    }
+
+    public class ReportVM : INotifyPropertyChanged
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
-        public ObservableCollection<Fault> FaultList { get; set; }
+        private ObservableCollection<FaultList> _listOfFaults { get; set; }
 
-        public ReportVM()
+        public ObservableCollection<Fault> ListOfFaults 
         {
+            set 
+            {
+                _listOfFaults = value;
+                OnPropertyChanged(nameof(ListOfFaults))
+            }
         }
+
+        public ReportVM(Report report)
+        {
+            
+        }
+
+        #region INotifyPropertyChanged implementation
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed(this, new PropertyChangedEventArgs(name));
+
+        }
+
+        #endregion
     }
 }
