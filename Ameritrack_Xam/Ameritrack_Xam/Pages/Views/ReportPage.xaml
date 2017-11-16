@@ -5,14 +5,22 @@
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding Heading}" />
+                        <StackLayout HorizontalOptions="FillAndExpand"
+                                     VerticalOptions="FillAndExpand"
+                                     BackgroundColor="#f7f7f7">
+                            <Label Text="{Binding Heading}" TextColor="Black" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" />
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding TrackName}" />
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Margin="25,10,0,10">
+                                    <Label Text="{Binding TrackName}" TextColor="Black" HorizontalOptions="StartAndExpand" FontSize="20" />
+                                </StackLayout>
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

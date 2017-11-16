@@ -88,12 +88,10 @@ namespace Ameritrack_Xam.Pages.ViewModels
                 {
                     if (nonUrgentDictionary.ContainsKey(trackName))
                     {
-                        // add to list 
                         nonUrgentDictionary[trackName].Add(fault);
                     }
                     else
                     {
-                        // create list
                         nonUrgentDictionary.Add(trackName, new ObservableCollection<Fault>());
                         nonUrgentDictionary[trackName].Add(fault);
                         nonUrgentTrackList.Add(fault);
@@ -101,8 +99,8 @@ namespace Ameritrack_Xam.Pages.ViewModels
                 }
             }
 
-            urgentTrackList.Heading = "Urgent";
-            nonUrgentTrackList.Heading = "Non-Urgent";
+            urgentTrackList.Heading = "URGENT";
+            nonUrgentTrackList.Heading = "NOT URGENT";
 
             ListOfFaults = new ObservableCollection<FaultList>()
             {

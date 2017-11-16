@@ -8,7 +8,6 @@ using Xamarin.Forms;
 
 namespace Ameritrack_Xam.Pages.Views
 {
-
     public partial class ReportPage : ContentPage
     {
         ReportVM ViewModel;
@@ -19,6 +18,7 @@ namespace Ameritrack_Xam.Pages.Views
 
             ViewModel = new ReportVM(report);
             BindingContext = ViewModel;
+            Title = report.ClientName;
         }
 
         protected override async void OnAppearing()
@@ -27,6 +27,8 @@ namespace Ameritrack_Xam.Pages.Views
 
             base.OnAppearing();
         }
+
+
 
     }
 }
