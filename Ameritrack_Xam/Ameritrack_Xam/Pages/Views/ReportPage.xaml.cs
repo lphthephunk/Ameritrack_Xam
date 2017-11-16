@@ -11,5 +11,10 @@ namespace Ameritrack_Xam.Pages.Views
         {
             InitializeComponent();
         }
+
+        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
