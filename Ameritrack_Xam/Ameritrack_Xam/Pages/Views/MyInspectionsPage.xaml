@@ -8,7 +8,7 @@
                   RowHeight="80"
                   ItemsSource="{Binding ReportList}"
                   IsPullToRefreshEnabled="true"
-                  ItemSelected="Handle_ItemSelected"
+                  ItemTapped="Handle_ItemTapped"
                   RefreshCommand="{Binding Refresh}"
                   IsRefreshing="{Binding IsBusy}">
             <ListView.ItemTemplate>

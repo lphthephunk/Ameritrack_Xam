@@ -23,16 +23,16 @@ namespace Ameritrack_Xam.Pages.Views
                 var current = navStack[navStack.Count - 1].GetType();
                 var mmp = navStack[0].GetType();
 
-                var mapPage = (MainMapPage)navStack[navStack.Count - 1];
-
-                if (mapPage.GetSelectedPinPopup() != null)
-                {
-                    var popup = mapPage.GetSelectedPinPopup();
-                    popup.Opacity = 0.0;
-                    popup.IsVisible = true;
-                    await popup.FadeTo(1, 300);
+                if (current == typeof(MainMapPage)) {
+                    var mapPage = (MainMapPage)navStack[navStack.Count - 1];
+                    if (mapPage.GetSelectedPinPopup() != null)
+                    {
+                        var popup = mapPage.GetSelectedPinPopup();
+                        popup.Opacity = 0.0;
+                        popup.IsVisible = true;
+                        await popup.FadeTo(1, 300);
+                    }
                 }
-
             };
 
             // MasterBehavior = MasterBehavior.Popover;
