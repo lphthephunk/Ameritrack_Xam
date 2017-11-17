@@ -18,6 +18,7 @@ namespace Ameritrack_Xam.Pages.Views
             faultList = faults;
             ViewModel = new DefectVM(faults, isUrgent);
             BindingContext = ViewModel;
+            Title = faults[0].TrackName;
         }
 
         protected override void OnAppearing()
