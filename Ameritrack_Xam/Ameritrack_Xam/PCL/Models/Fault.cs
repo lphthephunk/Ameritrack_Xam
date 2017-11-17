@@ -89,6 +89,11 @@ namespace Ameritrack_Xam.PCL.Models
             }
         }
 
+        public bool HasFaultComments
+        {
+            get { return !string.IsNullOrEmpty(_faultComments) || !string.IsNullOrWhiteSpace(_faultComments); }
+        }
+
         public string FaultType
         {
             get { return _faultType; }

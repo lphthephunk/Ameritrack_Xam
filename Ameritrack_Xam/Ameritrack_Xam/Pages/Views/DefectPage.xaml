@@ -2,11 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Ameritrack_Xam.Pages.Views.DefectPage">
 	<ContentPage.Content>
          <ListView x:Name="listView" 
-            RowHeight="80" ItemsSource="{Binding ListOfFaults}">
+                   HasUnevenRows="true" 
+                   ItemsSource="{Binding ListOfFaults}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding FaultType}" />
+                        <StackLayout Orientation="Vertical" 
+                                     VerticalOptions="CenterAndExpand" 
+                                     HorizontalOptions="StartAndExpand" 
+                                     Margin="25,20,25,20">
+                            <Label Text="{Binding FaultType}" TextColor="Black" HorizontalOptions="StartAndExpand" FontSize="20" />
+                            <Label Margin="0,5,0,0" 
+                                   Text="{Binding FaultComments}"
+                                   IsVisible="{Binding HasFaultComments}"
+                                   TextColor="Gray" 
+                                   HorizontalOptions="StartAndExpand" 
+                                   FontSize="18" />
+                        </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
