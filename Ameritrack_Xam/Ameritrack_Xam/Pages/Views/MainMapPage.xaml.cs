@@ -81,7 +81,12 @@ namespace Ameritrack_Xam.Pages.Views
 
                 selectedPinPopup = new PinPopupPage(faultAtThisPin, MainMap);
 
-                await PopupNavigation.PushAsync(selectedPinPopup);
+                selectedPinPopup = new PinPopupPage(fault, MainMap);
+
+                if (selectedPinPopup != null)
+                {
+                    await Navigation.PushPopupAsync(selectedPinPopup, true);
+                }
             }
         }
 
