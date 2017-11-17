@@ -27,8 +27,5 @@ namespace Ameritrack_Xam.Pages.Views
 
             base.OnAppearing();
         }
-
-
-
     }
 }

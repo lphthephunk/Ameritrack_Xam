@@ -11,90 +11,74 @@ using Xamarin.Forms;
 namespace Ameritrack_Xam.Pages.ViewModels
 {
 
-    public class FaultList : ObservableCollection<Fault>
+    public class TrackList : ObservableCollection<String>
     {
         public string Heading { get; set; }
-        public ObservableCollection<Fault> Faults => this;
+        public ObservableCollection<String> Tracks => this;
     }
 
     public class ReportVM : INotifyPropertyChanged
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
-        private ObservableCollection<FaultList> _listOfFaults { get; set; }
-        private Dictionary<String, ObservableCollection<Fault>> urgentDictionary = new Dictionary<String, ObservableCollection<Fault>>();
-        private Dictionary<String, ObservableCollection<Fault>> nonUrgentDictionary = new Dictionary<String, ObservableCollection<Fault>>();
+        private ObservableCollection<TrackList> _listOfTracks { get; set; }
+        public Dictionary<String, ObservableCollection<Fault>> trackDictionary = new Dictionary<String, ObservableCollection<Fault>>();
 
-
-        public ObservableCollection<FaultList> ListOfFaults 
+        public ObservableCollection<TrackList> ListOfTracks 
         { 
-            get { return _listOfFaults; }
+            get { return _listOfTracks; }
             set
             {
-                _listOfFaults = value;
-                OnPropertyChanged(nameof(ListOfFaults));
+                _listOfTracks = value;
+                OnPropertyChanged(nameof(ListOfTracks));
             }
         }
 
-        private Report ReportContext;
+        Report ReportContext;
 
         public ReportVM(Report report)
         {
-            ListOfFaults = new ObservableCollection<FaultList>();
-
+            ListOfTracks = new ObservableCollection<TrackList>();
             ReportContext = report;
         }
 
         private async Task<List<Fault>> GetFaultList(Report report)
         {
-            List<Fault> list = new List<Fault>();
+            var faultList = new List<Fault>();
             try
             {
-                list = await DatabaseService.GetAllFaultsByReport(report.ReportId);
-
+                faultList = await DatabaseService.GetAllFaultsByReport(report.ReportId);
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Couldn't retrieve any faults for report" + ex.Message);
+                Debug.WriteLine("Couldn't retrieve any faults for report" + ex.Message);
             }
 
-            return list;
+            return faultList;
         }
 
         public async Task GetFaults()
         {
-            List<Fault> faultList = await GetFaultList(ReportContext);
+            var urgentTrackList = new TrackList();
+            var nonUrgentTrackList = new TrackList();
 
-            var urgentTrackList = new FaultList();
-            var nonUrgentTrackList = new FaultList();
-
+            var faultList = await GetFaultList(ReportContext);
             foreach (var fault in faultList)
             {
                 String trackName = fault.TrackName;
 
                 if (fault.IsUrgent)
                 {
-                    if (urgentDictionary.ContainsKey(trackName))
+                    if (!urgentTrackList.Tracks.Contains(trackName))
                     {
-                        urgentDictionary[trackName].Add(fault);
-                    }
-                    else
-                    {
-                        urgentDictionary.Add(trackName, new ObservableCollection<Fault>());
-                        urgentDictionary[trackName].Add(fault);
-                        urgentTrackList.Add(fault);
+                        urgentTrackList.Tracks.Add(trackName);
+                        Debug.WriteLine(urgentTrackList.Tracks.Contains(trackName));
                     }
                 }
                 else
                 {
-                    if (nonUrgentDictionary.ContainsKey(trackName))
+                    if (!nonUrgentTrackList.Tracks.Contains(trackName))
                     {
-                        nonUrgentDictionary[trackName].Add(fault);
-                    }
-                    else
-                    {
-                        nonUrgentDictionary.Add(trackName, new ObservableCollection<Fault>());
-                        nonUrgentDictionary[trackName].Add(fault);
-                        nonUrgentTrackList.Add(fault);
+                        nonUrgentTrackList.Tracks.Add(trackName);
                     }
                 }
             }
@@ -102,11 +86,32 @@ namespace Ameritrack_Xam.Pages.ViewModels
             urgentTrackList.Heading = "URGENT";
             nonUrgentTrackList.Heading = "NOT URGENT";
 
-            ListOfFaults = new ObservableCollection<FaultList>()
+            ListOfTracks = new ObservableCollection<TrackList>()
             {
                 urgentTrackList,
                 nonUrgentTrackList
             };
+
+            SortFaultsIntoTracks(faultList);
+        }
+
+        private void SortFaultsIntoTracks(List<Fault> faultList)
+        {
+            var trackList = new TrackList();
+
+            foreach (var fault in faultList)
+            {
+                String trackName = fault.TrackName;
+                if (trackDictionary.ContainsKey(trackName))
+                {
+                    trackDictionary[trackName].Add(fault);
+                }
+                else
+                {
+                    trackDictionary.Add(trackName, new ObservableCollection<Fault>());
+                    trackDictionary[trackName].Add(fault);
+                }
+            }
         }
 
         #region INotifyPropertyChanged implementation
