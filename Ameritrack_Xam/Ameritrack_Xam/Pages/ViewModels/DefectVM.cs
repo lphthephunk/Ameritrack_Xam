@@ -18,16 +18,22 @@ namespace Ameritrack_Xam.Pages
             }
         }
 
-        public DefectVM(ObservableCollection<Fault> faults)
+        public DefectVM(ObservableCollection<Fault> faults, bool isUrgent)
         {
-            ListOfFaults = faults;
+            GetDefects(faults, isUrgent);
         }
 
-        public void GetDefects(ObservableCollection<Fault> faults)
+        public void GetDefects(ObservableCollection<Fault> faults, bool isUrgent)
         {
-            // clear list here
+            var faultList = new ObservableCollection<Fault>();
 
-            ListOfFaults = faults;
+            foreach (var fault in faults) {
+                if (fault.IsUrgent == isUrgent) {
+                    faultList.Add(fault);
+                }
+            }
+
+            ListOfFaults = faultList;
         }
 
         #region INotifyPropertyChanged implementation

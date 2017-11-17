@@ -25,8 +25,9 @@ namespace Ameritrack_Xam.Pages.Views
         {
             var list = (ListView)sender;
             var trackName = (String)list.SelectedItem;
+            var group = (TrackList)e.Group;
 
-            await App.MasterDetail.Detail.Navigation.PushAsync(new DefectPage(ViewModel.trackDictionary[trackName]));
+            await App.MasterDetail.Detail.Navigation.PushAsync(new DefectPage(ViewModel.trackDictionary[trackName], group.IsUrgent));
         }
 
         protected override async void OnAppearing()

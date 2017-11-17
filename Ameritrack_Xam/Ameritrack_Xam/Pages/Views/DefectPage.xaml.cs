@@ -11,19 +11,17 @@ namespace Ameritrack_Xam.Pages.Views
         DefectVM ViewModel;
         ObservableCollection<Fault> faultList;
 
-        public DefectPage(ObservableCollection<Fault> faults)
+        public DefectPage(ObservableCollection<Fault> faults, bool isUrgent)
         {
             InitializeComponent();
 
             faultList = faults;
-            ViewModel = new DefectVM(faults);
-
+            ViewModel = new DefectVM(faults, isUrgent);
             BindingContext = ViewModel;
         }
 
         protected override void OnAppearing()
         {
-            
             base.OnAppearing();
         }
     }
