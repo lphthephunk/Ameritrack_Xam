@@ -21,6 +21,14 @@ namespace Ameritrack_Xam.Pages.Views
             Title = report.ClientName;
         }
 
+        async void Handle_ItemTappedAsync(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        {
+            var list = (ListView)sender;
+            var trackName = (String)list.SelectedItem;
+
+            await App.MasterDetail.Detail.Navigation.PushAsync(new DefectPage(ViewModel.trackDictionary[trackName]));
+        }
+
         protected override async void OnAppearing()
         {
             await ViewModel.GetFaults();
