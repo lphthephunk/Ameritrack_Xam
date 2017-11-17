@@ -10,10 +10,10 @@ using Xamarin.Forms;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
-
     public class TrackList : ObservableCollection<String>
     {
         public string Heading { get; set; }
+        public bool IsUrgent { get; set; }
         public ObservableCollection<String> Tracks => this;
     }
 
@@ -60,8 +60,9 @@ namespace Ameritrack_Xam.Pages.ViewModels
         {
             var urgentTrackList = new TrackList();
             var nonUrgentTrackList = new TrackList();
-
             var faultList = await GetFaultList(ReportContext);
+
+
             foreach (var fault in faultList)
             {
                 String trackName = fault.TrackName;
@@ -84,7 +85,9 @@ namespace Ameritrack_Xam.Pages.ViewModels
             }
 
             urgentTrackList.Heading = "URGENT";
+            urgentTrackList.IsUrgent = true;
             nonUrgentTrackList.Heading = "NOT URGENT";
+            nonUrgentTrackList.IsUrgent = false;
 
             ListOfTracks = new ObservableCollection<TrackList>()
             {
@@ -97,6 +100,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
 
         private void SortFaultsIntoTracks(List<Fault> faultList)
         {
+            trackDictionary.Clear();
             var trackList = new TrackList();
 
             foreach (var fault in faultList)
