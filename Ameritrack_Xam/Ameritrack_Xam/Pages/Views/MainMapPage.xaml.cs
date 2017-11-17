@@ -83,7 +83,12 @@ namespace Ameritrack_Xam.Pages.Views
                     Longitude = e.Position.Longitude
                 };
 
-                await PopupNavigation.PushAsync(new PinPopupPage(fault, MainMap));
+                selectedPinPopup = new PinPopupPage(fault, MainMap);
+
+                if (selectedPinPopup != null)
+                {
+                    await Navigation.PushPopupAsync(selectedPinPopup, true);
+                }
             }
         }
 
