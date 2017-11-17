@@ -3,7 +3,7 @@
             base.OnAppearing();
         }
 
-        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
-        {             var list = (ListView)sender;
-            var report = (Report)list.SelectedItem;              await App.MasterDetail.Detail.Navigation.PushAsync(new ReportPage(report));
+        async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        {
+            var list = (ListView)sender;             var report = (Report)list.SelectedItem;              await App.MasterDetail.Detail.Navigation.PushAsync(new ReportPage(report));
         }     } }
