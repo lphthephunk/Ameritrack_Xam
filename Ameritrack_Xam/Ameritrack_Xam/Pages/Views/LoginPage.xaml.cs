@@ -17,13 +17,7 @@ namespace Ameritrack_Xam.Pages.Views
 
 			ViewModel = new LoginVM();
 
-			InsertTestEmp();
             Title = "Login Page";
-		}
-
-		private async void InsertTestEmp()
-		{
-			await ViewModel.InsertMockEmployee();
 		}
 
 		private async void OnLoginButtonClicked(object sender, System.EventArgs e)
@@ -35,7 +29,7 @@ namespace Ameritrack_Xam.Pages.Views
                     ViewModel.StoreCredentials(employeeID.Text);
                 }
 
-                await ViewModel.SetUserData(employeeID.Text);
+                ViewModel.SetUserData();
 
                 await Navigation.PushModalAsync(new MainPage(), false);
                 incorrectIDWarning.IsVisible = false;

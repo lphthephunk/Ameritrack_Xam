@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -58,7 +58,7 @@
     <Compile Include="PCL\Helpers\JsonObjectConverter.cs" />
     <Compile Include="PCL\Helpers\UserDataCache.cs" />
     <Compile Include="PCL\Interfaces\IDatabaseServices.cs" />
-    <Compile Include="PCL\Interfaces\IServerCalls.cs" />
+    <Compile Include="PCL\Interfaces\IServerDatabase.cs" />
     <Compile Include="PCL\Interfaces\ISQLite.cs" />
     <Compile Include="PCL\Models\CommonDefects.cs" />
     <Compile Include="PCL\Models\Employee.cs" />

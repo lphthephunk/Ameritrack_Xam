@@ -16,6 +16,9 @@ namespace Ameritrack_Xam.Pages.ViewModels
 	{
         ICredentialsService StoreService = DependencyService.Get<ICredentialsService>();
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
+        IServerDatabase ServerDatabaseService = DependencyService.Get<IServerDatabase>();
+
+        private Employee employee;
 
 		public LoginVM()
 		{
@@ -28,30 +31,12 @@ namespace Ameritrack_Xam.Pages.ViewModels
             CommonDefectsCache.GetDefectsFromServer();
         }
 
-		public async Task InsertMockEmployee()
-		{
-			Employee emp = new Employee
-			{
-				EmployeeFirstName = "Test",
-				EmployeeLastName = "User",
-				EmployeeCredentials = "1234",
-			};
-
-            await DatabaseService.InsertEmployee(emp);
-		}
-
-		public async Task<Employee> PullEmployeeInfo()
-		{
-			var emp = await DatabaseService.GetEmployee("1234");
-
-			return emp;
-		}
-
         public async Task<bool> IsValidID(string _userEntryPassword)
         {
-            var emp = await DatabaseService.GetEmployee(_userEntryPassword);
+            // make call to server
+            employee = await ServerDatabaseService.GetEmployeeFromServer(_userEntryPassword);
 
-            if (emp != null)
+            if (employee != null)
             {
                 return true;
             }
@@ -92,10 +77,8 @@ namespace Ameritrack_Xam.Pages.ViewModels
                 return false;
         }
 
-        public async Task SetUserData(string employeeId)
+        public void SetUserData()
         {
-            var employee = await DatabaseService.GetEmployee(employeeId);
-
             UserDataCache.CurrentEmployeeData = employee;
         }
     }

@@ -15,7 +15,7 @@ namespace Ameritrack_Xam.Pages.Views
 {
     public partial class MainMapPage : ContentPage
     {
-        private MapPageVM ViewModel;
+        private MapPageVM ViewModel; 
         PinPopupPage selectedPinPopup;
 
         public MainMapPage()
@@ -63,27 +63,25 @@ namespace Ameritrack_Xam.Pages.Views
         {
             if (InspectionDataCache.IsReportStarted)
             {
-                //var pin = new Pin()
-                //{
-                //    Label = "Placeholder",
-                //    Position = new Position(e.Position.Latitude, e.Position.Longitude),
-                //    Type = PinType.Place
-                //};
-
-                //// add the pin to the MapExtension List of pins
-                //MainMap.ListOfPins.Add(pin);
-                //MainMap.Pins.Add(pin);
-
-                //// insert this pin coordinates into the local database for later use
-                //await ViewModel.InsertFault(pin);
-
-                var fault = new Fault()
+                var pin = new Pin()
                 {
-                    Latitude = e.Position.Latitude,
-                    Longitude = e.Position.Longitude
+                    Label = "Placeholder",
+                    Position = new Position(e.Position.Latitude, e.Position.Longitude),
+                    Type = PinType.Place
                 };
 
-                await PopupNavigation.PushAsync(new PinPopupPage(fault, MainMap));
+                // add the pin to the MapExtension List of pins
+                MainMap.ListOfPins.Add(pin);
+                MainMap.Pins.Add(pin);
+
+                // insert this pin coordinates into the local database for later use
+                await ViewModel.InsertFault(pin);
+
+                var faultAtThisPin = await ViewModel.FindFault(e.Position.Latitude, e.Position.Longitude);
+
+                selectedPinPopup = new PinPopupPage(faultAtThisPin, MainMap);
+
+                await PopupNavigation.PushAsync(selectedPinPopup);
             }
         }
 

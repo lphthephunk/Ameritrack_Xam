@@ -9,19 +9,18 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Ameritrack_Xam.PCL.Services.RailsServeDbModels;
 using Ameritrack_Xam.PCL.Helpers;
+using Xamarin.Forms;
+using Ameritrack_Xam.PCL.Services;
+
+[assembly: Dependency(typeof(ServerDatabaseService))]
 
 namespace Ameritrack_Xam.PCL.Services
 {
-    public class ServerDatabaseService : IDatabaseServices
+    public class ServerDatabaseService : IServerDatabase
     {
         #region CommonDefects
 
-        public Task InsertCommonDefects(CommonDefects defects)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<List<CommonDefects>> GetAllCommonDefects()
+        public async Task<List<CommonDefects>> GetAllCommonDefectsFromServer()
         {
             string uri = string.Empty; // TODO: get actual uri
 
@@ -51,43 +50,40 @@ namespace Ameritrack_Xam.PCL.Services
 
         #region Employees
 
-        public Task InsertEmployee(Employee _employee)
+        public async Task<Employee> GetEmployeeFromServer(string _empId)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateEmployee(Employee _employee)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Employee> GetEmployee(string _empId)
-        {
-            string uri = string.Empty; // TODO: get the actual uri
-
-            using (HttpClient client = new HttpClient())
+            string uri = "http://96.43.208.21:8090/APICalls/EmployeeRouter.php?empid="+_empId;
+            try
             {
-                HttpResponseMessage response = new HttpResponseMessage();
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                response = await client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                using (HttpClient client = new HttpClient())
                 {
-                    var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var employee = JsonConvert.DeserializeObject<RailEmployee>(jsonResponse);
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    using (HttpResponseMessage response = await client.GetAsync(uri))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var jsonResponse = await response.Content.ReadAsStringAsync();
+                            var employee = JsonConvert.DeserializeObject<List<RailEmployee>>(jsonResponse);
 
-                    return JsonObjectConverter.RailEmployeeToEmployee(employee);
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                            return JsonObjectConverter.RailEmployeeToEmployee(employee.FirstOrDefault());
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
 
-                    return null;
+                            return null;
+                        }
+                    }
                 }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return null;
             }
         }
 
-        public List<Employee> GetAllEmployees()
+        public Task<List<Employee>> GetAllEmployeesFromServer()
         {
             throw new NotImplementedException();
         }
@@ -96,7 +92,7 @@ namespace Ameritrack_Xam.PCL.Services
 
         #region Faults
 
-        public async Task<List<Fault>> GetAllFaults()
+        public async Task<List<Fault>> GetAllFaultsFromServer()
         {
             string uri = string.Empty; // TODO: get actual uri
 
@@ -122,47 +118,47 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
-        public Task<Fault> GetFaultByCoordinates(double _latitude, double _longitude)
+        public Task<Fault> GetFaultByCoordinatesFromServer(double _latitude, double _longitude)
         {
             throw new NotImplementedException();
         }
 
-        public Task InsertFault(Fault _fault)
+        public Task InsertFaultFromServer(Fault _fault)
         {
             throw new NotImplementedException();
         }
 
-        public Task InsertFaultPicture(FaultPicture faultPicture)
+        public Task InsertFaultPictureFromServer(FaultPicture faultPicture)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateFault(Fault _fault)
+        public Task UpdateFaultFromServer(Fault _fault)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<FaultPicture>> GetFaultPictures(int? faultId)
+        public Task<List<FaultPicture>> GetFaultPicturesFromServer(int? faultId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Fault>> GetAllFaultsByArea(string _area)
+        public Task<List<Fault>> GetAllFaultsByAreaFromServer(string _area)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Fault>> GetAllFaultsByEmployee(string _employeeId)
+        public Task<List<Fault>> GetAllFaultsByEmployeeFromServer(string _employeeId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Fault>> GetAllFaultsByReport(int? _reportId)
+        public Task<List<Fault>> GetAllFaultsByReportFromServer(int? _reportId)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteFault(Fault _fault)
+        public Task DeleteFaultFromServer(Fault _fault)
         {
             throw new NotImplementedException();
         }
@@ -172,37 +168,16 @@ namespace Ameritrack_Xam.PCL.Services
 
         #region Reports
 
-        public Task InsertReportData(Report report)
+        public Task InsertReportDataFromServer(Report report)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Report> GetReportData(Report report)
+        public Task<Report> GetReportDataFromServer(Report report)
         {
             throw new NotImplementedException();
         }
 
-        public Task<List<Report>> GetReportsByEmployee(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
-
-
-
-
-
-
-        #region Ignore
-        public Task CreateAllTables()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task InitDatabase()
-        {
-            throw new NotImplementedException();
-        }
         #endregion
     }
 }

@@ -6,13 +6,13 @@
              x:Class="Ameritrack_Xam.Pages.Views.MainMapPage"
              xmlns:utilites="clr-namespace:Ameritrack_Xam.PCL.Utilities">
 
-    
+     
     <Grid BackgroundColor="White"
           RowSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="75"/>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions> 
 
         <!-- Row 0 -->
         <map:MapExtension Grid.Row="0"

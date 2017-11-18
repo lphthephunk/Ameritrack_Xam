@@ -22,7 +22,7 @@ namespace Ameritrack_Xam.Pages.Views
         public GalleryPage(Fault fault)
         {
             InitializeComponent();
-
+            
             ViewModel = new GalleryVM(fault);
 
             FaultContext = fault;
