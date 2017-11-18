@@ -1,6 +1,7 @@
 ﻿using Ameritrack_Xam.PCL.Helpers;
 using Ameritrack_Xam.PCL.Interfaces;
 using Ameritrack_Xam.PCL.Models;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
     public class MapPageVM
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
+        IServerDatabase ServerDatabaseService = DependencyService.Get<IServerDatabase>();
 
         public MapPageVM() { }
 
@@ -54,10 +56,28 @@ namespace Ameritrack_Xam.Pages.ViewModels
             return await DatabaseService.GetAllFaultsByEmployee(UserDataCache.CurrentEmployeeData.EmployeeCredentials);
         }
 
-        public async Task<List<Fault>> GetAllFaultsByArea()
+        public async Task<Dictionary<bool, List<Fault>>> GetAllFaultsByArea()
         {
-            var faultsByAreaList = await DatabaseService.GetAllFaultsByArea(InspectionDataCache.CurrentReportData.Address);
-            return new List<Fault>(faultsByAreaList);
+            // dictionaries index will be set to true if the fault data was retrieved from remote server....false otherwise
+            Dictionary<bool, List<Fault>> faultsByAreaList = new Dictionary<bool, List<Fault>>();
+
+            // check network connectivity
+            if (CrossConnectivity.IsSupported && CrossConnectivity.Current.IsConnected)
+            {
+                // if connected to network, retrive faults from remote server
+                var faults = await ServerDatabaseService.GetAllFaultsByAreaFromServer(InspectionDataCache.CurrentReportData.Address);
+                faultsByAreaList.Add(true, faults);
+
+                // update the local database with the newly retrieved faults
+                await DatabaseService.InsertListFaults(faults);
+            }
+            else if (CrossConnectivity.IsSupported && !CrossConnectivity.Current.IsConnected && faultsByAreaList.Count == 0)
+            {
+                // get the faults that are stored locally on the device
+                var faults = await DatabaseService.GetAllFaultsByArea(InspectionDataCache.CurrentReportData.Address);
+                faultsByAreaList.Add(false, faults);
+            }
+            return faultsByAreaList;
         }
 
         public async Task<List<Fault>> GetAllFaultsByReport()
@@ -66,22 +86,25 @@ namespace Ameritrack_Xam.Pages.ViewModels
             return new List<Fault>(faultsByReportList);
         }
 
-        public async Task<List<Pin>> ConstructPinsFromFaults(List<Fault> faults)
+        public async Task<List<Pin>> ConstructPinsFromFaults(Dictionary<bool, List<Fault>> faults)
         {
             List<Pin> pinsList = new List<Pin>();
 
             return await Task.Run(() =>
             {
-                foreach (var fault in faults)
+                foreach (var poppedFault in faults.Values)
                 {
-                    var pin = new Pin()
+                    foreach (var fault in poppedFault)
                     {
-                        Label = "Placeholder",
-                        Position = new Position(fault.Latitude, fault.Longitude),
-                        Type = PinType.Place
-                    };
+                        var pin = new Pin()
+                        {
+                            Label = "Placeholder",
+                            Position = new Position(fault.Latitude, fault.Longitude),
+                            Type = PinType.Place
+                        };
 
-                    pinsList.Add(pin);
+                        pinsList.Add(pin);
+                    }
                 }
                 return pinsList;
             });

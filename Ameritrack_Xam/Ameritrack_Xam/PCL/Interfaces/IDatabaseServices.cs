@@ -24,6 +24,8 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
 		Task InsertFault(Fault _fault);
 
+        Task InsertListFaults(List<Fault> faults);
+
 		Task UpdateFault(Fault _fault);
 
 		Task DeleteFault(Fault _fault);

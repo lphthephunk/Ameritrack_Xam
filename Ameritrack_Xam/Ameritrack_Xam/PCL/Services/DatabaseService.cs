@@ -66,6 +66,14 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
+        public async Task InsertListFaults(List<Fault> faults)
+        {
+            using (await locker.LockAsync())
+            {
+                await asyncConnection.InsertOrReplaceAllAsync(faults);
+            }
+        }
+
         public async Task<List<Fault>> GetAllFaults()
         {
             using (await locker.LockAsync())

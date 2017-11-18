@@ -94,27 +94,60 @@ namespace Ameritrack_Xam.PCL.Services
 
         public async Task<List<Fault>> GetAllFaultsFromServer()
         {
-            string uri = string.Empty; // TODO: get actual uri
+            string uri = "http://96.43.208.21:8090/APICalls/FaultRouter.php?retrievalType=all";
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = new HttpResponseMessage();
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                response = await client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                using (HttpResponseMessage response = await client.GetAsync(uri))
                 {
-                    var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var faults = JsonConvert.DeserializeObject<List<RailFault>>(jsonResponse);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonResponse = await response.Content.ReadAsStringAsync();
+                        var faults = JsonConvert.DeserializeObject<List<RailFault>>(jsonResponse);
 
-                    return JsonObjectConverter.RailFaultsToFaultList(faults);
+                        return JsonObjectConverter.RailFaultsToFaultList(faults);
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+
+                        return null;
+                    }
                 }
-                else
+            }
+        }
+
+        public async Task<List<Fault>> GetAllFaultsByAreaFromServer(string _area)
+        {
+            string uri = "http://96.43.208.21:8090/APICalls/FaultRouter.php?retrievalType=area&area=" + _area ;
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
                 {
-                    System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    using (HttpResponseMessage response = await client.GetAsync(uri))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var jsonResponse = await response.Content.ReadAsStringAsync();
+                            var faults = JsonConvert.DeserializeObject<List<RailFault>>(jsonResponse);
 
-                    return null;
+                            return JsonObjectConverter.RailFaultsToFaultList(faults);
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                            return null;
+                        }
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return null;
             }
         }
 
@@ -139,11 +172,6 @@ namespace Ameritrack_Xam.PCL.Services
         }
 
         public Task<List<FaultPicture>> GetFaultPicturesFromServer(int? faultId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Fault>> GetAllFaultsByAreaFromServer(string _area)
         {
             throw new NotImplementedException();
         }

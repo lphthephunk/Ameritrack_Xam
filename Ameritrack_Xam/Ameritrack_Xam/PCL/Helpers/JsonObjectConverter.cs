@@ -18,7 +18,7 @@ namespace Ameritrack_Xam.PCL.Helpers
             {
                 var fault = new Fault
                 {
-                    Employee = railFault.ServerEmployeeName,
+                    Employee = railFault.ServerEmployeeCredentials,
                     AreaAddress = railFault.ServerAreaAddress,
                     FaultComments = railFault.ServerFaultComments,
                     FaultType = railFault.ServerFaultType,

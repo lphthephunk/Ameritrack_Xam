@@ -139,6 +139,8 @@ namespace Ameritrack_Xam.Pages.Views
 
                 if (result)
                 {
+                    // TODO: create a report to be sent off at a later time; faults will be sent to the remote server along with the report data
+
                     MainMap.Pins.Clear();
                     InspectionStatusButton.Text = "START INSPECTION";
                     InspectionDataCache.CurrentReportData = null;
@@ -157,6 +159,29 @@ namespace Ameritrack_Xam.Pages.Views
         {
             var faults = await ViewModel.GetAllFaultsByArea();
 
+            bool boolIndex;
+            if (faults.ContainsKey(false))
+            {
+                boolIndex = false;
+            }
+            else
+            {
+                boolIndex = true;
+            }
+
+            if (boolIndex == false)
+            {
+                // couldn't connect to network
+                await DisplayAlert("Attention", "You are not connected to a network, so the pins that are presented on the map have been loaded" +
+                    " from your local memory.", "OK");
+            }
+            else if (faults.Values == null)
+            {
+                await DisplayAlert("Oops!", "Theres some trouble trying to access the server. You'll be able to continue your inspection no problem." +
+                    " Just send your report once you have a proper network connection and when our server is back up!", "OK");
+                return;
+            }
+
             var pinsList = await ViewModel.ConstructPinsFromFaults(faults);
 
             MainMap.ListOfPins = new List<Pin>(pinsList);
@@ -167,19 +192,19 @@ namespace Ameritrack_Xam.Pages.Views
             }
         }
 
-        private async Task BuildPinsListByReport()
-        {
-            var faults = await ViewModel.GetAllFaultsByReport();
+        //private async Task BuildPinsListByReport()
+        //{
+        //    var faults = await ViewModel.GetAllFaultsByReport();
 
-            var pinsList = await ViewModel.ConstructPinsFromFaults(faults);
+        //    var pinsList = await ViewModel.ConstructPinsFromFaults(faults);
 
-            MainMap.ListOfPins = new List<Pin>(pinsList);
+        //    MainMap.ListOfPins = new List<Pin>(pinsList);
 
-            foreach (var pin in pinsList)
-            {
-                MainMap.Pins.Add(pin);
-            }
-        }
+        //    foreach (var pin in pinsList)
+        //    {
+        //        MainMap.Pins.Add(pin);
+        //    }
+        //}
 
         public PinPopupPage GetSelectedPinPopup()
         {

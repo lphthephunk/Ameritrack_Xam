@@ -212,6 +212,12 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
         /// </summary>
         private void SetupBindings()
         {
+            // disable the delete button if the current user wasn't the one that created that fault initially
+            if (ViewModel.FaultData.FirstOrDefault().Employee != UserDataCache.CurrentEmployeeData.EmployeeCredentials)
+            {
+                DeleteBtn.IsEnabled = false;
+            }
+
             // track name binding
             TrackName.Text = ViewModel.FaultData.FirstOrDefault().TrackName;
 

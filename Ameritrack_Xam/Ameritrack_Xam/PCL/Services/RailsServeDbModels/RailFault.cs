@@ -10,8 +10,8 @@ namespace Ameritrack_Xam.PCL.Services.RailsServeDbModels
 {
     public class RailFault
     {
-        [JsonProperty("Employee")]
-        public string ServerEmployeeName { get; set; }
+        [JsonProperty("EmployeeCredentials")]
+        public string ServerEmployeeCredentials { get; set; }
 
         [JsonProperty("TrackName")]
         public string ServerTrackname { get; set; }
