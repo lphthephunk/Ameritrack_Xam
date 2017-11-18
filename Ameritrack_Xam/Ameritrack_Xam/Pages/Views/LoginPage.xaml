@@ -28,6 +28,13 @@
                x:Name="incorrectIDWarning"
                IsVisible="false"
                TextColor="White" />
+        <Label Text="Not Connected to Internet"
+               FontSize="12"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="CenterAndExpand"
+               x:Name="noInternetWarning"
+               IsVisible="false"
+               TextColor="White"/>
         <StackLayout Orientation="Horizontal"
                      HorizontalOptions="Center">
             <Label Text="Remember Me" Grid.Column="0"

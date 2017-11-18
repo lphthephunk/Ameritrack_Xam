@@ -1,4 +1,5 @@
 ﻿using Ameritrack_Xam.Pages.ViewModels;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,21 +23,28 @@ namespace Ameritrack_Xam.Pages.Views
 
 		private async void OnLoginButtonClicked(object sender, System.EventArgs e)
 		{
-            if (await ViewModel.IsValidID(employeeID.Text))
+            if (CrossConnectivity.IsSupported && CrossConnectivity.Current.IsConnected)
             {
-                if (StayLoggedInSwitch.IsToggled)
+                if (await ViewModel.IsValidID(employeeID.Text))
                 {
-                    ViewModel.StoreCredentials(employeeID.Text);
+                    if (StayLoggedInSwitch.IsToggled)
+                    {
+                        ViewModel.StoreCredentials(employeeID.Text);
+                    }
+
+                    ViewModel.SetUserData();
+
+                    await Navigation.PushModalAsync(new MainPage(), false);
+                    incorrectIDWarning.IsVisible = false;
                 }
-
-                ViewModel.SetUserData();
-
-                await Navigation.PushModalAsync(new MainPage(), false);
-                incorrectIDWarning.IsVisible = false;
+                else
+                {
+                    incorrectIDWarning.IsVisible = true;
+                }
             }
             else
             {
-                incorrectIDWarning.IsVisible = true;
+                noInternetWarning.IsVisible = true;
             }
 		}
 
