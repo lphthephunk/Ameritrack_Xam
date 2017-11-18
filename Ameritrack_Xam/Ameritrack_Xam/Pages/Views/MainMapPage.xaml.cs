@@ -63,23 +63,11 @@ namespace Ameritrack_Xam.Pages.Views
         {
             if (InspectionDataCache.IsReportStarted)
             {
-                var pin = new Pin()
+                var fault = new Fault()
                 {
-                    Label = "Placeholder",
-                    Position = new Position(e.Position.Latitude, e.Position.Longitude),
-                    Type = PinType.Place
+                    Latitude = e.Position.Latitude,
+                    Longitude = e.Position.Longitude
                 };
-
-                // add the pin to the MapExtension List of pins
-                MainMap.ListOfPins.Add(pin);
-                MainMap.Pins.Add(pin);
-
-                // insert this pin coordinates into the local database for later use
-                await ViewModel.InsertFault(pin);
-
-                var faultAtThisPin = await ViewModel.FindFault(e.Position.Latitude, e.Position.Longitude);
-
-                selectedPinPopup = new PinPopupPage(faultAtThisPin, MainMap);
 
                 selectedPinPopup = new PinPopupPage(fault, MainMap);
 
