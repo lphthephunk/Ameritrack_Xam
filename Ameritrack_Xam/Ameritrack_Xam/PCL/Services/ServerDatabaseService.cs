@@ -22,26 +22,26 @@ namespace Ameritrack_Xam.PCL.Services
 
         public async Task<List<CommonDefects>> GetAllCommonDefectsFromServer()
         {
-            string uri = string.Empty; // TODO: get actual uri
+            string uri = "http://96.43.208.21:8090/APICalls/RetrieveCommonDefect.php";
 
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = new HttpResponseMessage();
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
-                response = await client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                using (HttpResponseMessage response = await client.GetAsync(uri))
                 {
-                    var jsonResponse = await response.Content.ReadAsStringAsync();
-                    var defects = JsonConvert.DeserializeObject<List<RailCommonDefects>>(jsonResponse);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonResponse = await response.Content.ReadAsStringAsync();
+                        var defects = JsonConvert.DeserializeObject<List<RailCommonDefects>>(jsonResponse);
 
-                    return JsonObjectConverter.RailCommonDefectsToCommonDefectsList(defects);
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                        return JsonObjectConverter.RailCommonDefectsToCommonDefectsList(defects);
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
 
-                    return null;
+                        return null;
+                    }
                 }
             }
         }
@@ -83,6 +83,7 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
+        // Note: Shouldn't be a use-case that requires this
         public Task<List<Employee>> GetAllEmployeesFromServer()
         {
             throw new NotImplementedException();
@@ -156,17 +157,17 @@ namespace Ameritrack_Xam.PCL.Services
             throw new NotImplementedException();
         }
 
-        public Task InsertFaultFromServer(Fault _fault)
+        public Task InsertFaultToServer(Fault _fault)
         {
             throw new NotImplementedException();
         }
 
-        public Task InsertFaultPictureFromServer(FaultPicture faultPicture)
+        public Task InsertFaultPictureToServer(FaultPicture faultPicture)
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateFaultFromServer(Fault _fault)
+        public Task UpdateFaultAtServer(Fault _fault)
         {
             throw new NotImplementedException();
         }
@@ -196,14 +197,78 @@ namespace Ameritrack_Xam.PCL.Services
 
         #region Reports
 
-        public Task InsertReportDataFromServer(Report report)
+        public async Task<bool> InsertReportDataToServer(Report report)
         {
-            throw new NotImplementedException();
+            string uri = "http://96.43.208.21:8090/APICalls/ReportRouter.php";
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    var jsonReport = new RailReport
+                    {
+                        Address = report.Address,
+                        DateAndTime = report.DateTime,
+                        ClientContact = report.ClientContact,
+                        ClientName = report.ClientName,
+                        EmployeeCredentials = report.EmployeeCredentials,
+                        InspectorFirstName = report.InspectorFirstName,
+                        InspectorLastName = report.InspectorLastName,
+                    };
+                    using (HttpContent content = new StringContent(JsonConvert.SerializeObject(jsonReport)))
+                    {
+                        HttpResponseMessage response = new HttpResponseMessage();
+                        response = await client.PostAsync(uri, content);
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return false;
+            }
         }
 
-        public Task<Report> GetReportDataFromServer(Report report)
+        public async Task<List<Report>> GetReportsByEmployee(Employee employee)
         {
-            throw new NotImplementedException();
+            string uri = "http://96.43.208.21:8090/APICalls/ReportRouter.php?empid="+employee.EmployeeCredentials;
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    using (HttpResponseMessage response = await client.GetAsync(uri))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var jsonResponse = await response.Content.ReadAsStringAsync();
+                            var railReportList = JsonConvert.DeserializeObject<List<RailReport>>(jsonResponse);
+
+                            return JsonObjectConverter.RailReportsToReportList(railReportList);
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                            return null;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         #endregion

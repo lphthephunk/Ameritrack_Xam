@@ -24,7 +24,6 @@ namespace Ameritrack_Xam
         protected override void OnStart()
         {
             // Handle when your app starts
-            //CommonDefectsCache.GetDefectsFromServer();
         }
 
         protected override void OnSleep()

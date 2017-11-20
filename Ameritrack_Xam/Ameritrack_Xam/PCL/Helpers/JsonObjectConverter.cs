@@ -68,5 +68,28 @@ namespace Ameritrack_Xam.PCL.Helpers
 
             return convertedCommonDefects;
         }
+
+        public static List<Report> RailReportsToReportList(List<RailReport> railReports)
+        {
+            List<Report> reportList = new List<Report>();
+
+            foreach (var railReport in railReports)
+            {
+                var rep = new Report
+                {
+                    Address = railReport.Address,
+                    ClientContact = railReport.ClientContact,
+                    ClientName = railReport.ClientName,
+                    InspectorFirstName = railReport.InspectorFirstName,
+                    InspectorLastName = railReport.InspectorLastName,
+                    DateTime = railReport.DateAndTime,
+                    EmployeeCredentials = railReport.EmployeeCredentials
+                };
+
+                reportList.Add(rep);
+            }
+
+            return reportList;
+        }
     }
 }

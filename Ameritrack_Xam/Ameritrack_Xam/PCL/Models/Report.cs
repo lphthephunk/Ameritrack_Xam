@@ -16,6 +16,7 @@ namespace Ameritrack_Xam.PCL.Models
 	{
 		[PrimaryKey, AutoIncrement]
         public int? ReportId { get; set; }
+        private string _employeeCredentials { get; set; }
         private string _clientName { get; set; }
 		private string _clientContact { get; set; }
 		private string _inspectorFirstName { get; set; }
@@ -28,6 +29,19 @@ namespace Ameritrack_Xam.PCL.Models
 		// ... all CustomPins associated with this Report will be deleted in the database
 		//[OneToMany(CascadeOperations = CascadeOperation.All)]
 		//public List<CustomPin> CustomPins { get; set; }
+
+        public string EmployeeCredentials
+        {
+            get { return _employeeCredentials; }
+            set
+            {
+                if (value != _employeeCredentials)
+                {
+                    _employeeCredentials = value;
+                    OnPropertyChanged(nameof(EmployeeCredentials));
+                }
+            }
+        }
 
 		public string ClientName
 		{

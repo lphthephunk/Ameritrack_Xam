@@ -17,32 +17,9 @@ namespace Ameritrack_Xam.PCL.Helpers
     {
         public static List<CommonDefects> UpdatedDefectsList { get; set; }
 
-        public static void GetDefectsFromServer()
+        internal static void CacheDefects(List<CommonDefects> list)
         {
-            // TODO: call the server for updated defects list
-            TempDefectCreator();
-        }
-
-        /// <summary>
-        /// This will be removed once the actual server db is created
-        /// </summary>
-        private static void TempDefectCreator()
-        {
-            UpdatedDefectsList = new List<CommonDefects>()
-            {
-                new CommonDefects
-                {
-                    DefectName = "Bad Ties"
-                },
-                new CommonDefects
-                {
-                    DefectName = "Temp defect 2"
-                },
-                new CommonDefects
-                {
-                    DefectName = "Temp defect 3"
-                }
-            };
+            UpdatedDefectsList = new List<CommonDefects>(list);
         }
     }
 }

@@ -16,16 +16,16 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
         Task<List<Fault>> GetAllFaultsFromServer();
         Task<Fault> GetFaultByCoordinatesFromServer(double _latitude, double _longitude);
-        Task InsertFaultFromServer(Fault _fault);
-        Task InsertFaultPictureFromServer(FaultPicture faultPicture);
-        Task UpdateFaultFromServer(Fault _fault);
+        Task InsertFaultToServer(Fault _fault);
+        Task InsertFaultPictureToServer(FaultPicture faultPicture);
+        Task UpdateFaultAtServer(Fault _fault);
         Task<List<FaultPicture>> GetFaultPicturesFromServer(int? faultId);
         Task<List<Fault>> GetAllFaultsByAreaFromServer(string _area);
         Task<List<Fault>> GetAllFaultsByEmployeeFromServer(string _employeeId);
         Task<List<Fault>> GetAllFaultsByReportFromServer(int? _reportId);
         Task DeleteFaultFromServer(Fault _fault);
 
-        Task InsertReportDataFromServer(Report report);
-        Task<Report> GetReportDataFromServer(Report report);
+        Task<bool> InsertReportDataToServer(Report report);
+        Task<List<Report>> GetReportsByEmployee(Employee employee);
     }
 }

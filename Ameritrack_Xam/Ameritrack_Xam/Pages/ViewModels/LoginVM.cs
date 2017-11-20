@@ -28,7 +28,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
         public async Task InitDatabase()
         {
             await DatabaseService.InitDatabase();
-            CommonDefectsCache.GetDefectsFromServer();
+            CommonDefectsCache.CacheDefects(await ServerDatabaseService.GetAllCommonDefectsFromServer());
         }
 
         public async Task<bool> IsValidID(string _userEntryPassword)

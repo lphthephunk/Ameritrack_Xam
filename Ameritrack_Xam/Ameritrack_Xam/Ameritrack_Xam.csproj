@@ -67,6 +67,7 @@
     <Compile Include="PCL\Services\RailsServeDbModels\RailCommonDefects.cs" />
     <Compile Include="PCL\Services\RailsServeDbModels\RailEmployee.cs" />
     <Compile Include="PCL\Services\RailsServeDbModels\RailFault.cs" />
+    <Compile Include="PCL\Services\RailsServeDbModels\RailReport.cs" />
     <Compile Include="PCL\Services\ServerDatabaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pages\Views\LoginPage.xaml.cs">

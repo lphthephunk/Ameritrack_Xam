@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Plugin.Connectivity;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
@@ -86,8 +87,19 @@ namespace Ameritrack_Xam.Pages.ViewModels
         {
             ReportList.Clear();
 
-            // get a brand new list of reports since user chose to refresh the page
-            var reports = await GetReportsByEmployee(UserDataCache.CurrentEmployeeData);
+            List<Report> reports = new List<Report>();
+
+            if (CrossConnectivity.IsSupported && CrossConnectivity.Current.IsConnected)
+            {
+                // TODO: query the remote server if there is network access
+                // TODO: insert the retrieved reports into the local sqlite database
+                reports = await GetReportsByEmployee(UserDataCache.CurrentEmployeeData);
+            }
+            else if (!CrossConnectivity.IsSupported || !CrossConnectivity.Current.IsConnected)
+            {
+                // update from the local database
+                reports = await GetReportsByEmployee(UserDataCache.CurrentEmployeeData);
+            }
 
             foreach (var report in reports)
             {
