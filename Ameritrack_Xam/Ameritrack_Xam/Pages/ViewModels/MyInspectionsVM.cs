@@ -15,6 +15,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
     public class MyInspectionsVM : INotifyPropertyChanged
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
+        IServerDatabase ServerDatabaseService = DependencyService.Get<IServerDatabase>();
         public ObservableCollection<Report> ReportList { get; set; }
         public static bool loaded = false;
 
@@ -91,8 +92,9 @@ namespace Ameritrack_Xam.Pages.ViewModels
 
             if (CrossConnectivity.IsSupported && CrossConnectivity.Current.IsConnected)
             {
-                // TODO: query the remote server if there is network access
-                // TODO: insert the retrieved reports into the local sqlite database
+                var remoteReports = await ServerDatabaseService.GetReportsByEmployee(UserDataCache.CurrentEmployeeData);
+                await DatabaseService.InsertListReportData(remoteReports);
+
                 reports = await GetReportsByEmployee(UserDataCache.CurrentEmployeeData);
             }
             else if (!CrossConnectivity.IsSupported || !CrossConnectivity.Current.IsConnected)

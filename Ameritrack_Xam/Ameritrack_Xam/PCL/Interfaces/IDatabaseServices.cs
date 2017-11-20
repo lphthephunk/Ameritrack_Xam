@@ -46,6 +46,8 @@ namespace Ameritrack_Xam.PCL.Interfaces
 
         Task InsertReportData(Report report);
 
+        Task InsertListReportData(List<Report> reportList);
+
         Task<Report> GetReportData(Report report);
 
         Task<List<Report>> GetReportsByEmployee(Employee employee);

@@ -170,6 +170,43 @@ namespace Ameritrack_Xam.PCL.Services
             }
         }
 
+        public async Task InsertListReportData(List<Report> reportList)
+        {
+            List<Report> existingReports = new List<Report>();
+            List<Report> listToInsert = new List<Report>();
+            using (await locker.LockAsync())
+            {
+                existingReports = await asyncConnection.Table<Report>().ToListAsync();
+                var existingReportsCopy = new List<Report>(existingReports);
+                foreach (var report in reportList)
+                {
+                    try
+                    {
+                        foreach (var existingReport in existingReportsCopy)
+                        {
+                            if (report.DateTime == existingReport.DateTime)
+                            {
+                                // remove the report from the sqlite obtained list if it matches a report retrieved from the server
+                                existingReports.Remove(existingReport);
+                            }
+                        }
+                    }
+                    catch(Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                    }
+                }
+                // add the updated reports that were obtained from the server
+                listToInsert.AddRange(reportList);
+                // add the remaining reports that did not match entries obtained from the server; ie: reports that have not yet been submitted
+                listToInsert.AddRange(existingReports);
+
+                await asyncConnection.DeleteAllAsync<Report>();
+                // isnert this aggregated list into the sqlite db
+                await asyncConnection.InsertOrReplaceAllAsync(listToInsert);
+            }
+        }
+
         public async Task<Report> GetReportData(Report report)
         {
             using (await locker.LockAsync())
