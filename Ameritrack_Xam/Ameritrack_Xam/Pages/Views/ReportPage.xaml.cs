@@ -19,6 +19,16 @@ namespace Ameritrack_Xam.Pages.Views
             ViewModel = new ReportVM(report);
             BindingContext = ViewModel;
             Title = report.ClientName;
+
+            ToolbarItems.Add(new ToolbarItem("Share", "share.png", async () => { 
+                var page = new ContentPage(); 
+                var result = await page.DisplayAlert("Share Report", "Would you like to share this report?", "Yes", "No");
+
+                if (result) 
+                {
+                    System.Diagnostics.Debug.WriteLine("success: {0}", result);
+                }
+            }));
         }
 
         async void Handle_ItemTappedAsync(object sender, Xamarin.Forms.ItemTappedEventArgs e)
