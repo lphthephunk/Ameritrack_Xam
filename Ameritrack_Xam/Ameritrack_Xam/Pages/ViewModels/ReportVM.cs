@@ -20,6 +20,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
     public class ReportVM : INotifyPropertyChanged
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
+        IServerDatabase ServerDatabaseService = DependencyService.Get<IServerDatabase>();
         private ObservableCollection<TrackList> _listOfTracks { get; set; }
         public Dictionary<String, ObservableCollection<Fault>> trackDictionary = new Dictionary<String, ObservableCollection<Fault>>();
 
@@ -115,6 +116,18 @@ namespace Ameritrack_Xam.Pages.ViewModels
                     trackDictionary.Add(trackName, new ObservableCollection<Fault>());
                     trackDictionary[trackName].Add(fault);
                 }
+            }
+        }
+
+        public async Task<bool> SendReportToServer(Report report)
+        {
+            if (await ServerDatabaseService.InsertReportDataToServer(report))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

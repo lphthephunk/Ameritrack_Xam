@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Ameritrack_Xam.Pages.ViewModels;
 using Ameritrack_Xam.PCL.Models;
 using Xamarin.Forms;
+using Plugin.Connectivity;
 
 namespace Ameritrack_Xam.Pages.Views
 {
@@ -24,9 +25,20 @@ namespace Ameritrack_Xam.Pages.Views
                 var page = new ContentPage(); 
                 var result = await page.DisplayAlert("Share Report", "Would you like to share this report?", "Yes", "No");
 
-                if (result) 
+                if (result)
                 {
-                    System.Diagnostics.Debug.WriteLine("success: {0}", result);
+                    if (CrossConnectivity.IsSupported && CrossConnectivity.Current.IsConnected)
+                    {
+                        if (!await ViewModel.SendReportToServer(report))
+                        {
+                            await page.DisplayAlert("Oops!", "There was a problem sending the report to the server. Please try again", "OK");
+                        }
+                    }
+                    else if (CrossConnectivity.IsSupported && !CrossConnectivity.Current.IsConnected)
+                    {
+                        await page.DisplayAlert("Connection Error", "It appears that you aren't connected to the internet. Please check your internet" +
+                            " connection and try again", "OK");
+                    }
                 }
             }));
         }
