@@ -1,16 +1,15 @@
-﻿using Ameritrack_Xam.PCL.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Ameritrack_Xam.PCL.Models;
 using System.Net.Http;
-using Newtonsoft.Json;
-using Ameritrack_Xam.PCL.Services.RailsServeDbModels;
+using System.Threading.Tasks;
 using Ameritrack_Xam.PCL.Helpers;
-using Xamarin.Forms;
+using Ameritrack_Xam.PCL.Interfaces;
+using Ameritrack_Xam.PCL.Models;
 using Ameritrack_Xam.PCL.Services;
+using Ameritrack_Xam.PCL.Services.RailsServeDbModels;
+using Newtonsoft.Json;
+using Xamarin.Forms;
 
 [assembly: Dependency(typeof(ServerDatabaseService))]
 
@@ -18,11 +17,13 @@ namespace Ameritrack_Xam.PCL.Services
 {
     public class ServerDatabaseService : IServerDatabase
     {
+        const string URI = "http://96.43.208.21:8090/APICalls/";
+
         #region CommonDefects
 
         public async Task<List<CommonDefects>> GetAllCommonDefectsFromServer()
         {
-            string uri = "http://96.43.208.21:8090/APICalls/RetrieveCommonDefect.php";
+            string uri = URI+"RetrieveCommonDefect.php";
 
             using (HttpClient client = new HttpClient())
             {
@@ -52,7 +53,7 @@ namespace Ameritrack_Xam.PCL.Services
 
         public async Task<Employee> GetEmployeeFromServer(string _empId)
         {
-            string uri = "http://96.43.208.21:8090/APICalls/EmployeeRouter.php?empid="+_empId;
+            string uri = URI+"EmployeeRouter.php?empid="+_empId;
             try
             {
                 using (HttpClient client = new HttpClient())
@@ -95,7 +96,7 @@ namespace Ameritrack_Xam.PCL.Services
 
         public async Task<List<Fault>> GetAllFaultsFromServer()
         {
-            string uri = "http://96.43.208.21:8090/APICalls/FaultRouter.php?retrievalType=all";
+            string uri = URI+"FaultRouter.php?retrievalType=all";
 
             using (HttpClient client = new HttpClient())
             {
@@ -121,7 +122,7 @@ namespace Ameritrack_Xam.PCL.Services
 
         public async Task<List<Fault>> GetAllFaultsByAreaFromServer(string _area)
         {
-            string uri = "http://96.43.208.21:8090/APICalls/FaultRouter.php?retrievalType=area&area=" + _area ;
+            string uri = URI+"FaultRouter.php?retrievalType=area&area=" + _area;
 
             try
             {
@@ -199,7 +200,7 @@ namespace Ameritrack_Xam.PCL.Services
 
         public async Task<bool> InsertReportDataToServer(Report report)
         {
-            string uri = "http://96.43.208.21:8090/APICalls/ReportRouter.php";
+            string uri = URI+"ReportRouter.php";
             try
             {
                 using (HttpClient client = new HttpClient())
@@ -241,7 +242,7 @@ namespace Ameritrack_Xam.PCL.Services
 
         public async Task<List<Report>> GetReportsByEmployee(Employee employee)
         {
-            string uri = "http://96.43.208.21:8090/APICalls/ReportRouter.php?empid="+employee.EmployeeCredentials;
+            string uri = URI+"ReportRouter.php?empid="+employee.EmployeeCredentials;
             try
             {
                 using (HttpClient client = new HttpClient())
