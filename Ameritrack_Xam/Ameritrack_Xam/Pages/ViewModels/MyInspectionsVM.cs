@@ -12,6 +12,9 @@ using Plugin.Connectivity;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
+    // TODO: Organize the reports into completed reports and sent reports, similar to ReportPage
+    // Only completed report/faults/faultpictures that have not been sent to the server should be stored locally
+    // so populating this view will require calls to the server and calls to the local DB
     public class MyInspectionsVM : INotifyPropertyChanged
     {
         IDatabaseServices DatabaseService = DependencyService.Get<IDatabaseServices>();
@@ -47,7 +50,8 @@ namespace Ameritrack_Xam.Pages.ViewModels
         {
             ReportList = new ObservableCollection<Report>();
         }
-
+       
+        // TODO: Aggregate list of reports from the server and list of reports from local DB
         private async Task<List<Report>> GetReportsByEmployee(Employee employee)
         {
             List<Report> list = new List<Report>();

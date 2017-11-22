@@ -42,6 +42,9 @@ namespace Ameritrack_Xam.Pages.ViewModels
             ReportContext = report;
         }
 
+        // TODO: Get the faults tied to a report from either the server or local DB, 
+        // depending on if the report and its associated faults/faultpictures have been sent
+        // To reduce latency, we could cache this list of faults in a Dictionary<reportID, List<fault>>
         private async Task<List<Fault>> GetFaultList(Report report)
         {
             var faultList = new List<Fault>();
@@ -62,7 +65,6 @@ namespace Ameritrack_Xam.Pages.ViewModels
             var urgentTrackList = new TrackList();
             var nonUrgentTrackList = new TrackList();
             var faultList = await GetFaultList(ReportContext);
-
 
             foreach (var fault in faultList)
             {
@@ -119,6 +121,7 @@ namespace Ameritrack_Xam.Pages.ViewModels
             }
         }
 
+        // TODO: Send report data, fault data and faultpictures of a particular report to the server
         public async Task<bool> SendReportToServer(Report report)
         {
             if (await ServerDatabaseService.InsertReportDataToServer(report))
