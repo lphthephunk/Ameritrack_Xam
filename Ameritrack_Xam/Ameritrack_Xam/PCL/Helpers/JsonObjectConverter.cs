@@ -25,7 +25,7 @@ namespace Ameritrack_Xam.PCL.Helpers
                     Latitude = railFault.ServerLatitude,
                     Longitude = railFault.ServerLongitude,
                     TrackName = railFault.ServerTrackname,
-                    // TODO: add report ID
+                    ReportId = railFault.ServerReportId
                 };
                 if (railFault.IsUrgent == 1)
                 {
@@ -90,6 +90,35 @@ namespace Ameritrack_Xam.PCL.Helpers
             }
 
             return reportList;
+        }
+
+        public static List<RailFault> FaultToRailFaultList(List<Fault> faultsList)
+        {
+            List<RailFault> railFaultList = new List<RailFault>();
+            foreach (var fault in faultsList)
+            {
+                var newFault = new RailFault
+                {
+                    ServerAreaAddress = fault.AreaAddress,
+                    ServerEmployeeCredentials = fault.Employee,
+                    ServerFaultComments = fault.FaultComments,
+                    ServerFaultType = fault.FaultType,
+                    ServerLatitude = fault.Latitude,
+                    ServerLongitude = fault.Longitude,
+                    ServerReportId = fault.ReportId,
+                    ServerTrackname = fault.TrackName
+                };
+                if (fault.IsUrgent)
+                {
+                    newFault.IsUrgent = 1;
+                }
+                else
+                {
+                    newFault.IsUrgent = 0;
+                }
+                railFaultList.Add(newFault);
+            }
+            return railFaultList;
         }
     }
 }

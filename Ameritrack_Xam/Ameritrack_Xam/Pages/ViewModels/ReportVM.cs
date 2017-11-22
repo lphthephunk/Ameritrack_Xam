@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Ameritrack_Xam.PCL.Interfaces;
 using Ameritrack_Xam.PCL.Models;
 using Xamarin.Forms;
+using Plugin.Connectivity;
 
 namespace Ameritrack_Xam.Pages.ViewModels
 {
@@ -126,7 +127,14 @@ namespace Ameritrack_Xam.Pages.ViewModels
         {
             if (await ServerDatabaseService.InsertReportDataToServer(report))
             {
-                return true;
+                if (await ServerDatabaseService.InsertFaultListToServer(await GetFaultList(report)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {

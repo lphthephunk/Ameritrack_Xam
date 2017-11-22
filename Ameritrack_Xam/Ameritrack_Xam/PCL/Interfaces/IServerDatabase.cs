@@ -17,6 +17,7 @@ namespace Ameritrack_Xam.PCL.Interfaces
         Task<List<Fault>> GetAllFaultsFromServer();
         Task<Fault> GetFaultByCoordinatesFromServer(double _latitude, double _longitude);
         Task InsertFaultToServer(Fault _fault);
+        Task<bool> InsertFaultListToServer(List<Fault> _faultList);
         Task InsertFaultPictureToServer(FaultPicture faultPicture);
         Task UpdateFaultAtServer(Fault _fault);
         Task<List<FaultPicture>> GetFaultPicturesFromServer(int? faultId);

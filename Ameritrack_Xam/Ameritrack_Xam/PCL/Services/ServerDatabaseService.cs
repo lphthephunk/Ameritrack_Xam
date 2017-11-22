@@ -163,6 +163,31 @@ namespace Ameritrack_Xam.PCL.Services
             throw new NotImplementedException();
         }
 
+        public async Task<bool> InsertFaultListToServer(List<Fault> _faultList)
+        {
+            string uri = "http://96.43.208.21:8090/APICalls/FaultRouter.php";
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+                using (HttpContent content = new StringContent(JsonConvert.SerializeObject(JsonObjectConverter.FaultToRailFaultList(_faultList))))
+                {
+                    using (HttpResponseMessage response = await client.PostAsync(uri, content))
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                            return false;
+                        }
+                    }                    
+                }
+            }
+        }
+
         public Task InsertFaultPictureToServer(FaultPicture faultPicture)
         {
             throw new NotImplementedException();
@@ -183,9 +208,31 @@ namespace Ameritrack_Xam.PCL.Services
             throw new NotImplementedException();
         }
 
-        public Task<List<Fault>> GetAllFaultsByReportFromServer(int? _reportId)
+        public async Task<List<Fault>> GetAllFaultsByReportFromServer(int? _reportId)
         {
+            // not yet done on the server side
             throw new NotImplementedException();
+
+            string uri = "http://96.43.208.21:8090/APICalls/FaultRouter.php?retrievalType=reportId&reportId=" + _reportId;
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                using (HttpResponseMessage response = await client.GetAsync(uri))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonResponse = await response.Content.ReadAsStringAsync();
+                        var faults = JsonConvert.DeserializeObject<List<RailFault>>(jsonResponse);
+
+                        return JsonObjectConverter.RailFaultsToFaultList(faults);
+                    }
+                    else
+                    {
+                        System.Diagnostics.Debug.WriteLine(response.ReasonPhrase);
+                        return null;
+                    }
+                }
+            }
         }
 
         public Task DeleteFaultFromServer(Fault _fault)
