@@ -21,68 +21,107 @@
 
 
     <!-- Content -->
-    <StackLayout BackgroundColor="White" Padding="20, 20, 20, 20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">      
-        <!-- Close button -->
-        <ContentView
-              Margin="0,-20,-20,0"
-              HorizontalOptions="End">
-            <ContentView.GestureRecognizers>
-              <TapGestureRecognizer Tapped="OnCloseButtonTapped" />
-            </ContentView.GestureRecognizers>
-            <Image
-              x:Name="CloseImage"
-              HeightRequest="40"
-              WidthRequest="40"
-              Source="close_button.png">
-            </Image>
-        </ContentView>
-        <StackLayout>
-            <Label Text="Enter some information about the defect" 
-                   HorizontalTextAlignment="Center" 
-                   FontSize="18" />
-            <!-- Separator -->
-                <BoxView Grid.Row="2"
-                     Color="#5b5d68"
-                     HeightRequest="0.5" />
-        </StackLayout>
+    <StackLayout BackgroundColor="White" 
+                 WidthRequest="500" 
+                 Padding="20, 20, 20, 20" 
+                 VerticalOptions="CenterAndExpand" 
+                 HorizontalOptions="CenterAndExpand"> 
+        <StackLayout Orientation="Horizontal"
+                     BackgroundColor="#DF2557"
+                     Margin="-20,-20,-20,-20"
+                     HeightRequest="50">
+             <Grid HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <Entry Placeholder="Track Name"
-               x:Name="TrackName">
-        </Entry>
-      
-        <Picker Title="Select a Common Defect"
-                x:Name="CommonDefectsPicker">
-        </Picker>
-
-        <StackLayout>
-            <Label Text="Notes" Margin="5"></Label>
-            <Editor x:Name="NotesEditor" HeightRequest="150" WidthRequest="500" BackgroundColor="#F6F6F6"></Editor>
+                <!-- Label -->
+                <Label Grid.Column="0"
+                       Margin="20, 0, 0, 0"
+                       Text="Defect Information" 
+                       HorizontalOptions="Start" 
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       FontFamily="Lobster-Regular"
+                       VerticalTextAlignment="Center"
+                       FontSize="20"/>
+                
+                <!-- Close button -->
+                <ContentView HorizontalOptions="End"
+                             Grid.Column="1">
+                    <ContentView.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="OnCloseButtonTapped" />
+                    </ContentView.GestureRecognizers>
+                    <Image
+                      x:Name="CloseImage"
+                      HeightRequest="17.5"
+                      WidthRequest="17.5"
+                      Margin="0, 0, 20, 0"
+                      Source="close_button_2.png">
+                    </Image>
+                </ContentView>
+            </Grid>
         </StackLayout>
         
-        <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="FillAndExpand">
-            <Button x:Name="CameraBtn"
-                    Text="Pictures"
-                    BackgroundColor="Transparent"
-                    HorizontalOptions="FillAndExpand"></Button>
-            <Button x:Name="DeleteBtn"
-                    Text="Delete Pin"
-                    BackgroundColor="Transparent"
-                    TextColor="#FF3232"
-                    HorizontalOptions="FillAndExpand"></Button>
+        <StackLayout Padding="0, 30, 0, 0">
+            <Entry Placeholder="Track Name"
+               x:Name="TrackName">
+            </Entry>
+          
+            <Picker Title="Select a Common Defect"
+                    x:Name="CommonDefectsPicker">
+            </Picker>
+
+            <StackLayout>
+                <Label Text="Notes" Margin="5"></Label>
+                <Editor x:Name="NotesEditor" HeightRequest="150" WidthRequest="500" BackgroundColor="#F6F6F6"></Editor>
+            </StackLayout>
             
-            <StackLayout HorizontalOptions="FillAndExpand">
-                <Switch x:Name="IsUrgentSwitch" HorizontalOptions="CenterAndExpand"></Switch>
-                <Label Text="Urgent"
-                       HorizontalOptions="CenterAndExpand"></Label>                
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="FillAndExpand">
+                <Button x:Name="CameraBtn"
+                        Text="Pictures"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="FillAndExpand"></Button>
+                <Button x:Name="DeleteBtn"
+                        Text="Delete Pin"
+                        BackgroundColor="Transparent"
+                        TextColor="#FF3232"
+                        HorizontalOptions="FillAndExpand"></Button>
+                
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Switch x:Name="IsUrgentSwitch" HorizontalOptions="CenterAndExpand"></Switch>
+                    <Label Text="Urgent"
+                           HorizontalOptions="CenterAndExpand"></Label>                
+                </StackLayout>
             </StackLayout>
         </StackLayout>
-        <Button x:Name="SubmitBtn"
-                  HorizontalOptions="CenterAndExpand"
-                  BackgroundColor="Transparent"
-                  TextColor="#007aff"
-                  Text="Submit Defect"
-                  HeightRequest="64"
-                  WidthRequest="600"/>
+       
+        <StackLayout Margin="-20, 0, -20, -20"
+                     HorizontalOptions="CenterAndExpand"
+                     HeightRequest="52"
+                     WidthRequest="540">
+
+            <!-- Separator -->
+            <BoxView Color="#5b5d68"
+                     HeightRequest="0.5" />
+
+            <ContentView >
+                <ContentView.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="SubmitBtn_Clicked" />
+                </ContentView.GestureRecognizers>
+                <Label Text="SUBMIT"
+                       FontSize="16"
+                       HeightRequest="40"
+                       FontFamily="Lobster-Regular"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="Black"/>
+            </ContentView>
+        </StackLayout>
     </StackLayout>
 </pages:PopupPage>

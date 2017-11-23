@@ -18,48 +18,86 @@
       HasBackgroundAnimation="True"/>
     </pages:PopupPage.Animation>
   
-    <!-- Content -->
-    <StackLayout BackgroundColor="White" WidthRequest="500" Padding="20, 20, 20, 20" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-        <!-- Close button -->
-        <ContentView
-              Margin="0,-20,-20,0"
-              HorizontalOptions="End">
-            <ContentView.GestureRecognizers>
-              <TapGestureRecognizer Tapped="OnCloseButtonTapped" />
-            </ContentView.GestureRecognizers>
-            <Image
-              x:Name="CloseImage"
-              HeightRequest="40"
-              WidthRequest="40"
-              Source="close_button.png">
-            </Image>
-        </ContentView>
-        <StackLayout>
-            <Label Text="Where are you inspecting?" 
-                   HorizontalTextAlignment="Center" 
-                   FontSize="18" />
-            <!-- Separator -->
-                <BoxView Grid.Row="2"
-                     Color="#5b5d68"
-                     HeightRequest="0.5" />
+    <StackLayout BackgroundColor="White" 
+                 WidthRequest="500" 
+                 Padding="20, 20, 20, 20" 
+                 VerticalOptions="CenterAndExpand" 
+                 HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal"
+                         BackgroundColor="#DF2557"
+                         Margin="-20,-20,-20,-20"
+                         HeightRequest="50">
+                 <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Label -->
+                    <Label Grid.Column="0"
+                           Margin="20, 0, 0, 0"
+                           Text="Where are you inspecting?" 
+                           HorizontalOptions="Start" 
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           FontFamily="Lobster-Regular"
+                           VerticalTextAlignment="Center"
+                           FontSize="20"/>
+                    
+                    <!-- Close button -->
+                    <ContentView HorizontalOptions="End"
+                                 Grid.Column="1">
+                        <ContentView.GestureRecognizers>
+                          <TapGestureRecognizer Tapped="OnCloseButtonTapped" />
+                        </ContentView.GestureRecognizers>
+                        <Image
+                          x:Name="CloseImage"
+                          HeightRequest="17.5"
+                          WidthRequest="17.5"
+                          Margin="0, 0, 20, 0"
+                          Source="close_button_2.png">
+                        </Image>
+                    </ContentView>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Padding="0, 30, 0, 0">
+                <Entry Placeholder="Client Name"
+                       x:Name="ClientName">
+                </Entry>
+              
+                <Entry Placeholder="Client Address"
+                       x:Name="ClientAddress">
+                </Entry>
+
+                <Entry Placeholder="Client Contact Name"
+                       x:Name="ClientContactName">
+                </Entry>
+            </StackLayout>
+        
+            <StackLayout Margin="-20, 0, -20, -20"
+                         HorizontalOptions="CenterAndExpand"
+                         HeightRequest="52"
+                         WidthRequest="540">
+                <!-- Separator -->
+                    <BoxView Color="#5b5d68"
+                             HeightRequest="0.5" />
+
+                <ContentView>
+                    <ContentView.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="Handle_Inspection_Start" />
+                    </ContentView.GestureRecognizers>
+                    <Label Text="START"
+                           FontSize="16"
+                           HeightRequest="40"
+                           FontFamily="Lobster-Regular"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           TextColor="Black"/>
+                </ContentView>
+            </StackLayout>
         </StackLayout>
-
-        <Entry Placeholder="Client Name"
-               x:Name="ClientName">
-        </Entry>
-      
-        <Entry Placeholder="Client Address"
-               x:Name="ClientAddress">
-        </Entry>
-
-        <Entry Placeholder="Client Contact Name"
-               x:Name="ClientContactName">
-        </Entry>
-
-        <Button x:Name="StartInspectionBtn"
-                Text="Start"
-                TextColor="Black"
-                BackgroundColor="#ccdeea"
-                Clicked="Handle_Inspection_Start"/>
-    </StackLayout>
 </pages:PopupPage>

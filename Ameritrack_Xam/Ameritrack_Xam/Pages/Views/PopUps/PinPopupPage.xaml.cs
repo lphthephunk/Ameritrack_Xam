@@ -40,8 +40,6 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
                                         // The real benefit of this is real-time updating and displaying data without having to do any extra code
 
             CameraBtn.Clicked += CameraBtn_Clicked;
-
-            SubmitBtn.Clicked += SubmitBtn_Clicked;
             
             // temporary until Rg.Plugins finishes the tap issue
             // CloseBtn.Clicked += CloseBtn_Clicked;
