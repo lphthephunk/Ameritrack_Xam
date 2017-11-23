@@ -67,7 +67,7 @@
             </Grid>
         </StackLayout>
         
-        <StackLayout Padding="0, 30, 0, 0">
+        <StackLayout Padding="0, 20, 0, 0">
             <Entry Placeholder="Track Name"
                x:Name="TrackName">
             </Entry>
