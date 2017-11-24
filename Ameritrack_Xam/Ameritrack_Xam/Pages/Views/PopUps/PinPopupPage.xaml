@@ -37,13 +37,29 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Camera button -->
+                <ContentView HorizontalOptions="Start"
+                             Grid.Column="0">
+                    <ContentView.GestureRecognizers>
+                      <TapGestureRecognizer Tapped="CameraBtn_Clicked" />
+                    </ContentView.GestureRecognizers>
+                    <Image
+                      x:Name="CameraBtn"
+                      HeightRequest="25"
+                      WidthRequest="25"
+                      Margin="20, 0, 0, 0"
+                      Source="camera.png">
+                    </Image>
+                </ContentView>
+                
                 <!-- Label -->
-                <Label Grid.Column="0"
-                       Margin="20, 0, 0, 0"
+                <Label Grid.Column="1"
+                       Margin="0, 0, 0, 0"
                        Text="Defect Information" 
-                       HorizontalOptions="Start" 
+                       HorizontalOptions="CenterAndExpand" 
                        FontAttributes="Bold"
                        TextColor="White"
                        FontFamily="Lobster-Regular"
@@ -52,7 +68,7 @@
                 
                 <!-- Close button -->
                 <ContentView HorizontalOptions="End"
-                             Grid.Column="1">
+                             Grid.Column="2">
                     <ContentView.GestureRecognizers>
                       <TapGestureRecognizer Tapped="OnCloseButtonTapped" />
                     </ContentView.GestureRecognizers>
@@ -71,46 +87,62 @@
             <Entry Placeholder="Track Name"
                x:Name="TrackName">
             </Entry>
-          
-            <Picker Title="Select a Common Defect"
-                    x:Name="CommonDefectsPicker">
-            </Picker>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Picker Grid.Column="0"
+                        Title="Select a Common Defect"
+                        x:Name="CommonDefectsPicker">
+                </Picker>
+
+                <StackLayout Grid.Column="1"
+                             HorizontalOptions="FillAndExpand">
+                    <Switch x:Name="IsUrgentSwitch" HorizontalOptions="CenterAndExpand"></Switch>
+                    <Label Text="Urgent"
+                               HorizontalOptions="CenterAndExpand"></Label>                
+                </StackLayout>
+            </Grid>
 
             <StackLayout>
                 <Label Text="Notes" Margin="5"></Label>
                 <Editor x:Name="NotesEditor" HeightRequest="150" WidthRequest="500" BackgroundColor="#F6F6F6"></Editor>
             </StackLayout>
-            
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="FillAndExpand">
-                <Button x:Name="CameraBtn"
-                        Text="Pictures"
-                        BackgroundColor="Transparent"
-                        HorizontalOptions="FillAndExpand"></Button>
-                <Button x:Name="DeleteBtn"
-                        Text="Delete Pin"
-                        BackgroundColor="Transparent"
-                        TextColor="#FF3232"
-                        HorizontalOptions="FillAndExpand"></Button>
-                
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Switch x:Name="IsUrgentSwitch" HorizontalOptions="CenterAndExpand"></Switch>
-                    <Label Text="Urgent"
-                           HorizontalOptions="CenterAndExpand"></Label>                
-                </StackLayout>
-            </StackLayout>
         </StackLayout>
-       
+
+        <!-- Horizontal Separator -->
+            <BoxView Color="#BEBEBE"
+                     HeightRequest="1"
+                     Margin="-20, 0, -20, -7"/>
         <StackLayout Margin="-20, 0, -20, -20"
-                     HorizontalOptions="CenterAndExpand"
+                     Orientation="Horizontal"
                      HeightRequest="52"
                      WidthRequest="540">
-
+             <!-- Delete pin -->
+            <ContentView x:Name="DeleteBtn"
+                         WidthRequest="270">
+                <ContentView.GestureRecognizers>
+                  <TapGestureRecognizer Tapped="DeleteBtn_Clicked" />
+                </ContentView.GestureRecognizers>
+                <Label Text="DELETE"
+                       FontSize="16"
+                       HeightRequest="40"
+                       FontFamily="Lobster-Regular"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       TextColor="Red"/>
+            </ContentView>
+            
             <!-- Separator -->
-            <BoxView Color="#5b5d68"
-                     HeightRequest="0.5" />
+            <BoxView Color="#BEBEBE"
+                     WidthRequest="1" />
 
-            <ContentView >
+            <!-- Submit pin -->
+            <ContentView WidthRequest="270">
                 <ContentView.GestureRecognizers>
                   <TapGestureRecognizer Tapped="SubmitBtn_Clicked" />
                 </ContentView.GestureRecognizers>
@@ -120,6 +152,7 @@
                        FontFamily="Lobster-Regular"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
+                       FontAttributes="Bold"
                        TextColor="Black"/>
             </ContentView>
         </StackLayout>

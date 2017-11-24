@@ -246,6 +246,8 @@
     <AndroidResource Include="Resources\drawable\close_button.png" />
     <AndroidResource Include="Resources\drawable\share.png" />
     <AndroidResource Include="Resources\drawable\close_button_2.png" />
+    <AndroidResource Include="Resources\drawable\camera.png" />
+    <AndroidResource Include="Resources\drawable\railserve.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

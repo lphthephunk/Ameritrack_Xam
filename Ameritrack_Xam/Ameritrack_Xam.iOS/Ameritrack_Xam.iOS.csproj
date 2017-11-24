@@ -127,6 +127,8 @@
     <BundleResource Include="Resources\close_button.png" />
     <BundleResource Include="Resources\share.png" />
     <BundleResource Include="Resources\close_button_2.png" />
+    <BundleResource Include="Resources\camera.png" />
+    <BundleResource Include="Resources\railserve.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Plugin.Connectivity, Version=3.0.3.0, Culture=neutral, processorArchitecture=MSIL">

@@ -83,8 +83,8 @@
                          HeightRequest="52"
                          WidthRequest="540">
                 <!-- Separator -->
-                    <BoxView Color="#5b5d68"
-                             HeightRequest="0.5" />
+                    <BoxView Color="#BEBEBE"
+                             HeightRequest="1" />
 
                 <ContentView>
                     <ContentView.GestureRecognizers>
@@ -94,6 +94,7 @@
                            FontSize="16"
                            HeightRequest="40"
                            FontFamily="Lobster-Regular"
+                           FontAttributes="Bold"
                            HorizontalTextAlignment="Center"
                            VerticalTextAlignment="Center"
                            TextColor="Black"/>
