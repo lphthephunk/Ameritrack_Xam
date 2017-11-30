@@ -219,7 +219,7 @@ namespace Ameritrack_Xam.Pages.Views.PopUps
             SetupCommonDefectsPicker();
 
             var faultType = ViewModel.FaultData.FirstOrDefault().FaultType;
-            CommonDefectsPicker.Title = faultType ?? "Select a Common Defect";
+            CommonDefectsPicker.Title = "Select a Common Defect";
             CommonDefectsPicker.SelectedIndex = CommonDefectsCache.UpdatedDefectsList.FindIndex(defect => defect.DefectName == faultType);
             // notes binding
             NotesEditor.Text = ViewModel.FaultData.FirstOrDefault().FaultComments;
