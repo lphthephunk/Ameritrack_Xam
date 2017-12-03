@@ -6,12 +6,26 @@
              Appearing="ContentPage_Appearing">
 
     <StackLayout>
-        <Label Text="Railserve Login"
-               FontSize="36"
+        <Label Text="Railspect Login"
+               FontSize="42"
                HorizontalTextAlignment="Center" 
                VerticalOptions="CenterAndExpand"
                TextColor="White"/>
 
+        <Label Text="*Invalid Credentials"
+               HorizontalOptions="Center"
+               FontSize="18"
+               HorizontalTextAlignment="Center" 
+               TextColor="#ff1919"
+               x:Name="incorrectIDWarning"
+               IsVisible="false" />
+        <Label Text="Not Connected to Internet"
+               HorizontalOptions="Center"
+               FontSize="18"
+               HorizontalTextAlignment="Center"
+               TextColor="#ff1919"
+               x:Name="noInternetWarning"
+               IsVisible="false"/>
         <Entry x:Name="employeeID"
                Placeholder="Employee ID"
                Margin="50, 0"
@@ -21,20 +35,7 @@
                FontSize="24"
                PlaceholderColor="Silver" />
 
-        <Label Text="Invalid Credentials"
-               FontSize="12"
-               HorizontalTextAlignment="Center" 
-               VerticalOptions="CenterAndExpand"
-               x:Name="incorrectIDWarning"
-               IsVisible="false"
-               TextColor="White" />
-        <Label Text="Not Connected to Internet"
-               FontSize="12"
-               HorizontalTextAlignment="Center"
-               VerticalOptions="CenterAndExpand"
-               x:Name="noInternetWarning"
-               IsVisible="false"
-               TextColor="White"/>
+        
         <StackLayout Orientation="Horizontal"
                      HorizontalOptions="Center">
             <Label Text="Remember Me" Grid.Column="0"
